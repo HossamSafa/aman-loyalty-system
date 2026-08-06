@@ -1,7 +1,8 @@
 package com.aman.acceptance.loyalty.dto.response;
 
 import com.aman.acceptance.loyalty.dto.BalanceDto;
-import com.aman.acceptance.loyalty.dto.MoneyDto;
+
+
 import lombok.*;
 
 @Getter
@@ -23,7 +24,7 @@ public class RefundResponse {
 
     private Integer restoredRedeemedPoints;
 
-    private MoneyDto restoredRedemptionValue;
-
+    private MoneyResponseDto restoredRedemptionValue;
+///  "value": "0.00"
     private BalanceDto balance;
 }
