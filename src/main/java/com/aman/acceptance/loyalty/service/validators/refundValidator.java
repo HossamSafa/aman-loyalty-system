@@ -1,6 +1,6 @@
 package com.aman.acceptance.loyalty.service.validators;
 
-import com.aman.acceptance.loyalty.dto.request.RefundRequest;
+import com.aman.acceptance.loyalty.model.dto.request.RefundRequest;
 import com.aman.acceptance.loyalty.enums.CurrencyCode;
 import com.aman.acceptance.loyalty.enums.ErrorCode;
 import com.aman.acceptance.loyalty.enums.LotStatus;

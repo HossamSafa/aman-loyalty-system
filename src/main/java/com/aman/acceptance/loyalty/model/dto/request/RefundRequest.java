@@ -1,13 +1,12 @@
-package com.aman.acceptance.loyalty.dto.request;
+package com.aman.acceptance.loyalty.model.dto.request;
 
-import com.aman.acceptance.loyalty.dto.MoneyDto;
+import com.aman.acceptance.loyalty.model.dto.MoneyDto;
 import com.aman.acceptance.loyalty.enums.RefundType;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 @Getter
 @Setter

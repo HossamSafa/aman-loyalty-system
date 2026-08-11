@@ -1,7 +1,7 @@
 package com.aman.acceptance.loyalty.controller;
 
-import com.aman.acceptance.loyalty.dto.request.RefundRequest;
-import com.aman.acceptance.loyalty.dto.response.RefundResponse;
+import com.aman.acceptance.loyalty.model.dto.request.RefundRequest;
+import com.aman.acceptance.loyalty.model.dto.response.RefundResponse;
 import com.aman.acceptance.loyalty.service.RefundService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.aman.acceptance.loyalty.dto;
+package com.aman.acceptance.loyalty.model.dto;
 
 import lombok.*;
 

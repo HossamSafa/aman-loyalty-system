@@ -1,6 +1,6 @@
-package com.aman.acceptance.loyalty.dto.response;
+package com.aman.acceptance.loyalty.model.dto.response;
 
-import com.aman.acceptance.loyalty.dto.BalanceDto;
+import com.aman.acceptance.loyalty.model.dto.BalanceDto;
 
 
 import lombok.*;

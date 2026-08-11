@@ -1,4 +1,4 @@
-package com.aman.acceptance.loyalty.dto.response;
+package com.aman.acceptance.loyalty.model.dto.response;
 
 import com.aman.acceptance.loyalty.enums.CurrencyCode;
 import lombok.*;

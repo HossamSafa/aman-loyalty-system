@@ -1,8 +1,8 @@
 package com.aman.acceptance.loyalty.service;
-import com.aman.acceptance.loyalty.dto.BalanceDto;
-import com.aman.acceptance.loyalty.dto.request.RefundRequest;
-import com.aman.acceptance.loyalty.dto.response.MoneyResponseDto;
-import com.aman.acceptance.loyalty.dto.response.RefundResponse;
+import com.aman.acceptance.loyalty.model.dto.BalanceDto;
+import com.aman.acceptance.loyalty.model.dto.request.RefundRequest;
+import com.aman.acceptance.loyalty.model.dto.response.MoneyResponseDto;
+import com.aman.acceptance.loyalty.model.dto.response.RefundResponse;
 import com.aman.acceptance.loyalty.enums.*;
 import com.aman.acceptance.loyalty.exception.BusinessException;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
