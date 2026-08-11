@@ -21,6 +21,7 @@ public interface PointsLotRepository
             FROM PointsLot lot
             WHERE lot.earningTransaction.id = :earningTransactionId
             """)
+
     Optional<PointsLot> findByEarningTransactionIdForUpdate(
             @Param("earningTransactionId")
             Long earningTransactionId
