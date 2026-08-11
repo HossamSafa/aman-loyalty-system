@@ -19,7 +19,7 @@ public interface PointsLotRepository
     @Query("""
             SELECT lot
             FROM PointsLot lot
-            WHERE lot.earningTransactionId = :earningTransactionId
+            WHERE lot.earningTransaction.id = :earningTransactionId
             """)
     Optional<PointsLot> findByEarningTransactionIdForUpdate(
             @Param("earningTransactionId")
