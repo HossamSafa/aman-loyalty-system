@@ -1,6 +1,5 @@
 package com.aman.acceptance.loyalty.services;
 
-
 import com.aman.acceptance.loyalty.enums.LotStatus;
 import com.aman.acceptance.loyalty.exceptions.AccountException;
 import com.aman.acceptance.loyalty.exceptions.ResourceNotFoundException;
@@ -46,7 +45,7 @@ public class LoyaltyAccountService {
                balanceResponse, nearestExpiryResponse,conversionResponse);
     }
 
-    /**findAccountById*/
+    /**getTransactions*/
     public TransactionPageResponse getTransactions(final Long accountId, final Pageable pageable) {
         loyaltyAccounHelper.validateAccountExists(accountId);
         Page<LoyaltyTransaction> transactionPage = loyaltyTransactionRepository.findByAccount_Id(accountId,pageable);
@@ -54,9 +53,9 @@ public class LoyaltyAccountService {
     }
 
     /**findAccountById*/
-    public LoyaltyAccount findAccountById(final Long accountId) {
+    public LoyaltyAccount findAccountById(final Long accountId) throws AccountException {
         return loyaltyAccountRepository.findById(accountId)
-                .orElseThrow(()->new AccountException("this is Account Is Not Found"));
+                .orElseThrow(()-> new AccountException("this is Account Is Not Found"));
     }
 
     /**convert LoyaltyTransaction to TransactionPageResponse*/
@@ -83,7 +82,8 @@ public class LoyaltyAccountService {
     }
 
     /**convert NearestExpiryResponse to getNearestExpiryResponseGreaterThanZero*/
-    public NearestExpiryResponse getNearestExpiryResponseGreaterThanZero(final Long accountId) {
+    public NearestExpiryResponse
+    getNearestExpiryResponseGreaterThanZero(final Long accountId) throws ResourceNotFoundException {
         return pointsLotRepository
                 .findFirstByAccount_IdAndStatusAndRemainingPointsGreaterThanOrderByExpiresAtAscUnlockAtAsc
                         (accountId, LotStatus.AVAILABLE,0)
@@ -91,20 +91,11 @@ public class LoyaltyAccountService {
                         new ResourceNotFoundException("No available points found for account: " + accountId));
     }
 
-    /**convert NearestExpiryResponse to getNearestExpiryResponseLessThanZero*/
-    public NearestExpiryResponse getNearestExpiryResponseLessThanZero(final Long accountId) {
-        return pointsLotRepository
-                .findFirstByAccount_IdAndStatusAndRemainingPointsLessThanOrderByExpiresAtAscUnlockAtAsc
-                        (accountId, LotStatus.AVAILABLE,0)
-                .map(this::toNearestExpiryResponse).orElseThrow(() ->
-                        new ResourceNotFoundException("No available points found for account: " + accountId));
-    }
-
     /**viewBalanceResponse*/
     public BalanceResponse viewBalanceResponse(final LoyaltyAccount loyaltyAccount) {
-        return new BalanceResponse(loyaltyAccount.getAvailablePoints().longValue()
-                ,loyaltyAccount.getLockedPoints().longValue(),
-                loyaltyAccount.getReservedPoints().longValue(),loyaltyAccount.getTotalOwned().longValue());
+        return new BalanceResponse(loyaltyAccount.getAvailablePoints()
+                ,loyaltyAccount.getLockedPoints(),
+                loyaltyAccount.getReservedPoints(),loyaltyAccount.getTotalOwned());
     }
 
 

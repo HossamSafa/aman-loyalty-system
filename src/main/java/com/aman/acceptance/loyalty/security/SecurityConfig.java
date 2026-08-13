@@ -12,9 +12,7 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(
-            HttpSecurity http
-    ) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .exceptionHandling(exception -> exception
@@ -22,7 +20,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/actuator/health").permitAll()
-                        .requestMatchers("/api/v1/loyalty/accounts/**").permitAll()
+                        .requestMatchers("/api/v1/loyalty/accounts/**").authenticated()
                         .anyRequest().authenticated());
 
         return http.build();

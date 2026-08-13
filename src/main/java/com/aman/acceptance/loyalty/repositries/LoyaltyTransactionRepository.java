@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LoyaltyTransactionRepository extends JpaRepository<LoyaltyTransaction, Long> {
     Page<LoyaltyTransaction> findByAccount_Id(Long accountId, Pageable pageable);
+
 }

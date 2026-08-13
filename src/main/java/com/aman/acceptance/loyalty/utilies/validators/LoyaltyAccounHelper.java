@@ -1,6 +1,5 @@
 package com.aman.acceptance.loyalty.utilies.validators;
 
-
 import com.aman.acceptance.loyalty.exceptions.CredentialsException;
 import com.aman.acceptance.loyalty.exceptions.ResourceNotFoundException;
 import com.aman.acceptance.loyalty.model.responses.ConversionResponse;

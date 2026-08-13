@@ -1,93 +1,105 @@
 package com.aman.acceptance.loyalty.services;
 
-
-import com.aman.acceptance.loyalty.enums.AccountStatus;
-import com.aman.acceptance.loyalty.exceptions.ResourceNotFoundException;
+import com.aman.acceptance.loyalty.enums.LotStatus;
+import com.aman.acceptance.loyalty.exceptions.AccountException;
 import com.aman.acceptance.loyalty.model.Customer;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import com.aman.acceptance.loyalty.model.LoyaltyProgram;
+import com.aman.acceptance.loyalty.model.PointsLot;
 import com.aman.acceptance.loyalty.repositries.LoyaltyAccountRepository;
 import com.aman.acceptance.loyalty.repositries.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.repositries.PointsLotRepository;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
+import static com.aman.acceptance.loyalty.enums.AccountStatus.ACTIVE;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class LoyaltyAccountServiceTest {
 
-    @Mock
-    private LoyaltyAccountRepository accountRepository;
+@Autowired
+private LoyaltyAccountService loyaltyAccountService;
 
-    @Mock
+    @MockitoBean
+    private LoyaltyAccountRepository loyaltyAccountRepository;
+
+    @MockitoBean
     private LoyaltyTransactionRepository transactionRepository;
 
-    @Mock
+    @MockitoBean
     private PointsLotRepository pointsLotRepository;
 
-    @InjectMocks
-    private LoyaltyAccountService loyaltyAccountService;
+@Test
+public void findAccountWhichIsFoundTest() {
+    /**
+     * precondition
+     */
 
-    @Test
-    void getAccount_shouldReturnAccountResponse() {
+    final Long accountId = 1L;
 
-        // Arrange
-        Long accountId = 1L;
+    final Customer customer = Customer.builder().id(10L).mobileEncrypted("01012345678").build();
 
-        Customer customer = Customer.builder().id(10L).build();
+    final LoyaltyProgram loyaltyProgram = LoyaltyProgram.builder().id(20L).build();
 
-        LoyaltyProgram program = LoyaltyProgram.builder().id(20L).build();
+    final LoyaltyAccount loyaltyAccount = LoyaltyAccount.builder().customer(customer).id(accountId)
+            .program(loyaltyProgram).availablePoints(100).lockedPoints(20).reservedPoints(10).status(ACTIVE).build();
 
-        LoyaltyAccount account = LoyaltyAccount.builder().id(accountId).customer(customer).program(program)
-                .availablePoints(100).lockedPoints(20).reservedPoints(10).status(AccountStatus.ACTIVE).build();
+    Mockito.when(loyaltyAccountRepository.findById(accountId)).thenReturn(Optional.of(loyaltyAccount));
 
-        when(accountRepository.findById(accountId)).thenReturn(Optional.of(account));
+    PointsLot pointsLot = PointsLot.builder().remainingPoints(50).expiresAt(LocalDateTime.now()).build();
 
-        when(pointsLotRepository
-                .findFirstByAccount_IdAndStatusAndRemainingPointsGreaterThanOrderByExpiresAtAscUnlockAtAsc(
-                        anyLong(), any(), anyInt())).thenReturn(Optional.empty());
+    Mockito.when(pointsLotRepository
+                    .findFirstByAccount_IdAndStatusAndRemainingPointsGreaterThanOrderByExpiresAtAscUnlockAtAsc(
+                            accountId, LotStatus.AVAILABLE, 0)).thenReturn(Optional.of(pointsLot));
 
-        // Act
-        var response = loyaltyAccountService.findAccount(accountId);
+    /**
+     * Action
+     */
 
-        // Assert
-        assertNotNull(response);
+    var response = loyaltyAccountService.findAccount(accountId);
 
-        assertEquals("1", response.getAccountId());
-        assertEquals("10", response.getCustomerId());
-        assertEquals("20", response.getProgramId());
-        assertEquals("ACTIVE", response.getAccountStatus());
+    /**
+     * Assert
+     */
 
-        assertNotNull(response.getBalance());
+    assertNotNull(response);
+    assertEquals("1",response.getAccountId());
+    assertEquals("10",response.getCustomerId());
+    assertEquals("20",response.getProgramId());
+    assertEquals("ACTIVE",response.getAccountStatus());
+    assertNotNull(response.getMobileNumberMasked());
+    assertNotNull(response.getConversion());
+    assertNotNull(response.getNearestExpiry());
 
-        assertEquals(100L, response.getBalance().getAvailable());
-        assertEquals(20L, response.getBalance().getLocked());
-        assertEquals(10L, response.getBalance().getReserved());
-        assertEquals(130L, response.getBalance().getTotalOwned());
-
-        verify(accountRepository).findById(accountId);
-    }
-
-    @Test
-    void getAccount_shouldThrowException_whenAccountNotFound() {
-
-        // Arrange
-        Long accountId = 999L;
-
-        when(accountRepository.findById(accountId)).thenReturn(Optional.empty());
-
-        // Act & Assert
-        assertThrows(ResourceNotFoundException.class, () -> loyaltyAccountService.findAccount(accountId));
-
-        verify(accountRepository).findById(accountId);
-    }
 }
+
+    @Test
+    public void findAccountWhichIsNotFoundTest() {
+        /**
+         * precondition
+         */
+
+        final Long accountId = 999L;
+
+        Mockito.when(loyaltyAccountRepository.findById(accountId)).thenReturn(Optional.empty());
+
+        /**
+         * Assert,Action
+         */
+     final AccountException accountException =
+             assertThrows(AccountException.class, () -> loyaltyAccountService.findAccount(accountId));
+
+        assertEquals("this is Account Is Not Found", accountException.getMessage());
+}
+
+}
+
+

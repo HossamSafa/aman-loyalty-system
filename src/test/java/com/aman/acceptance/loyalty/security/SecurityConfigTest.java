@@ -17,12 +17,7 @@ class SecurityConfigTest {
     private MockMvc mockMvc;
 
     @Test
-    void accountEndpoint_shouldReturn401_whenNotAuthenticated() throws Exception {
-
-        mockMvc.perform(
-                get("/api/v1/loyalty/accounts/1")
-        ).andExpect(
-                status().isUnauthorized()
-        );
+    void accountEndpointShouldReturn401WhenNotAuthenticated() throws Exception {
+mockMvc.perform(get("/api/v1/loyalty/accounts/1")).andExpect(status().isUnauthorized());
     }
 }

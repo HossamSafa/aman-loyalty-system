@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class BalanceResponse {
-    private final Long available;
-    private final Long locked;
-    private final Long reserved;
-    private final Long totalOwned;
+    private final Integer available;
+    private final Integer locked;
+    private final Integer reserved;
+    private final Integer totalOwned;
 
 }
 
