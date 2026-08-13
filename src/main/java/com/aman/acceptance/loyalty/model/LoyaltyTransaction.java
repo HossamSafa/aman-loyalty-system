@@ -1,10 +1,13 @@
 package com.aman.acceptance.loyalty.model;
 
+import com.aman.acceptance.loyalty.enums.CurrencyCode;
+import com.aman.acceptance.loyalty.enums.RefundType;
 import com.aman.acceptance.loyalty.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 import com.aman.acceptance.loyalty.enums.TransactionStatus;
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -64,4 +67,21 @@ public class LoyaltyTransaction {
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
+
+
+@Column(name = "original_source_transaction_id")
+private String originalSourceTransactionId;
+
+@Enumerated(EnumType.STRING)
+@Column(name = "refund_type")
+private RefundType refundType;
+
+@Enumerated(EnumType.STRING)
+@Column(name = "currency_code")
+private CurrencyCode currency;
+
+@Column(name = "transaction_time")
+private LocalDateTime transactionTime;
+
+
 }
