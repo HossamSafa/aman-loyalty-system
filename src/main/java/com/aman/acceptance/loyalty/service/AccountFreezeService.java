@@ -45,7 +45,6 @@ public class AccountFreezeService {
                     "Account " + accountId + " is already frozen.");
         }
 
-
         String beforeJson = buildSnapshotJson(account, null, null);
 
         // TODO: هنا محتاجين نربط مع Flow 4 (Redemption)

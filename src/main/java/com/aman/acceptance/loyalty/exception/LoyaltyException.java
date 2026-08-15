@@ -18,7 +18,7 @@ public class LoyaltyException extends RuntimeException{
         this.retryable = retryable;
     }
 
-    public static LoyaltyException notFound(ErrorCode code, String message) {
+    public static LoyaltyException notFound( ErrorCode code, String message) {
         return new LoyaltyException(code, message, HttpStatus.NOT_FOUND, false);
     }
 
