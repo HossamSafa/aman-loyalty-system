@@ -39,7 +39,7 @@ public class Redemption {
     @Column(name = "status", nullable = false)
     private RedemptionStatus status;
 
-    @Column(name = "otp_code", length = 10)
+    @Column(name = "otp_code", length = 6)
     private String otpCode;
 
     @Column(name = "otp_expires_at")
