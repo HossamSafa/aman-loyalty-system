@@ -1,0 +1,114 @@
+{
+  "info": {
+    "_postman_id": "2fde9dbc-d0cb-4301-bd81-ac3992e8d8ad",
+    "name": "Aman Loyalty System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40120521"
+  },
+  "item": [
+    {
+      "name": "Freeze Account",
+      "item": [
+        {
+          "name": "Freeze",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reasonCode\": \"SUSPICIOUS_REDEMPTION_PATTERN\",\r\n  \"note\": \"Multiple OTP failures across terminals\",\r\n  \"actorId\": \"fraud-analyst-01\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/api/v1/loyalty/admin/accounts/1/freeze",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "loyalty",
+                "admin",
+                "accounts",
+                "1",
+                "freeze"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "UnFreeze Account",
+      "item": [
+        {
+          "name": "UnFreeze",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reasonCode\": \"REVIEW_COMPLETED\",\r\n  \"note\": \"Customer identity validated by operations\",\r\n  \"actorId\": \"fraud-analyst-01\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/api/v1/loyalty/admin/accounts/1/unfreeze",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "loyalty",
+                "admin",
+                "accounts",
+                "1",
+                "unfreeze"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BaseUrl",
+      "value": ""
+    }
+  ]
+}

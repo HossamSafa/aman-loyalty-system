@@ -1,4 +1,5 @@
 package com.aman.acceptance.loyalty.repository;
+
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
