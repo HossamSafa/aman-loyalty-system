@@ -1,6 +1,5 @@
 package com.aman.acceptance.loyalty.controller;
 
-import com.aman.acceptance.loyalty.model.dto.common.MetaDto;
 import com.aman.acceptance.loyalty.model.dto.request.ResolveCustomerRequest;
 import com.aman.acceptance.loyalty.model.dto.response.ResolveCustomerApiResponse;
 import com.aman.acceptance.loyalty.model.dto.response.ResolveCustomerResponse;
@@ -28,14 +27,8 @@ public class CustomerController {
 
         log.info("Received request with Idempotency-Key: {}", idempotencyKey);
 
-        ResolveCustomerResponse response = customerService.resolve(request, programId);
-
-        ResolveCustomerApiResponse apiResponse = ResolveCustomerApiResponse.builder()
-            .success(true)
-            .data(response)
-            .meta(MetaDto.now())
-            .build();
-
+        ResolveCustomerResponse resolveCustomerResponse = customerService.resolve(request, programId);
+        ResolveCustomerApiResponse apiResponse = new ResolveCustomerApiResponse(true, resolveCustomerResponse);
         return ResponseEntity.ok(apiResponse);
     }
 

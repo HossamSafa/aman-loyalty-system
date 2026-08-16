@@ -11,9 +11,13 @@ import lombok.*;
 public class ResolveCustomerApiResponse {
 
     private boolean success;
-
     private ResolveCustomerResponse data;
+    @Builder.Default
+    private MetaDto meta = MetaDto.now();
 
-    private MetaDto meta;
-
+    public ResolveCustomerApiResponse(boolean success, ResolveCustomerResponse data) {
+        this.success = success;
+        this.data = data;
+        this.meta = MetaDto.now();
+    }
 }
