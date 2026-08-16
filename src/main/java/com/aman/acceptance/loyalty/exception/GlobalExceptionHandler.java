@@ -4,6 +4,7 @@ import com.aman.acceptance.loyalty.model.response.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -47,5 +48,44 @@ public class GlobalExceptionHandler {
                 true
         );
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ApiResponse<Void>> handleAccessDeniedException(
+            AccessDeniedException ex
+    ) {
+
+        log.warn("Access denied: {}", ex.getMessage());
+
+        ApiResponse<Void> body = ApiResponse.error(
+                "LOYALTY_ACCESS_DENIED",
+                "You do not have permission to perform this operation.",
+                false
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.FORBIDDEN)
+                .body(body);
+    }
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiResponse<Void>> handleBusinessException(
+            BusinessException ex
+    ) {
+
+        log.warn(
+                "Business error [{}]: {}",
+                ex.getCode(),
+                ex.getMessage()
+        );
+
+        ApiResponse<Void> body = ApiResponse.error(
+                ex.getCode().name(),
+                ex.getMessage(),
+                false
+        );
+
+        return ResponseEntity
+                .status(ex.getStatus())
+                .body(body);
     }
 }
