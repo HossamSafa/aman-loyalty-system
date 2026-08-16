@@ -20,4 +20,8 @@ public interface RedemptionRepository extends JpaRepository<Redemption, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT r FROM Redemption r WHERE r.id = :id")
     Optional<Redemption> findByIdWithLock(@Param("id") Long id);
+
+    List<Redemption> findByStatusAndOtpExpiresAtBefore(RedemptionStatus status, LocalDateTime time);
+
+    List<Redemption> findByStatusAndReservationExpiresAtBefore(RedemptionStatus status, LocalDateTime time);
 }

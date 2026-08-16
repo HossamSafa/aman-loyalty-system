@@ -1,6 +1,7 @@
 package com.aman.acceptance.loyalty.model;
 
 import com.aman.acceptance.loyalty.enums.RedemptionStatus;
+import com.aman.acceptance.loyalty.enums.RedemptionCancelReason;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -53,6 +54,13 @@ public class Redemption {
 
     @Column(name = "reservation_expires_at")
     private LocalDateTime reservationExpiresAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "cancel_reason")
+    private RedemptionCancelReason cancelReason;
+
+    @Column(name = "cancelled_at")
+    private LocalDateTime cancelledAt;
 
     @OneToMany(mappedBy = "redemption", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default

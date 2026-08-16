@@ -21,10 +21,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.aman.acceptance.loyalty.model.dto.request.CancelRequest;
+import com.aman.acceptance.loyalty.model.dto.response.CancelResponseData;
+import com.aman.acceptance.loyalty.enums.RedemptionCancelReason;
+import com.aman.acceptance.loyalty.model.dto.response.BalanceDto;
 import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.model.dto.request.CommitRequest;
 import com.aman.acceptance.loyalty.model.dto.response.CommitResponseData;
-import com.aman.acceptance.loyalty.model.dto.response.BalanceDto;
 import com.aman.acceptance.loyalty.model.LoyaltyTransaction;
 import com.aman.acceptance.loyalty.enums.TransactionType;
 import com.aman.acceptance.loyalty.enums.TransactionStatus;
@@ -207,6 +210,74 @@ public class RedemptionService {
                                 (long) redemption.getRequestedPoints(),
                                 new RedemptionMoneyDto(redemption.getDiscountAmount(), "EGP"),
                                 "ltx-" + transaction.getId(),
+                                balance
+                );
+        }
+
+        @Transactional
+        public CancelResponseData cancelRedemption(Long id, CancelRequest request) {
+                return cancelRedemptionInternal(id, request.reason());
+        }
+
+        @Transactional
+        public CancelResponseData cancelRedemptionInternal(Long id, RedemptionCancelReason reason) {
+                Redemption redemption = redemptionRepository.findByIdWithLock(id)
+                        .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
+                                        "Redemption not found with id: " + id));
+
+                LoyaltyAccount account = redemption.getAccount();
+
+                if (redemption.getStatus() == RedemptionStatus.COMMITTED) {
+                        throw LoyaltyException.conflict(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
+                                "Redemption is already COMMITTED, cannot cancel.");
+                }
+
+                if (redemption.getStatus() == RedemptionStatus.CANCELLED) {
+                        return buildCancelResponse(redemption, account);
+                }
+
+                if (redemption.getStatus() != RedemptionStatus.OTP_PENDING && redemption.getStatus() != RedemptionStatus.AUTHORIZED) {
+                        throw LoyaltyException.badRequest(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
+                                "Redemption status is not eligible for cancellation.");
+                }
+
+                List<PointsLot> lotsToUpdate = redemption.getAllocations().stream().map(allocation -> {
+                        PointsLot lot = allocation.getLot();
+                        lot.setRemainingPoints(lot.getRemainingPoints() + allocation.getPoints());
+                        return lot;
+                }).toList();
+                pointsLotRepository.saveAll(lotsToUpdate);
+
+                int points = redemption.getRequestedPoints();
+                account.setReservedPoints(account.getReservedPoints() - points);
+                account.setAvailablePoints(account.getAvailablePoints() + points);
+                accountRepository.save(account);
+
+                redemption.setStatus(RedemptionStatus.CANCELLED);
+                redemption.setCancelReason(reason);
+                redemption.setCancelledAt(LocalDateTime.now());
+                
+                redemption.setOtpCode(null);
+                redemption.setOtpExpiresAt(null);
+                redemption.setOtpAttemptsRemaining(null);
+
+                redemptionRepository.save(redemption);
+
+                return buildCancelResponse(redemption, account);
+        }
+
+        private CancelResponseData buildCancelResponse(Redemption redemption, LoyaltyAccount account) {
+                BalanceDto balance = new BalanceDto(
+                                account.getAvailablePoints(),
+                                account.getLockedPoints(),
+                                account.getReservedPoints(),
+                                account.getTotalOwned()
+                );
+
+                return new CancelResponseData(
+                                "red-" + redemption.getId(),
+                                redemption.getStatus(),
+                                (long) redemption.getRequestedPoints(),
                                 balance
                 );
         }
