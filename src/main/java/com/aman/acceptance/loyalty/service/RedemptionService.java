@@ -135,6 +135,8 @@ public class RedemptionService {
                 String authCode = otpService.generateAuthorizationCode();
                 redemption.setStatus(RedemptionStatus.AUTHORIZED);
                 redemption.setAuthorizationCode(authCode);
+                redemption.setReservationExpiresAt(
+                                LocalDateTime.now().plusMinutes(5));
                 redemption.setOtpCode(null);
 
                 redemptionRepository.save(redemption);
@@ -159,7 +161,8 @@ public class RedemptionService {
 
                 if (redemption.getStatus() == RedemptionStatus.COMMITTED) {
                         LoyaltyTransaction existingTx = loyaltyTransactionRepository.findByIdempotencyKey(idempKey)
-                                        .orElseThrow(() -> LoyaltyException.conflict(ErrorCode.INTERNAL_SERVER_ERROR, "Transaction not found for committed redemption"));
+                                        .orElseThrow(() -> LoyaltyException.conflict(ErrorCode.INTERNAL_SERVER_ERROR,
+                                                        "Transaction not found for committed redemption"));
                         return buildCommitResponse(redemption, existingTx, account);
                 }
 
@@ -196,13 +199,13 @@ public class RedemptionService {
                 return buildCommitResponse(redemption, transaction, account);
         }
 
-        private CommitResponseData buildCommitResponse(Redemption redemption, LoyaltyTransaction transaction, LoyaltyAccount account) {
+        private CommitResponseData buildCommitResponse(Redemption redemption, LoyaltyTransaction transaction,
+                        LoyaltyAccount account) {
                 BalanceDto balance = new BalanceDto(
                                 account.getAvailablePoints(),
                                 account.getLockedPoints(),
                                 account.getReservedPoints(),
-                                account.getTotalOwned()
-                );
+                                account.getTotalOwned());
 
                 return new CommitResponseData(
                                 "red-" + redemption.getId(),
@@ -210,8 +213,7 @@ public class RedemptionService {
                                 (long) redemption.getRequestedPoints(),
                                 new RedemptionMoneyDto(redemption.getDiscountAmount(), "EGP"),
                                 "ltx-" + transaction.getId(),
-                                balance
-                );
+                                balance);
         }
 
         @Transactional
@@ -222,23 +224,24 @@ public class RedemptionService {
         @Transactional
         public CancelResponseData cancelRedemptionInternal(Long id, RedemptionCancelReason reason) {
                 Redemption redemption = redemptionRepository.findByIdWithLock(id)
-                        .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
-                                        "Redemption not found with id: " + id));
+                                .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
+                                                "Redemption not found with id: " + id));
 
                 LoyaltyAccount account = redemption.getAccount();
 
                 if (redemption.getStatus() == RedemptionStatus.COMMITTED) {
                         throw LoyaltyException.conflict(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
-                                "Redemption is already COMMITTED, cannot cancel.");
+                                        "Redemption is already COMMITTED, cannot cancel.");
                 }
 
                 if (redemption.getStatus() == RedemptionStatus.CANCELLED) {
                         return buildCancelResponse(redemption, account);
                 }
 
-                if (redemption.getStatus() != RedemptionStatus.OTP_PENDING && redemption.getStatus() != RedemptionStatus.AUTHORIZED) {
+                if (redemption.getStatus() != RedemptionStatus.OTP_PENDING
+                                && redemption.getStatus() != RedemptionStatus.AUTHORIZED) {
                         throw LoyaltyException.badRequest(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
-                                "Redemption status is not eligible for cancellation.");
+                                        "Redemption status is not eligible for cancellation.");
                 }
 
                 List<PointsLot> lotsToUpdate = redemption.getAllocations().stream().map(allocation -> {
@@ -256,7 +259,7 @@ public class RedemptionService {
                 redemption.setStatus(RedemptionStatus.CANCELLED);
                 redemption.setCancelReason(reason);
                 redemption.setCancelledAt(LocalDateTime.now());
-                
+
                 redemption.setOtpCode(null);
                 redemption.setOtpExpiresAt(null);
                 redemption.setOtpAttemptsRemaining(null);
@@ -271,15 +274,12 @@ public class RedemptionService {
                                 account.getAvailablePoints(),
                                 account.getLockedPoints(),
                                 account.getReservedPoints(),
-                                account.getTotalOwned()
-                );
+                                account.getTotalOwned());
 
                 return new CancelResponseData(
                                 "red-" + redemption.getId(),
                                 redemption.getStatus(),
                                 (long) redemption.getRequestedPoints(),
-                                balance
-                );
+                                balance);
         }
 }
-
