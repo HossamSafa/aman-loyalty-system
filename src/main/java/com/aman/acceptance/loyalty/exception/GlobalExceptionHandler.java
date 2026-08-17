@@ -19,8 +19,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleLoyaltyException(LoyaltyException ex) {
 
         Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("code", ex.getErrorCode());
+        errorBody.put("code", ex.getCode().name());
         errorBody.put("message", ex.getMessage());
+        errorBody.put("retryable", ex.isRetryable());
 
         Map<String, Object> response = new HashMap<>();
         response.put("success", false);
@@ -30,7 +31,7 @@ public class GlobalExceptionHandler {
                 .timestamp(LocalDateTime.now())
                 .build());
 
-        return ResponseEntity.status(ex.getHttpStatus()).body(response);
+        return ResponseEntity.status(ex.getStatus()).body(response);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
