@@ -1,4 +1,4 @@
-package com.aman.acceptance.loyalty.exceptions;
+package com.aman.acceptance.loyalty.exception;
 
 
 import com.aman.acceptance.loyalty.model.responses.ApiResponse;

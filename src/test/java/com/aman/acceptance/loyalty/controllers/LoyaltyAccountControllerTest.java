@@ -1,7 +1,8 @@
 package com.aman.acceptance.loyalty.controllers;
 
+import com.aman.acceptance.loyalty.controller.LoyaltyAccountController;
 import com.aman.acceptance.loyalty.model.responses.*;
-import com.aman.acceptance.loyalty.services.LoyaltyAccountService;
+import com.aman.acceptance.loyalty.service.LoyaltyAccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

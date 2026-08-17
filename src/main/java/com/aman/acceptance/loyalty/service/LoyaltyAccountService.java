@@ -1,15 +1,15 @@
-package com.aman.acceptance.loyalty.services;
+package com.aman.acceptance.loyalty.service;
 
 import com.aman.acceptance.loyalty.enums.LotStatus;
-import com.aman.acceptance.loyalty.exceptions.AccountException;
-import com.aman.acceptance.loyalty.exceptions.ResourceNotFoundException;
+import com.aman.acceptance.loyalty.exception.AccountException;
+import com.aman.acceptance.loyalty.exception.ResourceNotFoundException;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import com.aman.acceptance.loyalty.model.LoyaltyTransaction;
 import com.aman.acceptance.loyalty.model.PointsLot;
 import com.aman.acceptance.loyalty.model.responses.*;
-import com.aman.acceptance.loyalty.repositries.LoyaltyAccountRepository;
-import com.aman.acceptance.loyalty.repositries.LoyaltyTransactionRepository;
-import com.aman.acceptance.loyalty.repositries.PointsLotRepository;
+import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
+import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
+import com.aman.acceptance.loyalty.repository.PointsLotRepository;
 import com.aman.acceptance.loyalty.utilies.validators.LoyaltyAccounHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

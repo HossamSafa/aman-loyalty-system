@@ -1,7 +1,7 @@
 package com.aman.acceptance.loyalty.utilies;
 
 
-import com.aman.acceptance.loyalty.exceptions.CredentialsException;
+import com.aman.acceptance.loyalty.exception.CredentialsException;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

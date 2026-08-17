@@ -1,10 +1,10 @@
 package com.aman.acceptance.loyalty.utilies.validators;
 
-import com.aman.acceptance.loyalty.exceptions.CredentialsException;
-import com.aman.acceptance.loyalty.exceptions.ResourceNotFoundException;
+import com.aman.acceptance.loyalty.exception.CredentialsException;
+import com.aman.acceptance.loyalty.exception.ResourceNotFoundException;
 import com.aman.acceptance.loyalty.model.responses.ConversionResponse;
 import com.aman.acceptance.loyalty.model.responses.MetaResponse;
-import com.aman.acceptance.loyalty.repositries.LoyaltyAccountRepository;
+import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

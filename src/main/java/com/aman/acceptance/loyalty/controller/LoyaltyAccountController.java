@@ -1,9 +1,9 @@
-package com.aman.acceptance.loyalty.controllers;
+package com.aman.acceptance.loyalty.controller;
 
 import com.aman.acceptance.loyalty.model.responses.AccountResponse;
 import com.aman.acceptance.loyalty.model.responses.ApiResponse;
 import com.aman.acceptance.loyalty.model.responses.TransactionPageResponse;
-import com.aman.acceptance.loyalty.services.LoyaltyAccountService;
+import com.aman.acceptance.loyalty.service.LoyaltyAccountService;
 import com.aman.acceptance.loyalty.utilies.validators.LoyaltyAccounHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
