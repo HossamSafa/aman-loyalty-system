@@ -20,4 +20,6 @@ public interface LoyaltyAccountRepository
             @Param("accountId")
             Long accountId
     );
+    boolean existsById(Long id);
+
 }
