@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +41,8 @@ public class Redemption {
     @Column(name = "status", nullable = false)
     private RedemptionStatus status;
 
-    @Column(name = "otp_code", length = 6)
-    private String otpCode;
+    @Column(name = "otp_hash" , length = 6)
+    private String otpHash;
 
     @Column(name = "otp_expires_at")
     private LocalDateTime otpExpiresAt;
@@ -81,5 +82,39 @@ public class Redemption {
     public void addAllocation(RedemptionAllocation allocation) {
         allocations.add(allocation);
         allocation.setRedemption(this);
+    }
+
+    public void assertStatus(RedemptionStatus expectedStatus) {
+        if (this.status != expectedStatus) {
+            throw new IllegalStateException("Expected status " + expectedStatus + " but was " + this.status);
+        }
+    }
+
+    public void authorize(String authorizationCode, Duration reservationTtl) {
+        assertStatus(RedemptionStatus.OTP_PENDING);
+        this.status = RedemptionStatus.AUTHORIZED;
+        this.authorizationCode = authorizationCode;
+        this.reservationExpiresAt = LocalDateTime.now().plus(reservationTtl);
+        this.otpHash = null;
+    }
+
+    public void commit() {
+        assertStatus(RedemptionStatus.AUTHORIZED);
+        this.status = RedemptionStatus.COMMITTED;
+    }
+
+    public void cancel(RedemptionCancelReason reason) {
+        if (this.status == RedemptionStatus.COMMITTED || this.status == RedemptionStatus.CANCELLED) {
+            throw new IllegalStateException("Cannot cancel redemption in status: " + this.status);
+        }
+        this.status = RedemptionStatus.CANCELLED;
+        this.cancelReason = reason;
+        this.cancelledAt = LocalDateTime.now();
+    }
+
+    public boolean isAuthorizedWith(String code) {
+        return this.status == RedemptionStatus.AUTHORIZED &&
+                this.authorizationCode != null &&
+                this.authorizationCode.equals(code);
     }
 }

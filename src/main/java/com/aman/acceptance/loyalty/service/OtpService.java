@@ -3,6 +3,7 @@ package com.aman.acceptance.loyalty.service;
 import com.aman.acceptance.loyalty.config.OtpProperties;
 import com.aman.acceptance.loyalty.enums.ErrorCode;
 import com.aman.acceptance.loyalty.exception.LoyaltyException;
+import com.aman.acceptance.loyalty.exception.OtpInvalidException;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import com.aman.acceptance.loyalty.model.Redemption;
 import com.aman.acceptance.loyalty.model.dto.response.OtpMetadataDto;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.security.SecureRandom;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +21,7 @@ public class OtpService {
 
     private final OtpProperties otpProperties;
     private final OtpNotificationService otpNotificationService;
+    private final PasswordEncoder passwordEncoder;
     private final SecureRandom secureRandom = new SecureRandom();
 
     public OtpMetadataDto initiate(LoyaltyAccount account, Redemption redemption) {
@@ -29,7 +32,8 @@ public class OtpService {
 
         String otp = generateOtp(otpProperties.getLength());
 
-        redemption.setOtpCode(otp);
+        String otpHash = passwordEncoder.encode(otp);
+        redemption.setOtpHash(otpHash);
 
         redemption.setOtpAttemptsRemaining(
                 otpProperties.getMaxAttempts()
@@ -65,9 +69,14 @@ public class OtpService {
                     "Maximum OTP verification attempts exceeded.");
         }
 
-        if (!otpInput.equals(redemption.getOtpCode())) {
+        if (redemption.getOtpHash() == null) {
             redemption.setOtpAttemptsRemaining(redemption.getOtpAttemptsRemaining() - 1);
-            throw LoyaltyException.unprocessable(ErrorCode.LOYALTY_OTP_INVALID, "Invalid OTP.");
+            throw new OtpInvalidException( "Invalid OTP.");
+        }
+
+        if (!passwordEncoder.matches(otpInput, redemption.getOtpHash())) {
+            redemption.setOtpAttemptsRemaining(redemption.getOtpAttemptsRemaining() - 1);
+            throw new OtpInvalidException( "Invalid OTP.");
         }
     }
 

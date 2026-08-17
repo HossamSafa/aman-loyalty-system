@@ -1,40 +1,44 @@
 package com.aman.acceptance.loyalty.service;
 
-import com.aman.acceptance.loyalty.model.dto.response.OtpMetadataDto;
-import com.aman.acceptance.loyalty.model.dto.response.RedemptionMoneyDto;
-import com.aman.acceptance.loyalty.model.dto.response.VerifyRedemptionResponseData;
 import com.aman.acceptance.loyalty.enums.ErrorCode;
-import com.aman.acceptance.loyalty.exception.LoyaltyException;
-import com.aman.acceptance.loyalty.model.dto.request.RedemptionRequest;
+import com.aman.acceptance.loyalty.enums.RedemptionCancelReason;
 import com.aman.acceptance.loyalty.enums.RedemptionStatus;
+import com.aman.acceptance.loyalty.enums.TransactionStatus;
+import com.aman.acceptance.loyalty.enums.TransactionType;
+import com.aman.acceptance.loyalty.exception.LoyaltyException;
+import com.aman.acceptance.loyalty.exception.OtpInvalidException;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
+import com.aman.acceptance.loyalty.model.LoyaltyTransaction;
 import com.aman.acceptance.loyalty.model.PointsLot;
 import com.aman.acceptance.loyalty.model.Redemption;
 import com.aman.acceptance.loyalty.model.RedemptionAllocation;
+import com.aman.acceptance.loyalty.model.dto.request.CancelRequest;
+import com.aman.acceptance.loyalty.model.dto.request.CommitRequest;
+import com.aman.acceptance.loyalty.model.dto.request.RedemptionRequest;
+import com.aman.acceptance.loyalty.model.dto.response.CancelResponseData;
+import com.aman.acceptance.loyalty.model.dto.response.CommitResponseData;
+import com.aman.acceptance.loyalty.model.dto.response.OtpMetadataDto;
+import com.aman.acceptance.loyalty.model.dto.response.RedemptionMoneyDto;
 import com.aman.acceptance.loyalty.model.dto.response.RedemptionResponseData;
+import com.aman.acceptance.loyalty.model.dto.response.VerifyRedemptionResponseData;
 import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
+import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.repository.PointsLotRepository;
 import com.aman.acceptance.loyalty.repository.RedemptionRepository;
+import com.aman.acceptance.loyalty.service.mapper.RedemptionResponseMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
-
-import com.aman.acceptance.loyalty.model.dto.request.CancelRequest;
-import com.aman.acceptance.loyalty.model.dto.response.CancelResponseData;
-import com.aman.acceptance.loyalty.enums.RedemptionCancelReason;
-import com.aman.acceptance.loyalty.model.dto.response.BalanceDto;
-import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
-import com.aman.acceptance.loyalty.model.dto.request.CommitRequest;
-import com.aman.acceptance.loyalty.model.dto.response.CommitResponseData;
-import com.aman.acceptance.loyalty.model.LoyaltyTransaction;
-import com.aman.acceptance.loyalty.enums.TransactionType;
-import com.aman.acceptance.loyalty.enums.TransactionStatus;
 
 @RequiredArgsConstructor
 @Service
 public class RedemptionService {
+
+        private static final Duration RESERVATION_TTL = Duration.ofMinutes(5);
 
         private final LoyaltyAccountRepository accountRepository;
         private final PointsLotRepository pointsLotRepository;
@@ -43,177 +47,114 @@ public class RedemptionService {
         private final RedemptionCalculationService calculationService;
         private final PointsAllocationService allocationService;
         private final OtpService otpService;
+        private final RedemptionResponseMapper responseMapper;
 
         @Transactional
         public RedemptionResponseData initiateRedemption(RedemptionRequest request) {
-                // Checks Account Availability
                 Long accountId = request.accountId();
                 if (accountId == null) {
                         throw new IllegalArgumentException("Account ID cannot be null");
                 }
 
-                // Get the loyalty account and lock it for this transaction
                 LoyaltyAccount account = accountRepository.findByIdWithLock(accountId)
-                                .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
-                                                "No loyalty account exists with id: " + accountId));
+                        .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
+                                "No loyalty account exists with id: " + accountId));
 
-                // Check Points Lot
-                List<PointsLot> availableLots = pointsLotRepository.findAvailableLotsForRedemption(accountId,
-                                LocalDateTime.now());
+                List<PointsLot> availableLots = pointsLotRepository.findAvailableLotsForRedemption(accountId, LocalDateTime.now());
 
-                // Calculate the total available points
                 long totalAvailablePoints = availableLots.stream()
-                                .mapToLong(PointsLot::getRemainingPoints)
-                                .sum();
+                        .mapToLong(PointsLot::getRemainingPoints)
+                        .sum();
 
-                // Calculate (purchaseAmount, requestedPoints and totalAvailablePoints) and
-                // select redeemMode
                 RedemptionCalculationService.CalculationResult calcResult = calculationService.calculateDiscount(
-                                request.purchaseAmount().value(),
-                                request.requestedPoints(),
-                                request.redeemMode(),
-                                totalAvailablePoints);
+                        request.purchaseAmount().value(),
+                        request.requestedPoints(),
+                        request.redeemMode(),
+                        totalAvailablePoints);
 
-                // Get the actual number of points to redeem
-                long actualPointsToRedeem = calcResult.actualPointsToRedeem();
-                // Convert points to int safely because requestedPoints are Integer
-                int pointsToRedeemInt = Math.toIntExact(actualPointsToRedeem);
+                int pointsToRedeemInt = Math.toIntExact(calcResult.actualPointsToRedeem());
 
-                // Create a new redemption with OTP_PENDING status
                 Redemption redemption = Redemption.builder()
-                                .account(account)
-                                .purchaseTransactionId(request.purchaseTransactionId())
-                                .requestedPoints(pointsToRedeemInt)
-                                .discountAmount(calcResult.discountAmount())
-                                .status(RedemptionStatus.OTP_PENDING)
-                                .build();
-                // Allocate the points across the available lots
-                List<RedemptionAllocation> allocations = allocationService.allocate(availableLots,
-                                actualPointsToRedeem);
+                        .account(account)
+                        .purchaseTransactionId(request.purchaseTransactionId())
+                        .requestedPoints(pointsToRedeemInt)
+                        .discountAmount(calcResult.discountAmount())
+                        .status(RedemptionStatus.OTP_PENDING)
+                        .build();
 
-                // Add the allocations to the redemption
+                List<RedemptionAllocation> allocations = allocationService.allocate(availableLots, pointsToRedeemInt);
                 allocations.forEach(redemption::addAllocation);
 
-                // Move points from available to reserved
-                account.setAvailablePoints(account.getAvailablePoints() - pointsToRedeemInt);
-                account.setReservedPoints(account.getReservedPoints() + pointsToRedeemInt);
+                account.reserveForRedemption(pointsToRedeemInt);
 
-                accountRepository.save(account);
-                pointsLotRepository.saveAll(availableLots);
-
-                // Initiate OTP (mutates redemption with otpCode, expiry, attempts)
                 OtpMetadataDto otpMetadata = otpService.initiate(account, redemption);
 
                 redemptionRepository.save(redemption);
 
-                // Return the redemption details to the client
                 return new RedemptionResponseData(
-                                redemption.getId(),
-                                redemption.getStatus(),
-                                actualPointsToRedeem,
-                                new RedemptionMoneyDto(calcResult.discountAmount(),
-                                                request.purchaseAmount().currency()),
-                                new RedemptionMoneyDto(calcResult.payableAfterDiscount(),
-                                                request.purchaseAmount().currency()),
-                                otpMetadata);
+                        redemption.getId(),
+                        redemption.getStatus(),
+                        (long) pointsToRedeemInt,
+                        new RedemptionMoneyDto(calcResult.discountAmount(), request.purchaseAmount().currency()),
+                        new RedemptionMoneyDto(calcResult.payableAfterDiscount(), request.purchaseAmount().currency()),
+                        otpMetadata);
         }
 
-        @Transactional
+        @Transactional(noRollbackFor = OtpInvalidException.class)
         public VerifyRedemptionResponseData verifyRedemption(Long id, String otp) {
-                Redemption redemption = redemptionRepository.findByIdWithLock(id)
-                                .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
-                                                "Redemption not found with id: " + id));
+                Redemption redemption = getRedemptionOrThrow(id);
 
-                if (redemption.getStatus() != RedemptionStatus.OTP_PENDING) {
-                        throw LoyaltyException.conflict(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
-                                        "Redemption is not in OTP_PENDING state. Current state: "
-                                                        + redemption.getStatus());
-                }
-
+                redemption.assertStatus(RedemptionStatus.OTP_PENDING);
                 otpService.verifyOtp(redemption, otp);
 
                 String authCode = otpService.generateAuthorizationCode();
-                redemption.setStatus(RedemptionStatus.AUTHORIZED);
-                redemption.setAuthorizationCode(authCode);
-                redemption.setReservationExpiresAt(
-                                LocalDateTime.now().plusMinutes(5));
-                redemption.setOtpCode(null);
-
-                redemptionRepository.save(redemption);
+                redemption.authorize(authCode, RESERVATION_TTL);
 
                 return new VerifyRedemptionResponseData(
-                                redemption.getId(),
-                                redemption.getStatus(),
-                                authCode,
-                                (long) redemption.getRequestedPoints(),
-                                new RedemptionMoneyDto(redemption.getDiscountAmount(), "EGP"),
-                                redemption.getReservationExpiresAt());
+                        redemption.getId(),
+                        redemption.getStatus(),
+                        authCode,
+                        (long) redemption.getRequestedPoints(),
+                        new RedemptionMoneyDto(redemption.getDiscountAmount(), "EGP"),
+                        redemption.getReservationExpiresAt());
         }
 
         @Transactional
         public CommitResponseData commitRedemption(Long id, CommitRequest request) {
-                Redemption redemption = redemptionRepository.findByIdWithLock(id)
-                                .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
-                                                "Redemption not found with id: " + id));
-
+                Redemption redemption = getRedemptionOrThrow(id);
                 LoyaltyAccount account = redemption.getAccount();
                 String idempKey = "RED_COMMIT_" + redemption.getId();
 
                 if (redemption.getStatus() == RedemptionStatus.COMMITTED) {
                         LoyaltyTransaction existingTx = loyaltyTransactionRepository.findByIdempotencyKey(idempKey)
-                                        .orElseThrow(() -> LoyaltyException.conflict(ErrorCode.INTERNAL_SERVER_ERROR,
-                                                        "Transaction not found for committed redemption"));
-                        return buildCommitResponse(redemption, existingTx, account);
+                                .orElseThrow(() -> LoyaltyException.conflict(ErrorCode.INTERNAL_SERVER_ERROR,
+                                        "Transaction not found for committed redemption"));
+                        return responseMapper.mapToCommitResponse(redemption, existingTx, account);
                 }
 
-                if (redemption.getStatus() != RedemptionStatus.AUTHORIZED) {
-                        throw LoyaltyException.badRequest(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
-                                        "Redemption is not in AUTHORIZED state. Current state: "
-                                                        + redemption.getStatus());
-                }
+                redemption.assertStatus(RedemptionStatus.AUTHORIZED);
 
-                if (!request.authorizationCode().equals(redemption.getAuthorizationCode())) {
+                if (!redemption.isAuthorizedWith(request.authorizationCode())) {
                         throw LoyaltyException.badRequest(ErrorCode.LOYALTY_OTP_INVALID, "Invalid authorization code");
                 }
 
-                // Finalize Reservation
                 int points = redemption.getRequestedPoints();
-                account.setReservedPoints(account.getReservedPoints() - points);
-                accountRepository.save(account);
-
-                redemption.setStatus(RedemptionStatus.COMMITTED);
-                redemptionRepository.save(redemption);
+                account.finalizeReservation(points);
+                redemption.commit();
 
                 LoyaltyTransaction transaction = LoyaltyTransaction.builder()
-                                .account(account)
-                                .type(TransactionType.REDEEM)
-                                .sourceTransactionId(redemption.getPurchaseTransactionId())
-                                .points(points)
-                                .moneyAmount(redemption.getDiscountAmount())
-                                .status(TransactionStatus.COMMITTED)
-                                .idempotencyKey(idempKey)
-                                .build();
+                        .account(account)
+                        .type(TransactionType.REDEEM)
+                        .sourceTransactionId(redemption.getPurchaseTransactionId())
+                        .points(points)
+                        .moneyAmount(redemption.getDiscountAmount())
+                        .status(TransactionStatus.COMMITTED)
+                        .idempotencyKey(idempKey)
+                        .build();
 
                 loyaltyTransactionRepository.save(transaction);
 
-                return buildCommitResponse(redemption, transaction, account);
-        }
-
-        private CommitResponseData buildCommitResponse(Redemption redemption, LoyaltyTransaction transaction,
-                        LoyaltyAccount account) {
-                BalanceDto balance = new BalanceDto(
-                                account.getAvailablePoints(),
-                                account.getLockedPoints(),
-                                account.getReservedPoints(),
-                                account.getTotalOwned());
-
-                return new CommitResponseData(
-                                "red-" + redemption.getId(),
-                                redemption.getStatus(),
-                                (long) redemption.getRequestedPoints(),
-                                new RedemptionMoneyDto(redemption.getDiscountAmount(), "EGP"),
-                                "ltx-" + transaction.getId(),
-                                balance);
+                return responseMapper.mapToCommitResponse(redemption, transaction, account);
         }
 
         @Transactional
@@ -223,63 +164,32 @@ public class RedemptionService {
 
         @Transactional
         public CancelResponseData cancelRedemptionInternal(Long id, RedemptionCancelReason reason) {
-                Redemption redemption = redemptionRepository.findByIdWithLock(id)
-                                .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
-                                                "Redemption not found with id: " + id));
-
+                Redemption redemption = getRedemptionOrThrow(id);
                 LoyaltyAccount account = redemption.getAccount();
 
                 if (redemption.getStatus() == RedemptionStatus.COMMITTED) {
                         throw LoyaltyException.conflict(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
-                                        "Redemption is already COMMITTED, cannot cancel.");
+                                "Redemption is already COMMITTED, cannot cancel.");
                 }
 
                 if (redemption.getStatus() == RedemptionStatus.CANCELLED) {
-                        return buildCancelResponse(redemption, account);
+                        return responseMapper.mapToCancelResponse(redemption, account);
                 }
 
-                if (redemption.getStatus() != RedemptionStatus.OTP_PENDING
-                                && redemption.getStatus() != RedemptionStatus.AUTHORIZED) {
-                        throw LoyaltyException.badRequest(ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
-                                        "Redemption status is not eligible for cancellation.");
-                }
-
-                List<PointsLot> lotsToUpdate = redemption.getAllocations().stream().map(allocation -> {
-                        PointsLot lot = allocation.getLot();
-                        lot.setRemainingPoints(lot.getRemainingPoints() + allocation.getPoints());
-                        return lot;
-                }).toList();
-                pointsLotRepository.saveAll(lotsToUpdate);
+                redemption.getAllocations().forEach(allocation ->
+                        allocation.getLot().restore(allocation.getPoints()));
 
                 int points = redemption.getRequestedPoints();
-                account.setReservedPoints(account.getReservedPoints() - points);
-                account.setAvailablePoints(account.getAvailablePoints() + points);
-                accountRepository.save(account);
+                account.releaseReservation(points);
 
-                redemption.setStatus(RedemptionStatus.CANCELLED);
-                redemption.setCancelReason(reason);
-                redemption.setCancelledAt(LocalDateTime.now());
+                redemption.cancel(reason);
 
-                redemption.setOtpCode(null);
-                redemption.setOtpExpiresAt(null);
-                redemption.setOtpAttemptsRemaining(null);
-
-                redemptionRepository.save(redemption);
-
-                return buildCancelResponse(redemption, account);
+                return responseMapper.mapToCancelResponse(redemption, account);
         }
 
-        private CancelResponseData buildCancelResponse(Redemption redemption, LoyaltyAccount account) {
-                BalanceDto balance = new BalanceDto(
-                                account.getAvailablePoints(),
-                                account.getLockedPoints(),
-                                account.getReservedPoints(),
-                                account.getTotalOwned());
-
-                return new CancelResponseData(
-                                "red-" + redemption.getId(),
-                                redemption.getStatus(),
-                                (long) redemption.getRequestedPoints(),
-                                balance);
+        private Redemption getRedemptionOrThrow(Long id) {
+                return redemptionRepository.findByIdWithLock(id)
+                        .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
+                                "Redemption not found with id: " + id));
         }
 }
