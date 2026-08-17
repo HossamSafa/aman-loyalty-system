@@ -18,6 +18,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.aman.acceptance.loyalty.util.MobileUtil;
+import com.aman.acceptance.loyalty.enums.ErrorCode;
 
 @Service
 public class CustomerService {
@@ -46,8 +47,10 @@ public class CustomerService {
         Optional<Customer> existingCustomer = customerRepository.findByMobileHash(mobileHash);
 
         if (existingCustomer.isEmpty() && Boolean.FALSE.equals(autoEnroll)) {
-            throw new LoyaltyException("LOYALTY_ACCOUNT_NOT_FOUND",
-                    "No loyalty account exists and auto-enrollment was not requested.", HttpStatus.NOT_FOUND);
+            throw LoyaltyException.notFound(
+                    ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
+                    "No loyalty account exists and auto-enrollment was not requested."
+            );
         }
 
         if (existingCustomer.isPresent()) {
@@ -68,8 +71,10 @@ public class CustomerService {
         Optional<LoyaltyAccount> existingAccount = loyaltyAccountRepository.findByProgramAndCustomer(program, customer);
 
         if (existingAccount.isEmpty() && Boolean.FALSE.equals(autoEnroll)) {
-            throw new LoyaltyException("LOYALTY_ACCOUNT_NOT_FOUND",
-                    "No loyalty account exists and auto-enrollment was not requested.", HttpStatus.NOT_FOUND);
+            throw LoyaltyException.notFound(
+                    ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
+                    "No loyalty account exists and auto-enrollment was not requested."
+            );
         }
 
         if (existingAccount.isPresent()) {
@@ -96,14 +101,16 @@ public class CustomerService {
                 request.getAutoEnroll());
 
         LoyaltyProgram program = loyaltyProgramRepository.findById(programId)
-                .orElseThrow(() -> new LoyaltyException("LOYALTY_PROGRAM_NOT_FOUND",
-                "The requested loyalty program was not found.", HttpStatus.NOT_FOUND));
-
+                .orElseThrow(() -> LoyaltyException.notFound(
+                        ErrorCode.LOYALTY_PROGRAM_NOT_FOUND,
+                        "The requested loyalty program was not found."
+                ));
         if (program.getStatus() == ProgramStatus.INACTIVE) {
-            throw new LoyaltyException("LOYALTY_PROGRAM_INACTIVE",
-                    "The merchant loyalty program is not active.", HttpStatus.UNPROCESSABLE_ENTITY);
+            throw LoyaltyException.invalid(
+                    ErrorCode.LOYALTY_PROGRAM_INACTIVE,
+                    "The merchant loyalty program is not active."
+            );
         }
-
         AccountResolution accountResolution = getOrCreateAccount(program, customer, request.getAutoEnroll());
 
         LoyaltyAccount account = accountResolution.account();

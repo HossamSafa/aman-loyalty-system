@@ -16,7 +16,6 @@ public class MetaDto {
 
     private LocalDateTime timestamp;
 
-
     public static MetaDto now() {
         return MetaDto.builder()
                 .correlationId(UUID.randomUUID().toString())

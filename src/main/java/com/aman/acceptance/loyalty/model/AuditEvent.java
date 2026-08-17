@@ -33,12 +33,10 @@ public class AuditEvent {
     private Long entityId;
 
 
-    @Lob
-    @Column(name = "before_json")
+    @Column(name = "before_json", columnDefinition = "TEXT")
     private String beforeJson;
 
-    @Lob
-    @Column(name = "after_json")
+    @Column(name = "after_json", columnDefinition = "TEXT")
     private String afterJson;
 
     @Column(name = "correlation_id", length = 100)
