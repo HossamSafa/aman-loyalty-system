@@ -5,6 +5,8 @@ import com.aman.acceptance.loyalty.model.RuleVersion;
 import com.aman.acceptance.loyalty.repository.RuleVersionRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,7 @@ import java.util.List;
 public class ProgramRuleStatusScheduler {
 
     private final RuleVersionRepository ruleVersionRepository;
+    private final CacheManager cacheManager;
 
     @Scheduled(fixedRate = 60000)
     @Transactional
@@ -41,6 +44,11 @@ public class ProgramRuleStatusScheduler {
             );
 
             rule.setStatus(RuleStatus.ACTIVE);
+            Cache cache = cacheManager.getCache("activeProgramRules");
+
+            if (cache != null) {
+                cache.evict(rule.getProgram().getId());
+            }
         }
 
         List<RuleVersion> activeRules =
@@ -60,6 +68,11 @@ public class ProgramRuleStatusScheduler {
             );
 
             rule.setStatus(RuleStatus.CLOSED);
+            Cache cache = cacheManager.getCache("activeProgramRules");
+
+            if (cache != null) {
+                cache.evict(rule.getProgram().getId());
+            }
         }
     }
 }

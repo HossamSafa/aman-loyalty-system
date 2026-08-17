@@ -17,10 +17,11 @@ public class ProgramRuleValidator {
     private final RuleVersionRepository ruleVersionRepository;
     public void validateFirstRule(
             Long programId,
-            ProgramRuleRequest request
+            ProgramRuleRequest request,
+            LocalDateTime now
     ) {
 
-        validateEffectiveFromRequired(request);
+        validateEffectiveFromRequired(request,now);
         validateLockDays(request);
         validateExpiryDays(request);
         validateEarningRule(request);
@@ -40,7 +41,7 @@ public class ProgramRuleValidator {
         }
     }
     private void validateEffectiveFromRequired(
-            ProgramRuleRequest request
+            ProgramRuleRequest request,LocalDateTime now
     ) {
 
         if (request.getEffectiveFrom() == null) {
@@ -49,14 +50,22 @@ public class ProgramRuleValidator {
                     "Effective from date is required"
             );
         }
+        // reject effective from if it is in the past
+        if (request.getEffectiveFrom().isBefore(now)) {
+            throw BusinessException.badRequest(
+                    ErrorCode.INVALID_RULE_EFFECTIVE_DATE,
+                    "Effective from date cannot be in the past"
+            );
+        }
     }
     public void validate(
             Long programId,
             ProgramRuleRequest request,
-            RuleVersion currentRule
+            RuleVersion currentRule,
+            LocalDateTime now
     ) {
 
-        validateEffectiveFrom(request, currentRule);
+        validateEffectiveFrom(request, currentRule,now);
         validateLockDays(request);
         validateExpiryDays(request);
         validateEarningRule(request);
@@ -95,7 +104,8 @@ public class ProgramRuleValidator {
             }
         }
     }
-    private void validateEffectiveFrom(ProgramRuleRequest request, RuleVersion currentRule) {
+    /*
+    private void validateEffectiveFrom(ProgramRuleRequest request, RuleVersion currentRule,LocalDateTime now) {
 
         if (request.getEffectiveFrom() == null) {
             throw BusinessException.badRequest(
@@ -103,6 +113,32 @@ public class ProgramRuleValidator {
                     "Effective from date is required"
             );
         }
+
+        // Reject Effective from if it is in the past
+        if (request.getEffectiveFrom().isBefore(now)) {
+            throw BusinessException.badRequest(
+                    ErrorCode.INVALID_RULE_EFFECTIVE_DATE,
+                    "Effective from date cannot be in the past"
+            );
+        }
+
+
+        if (!request.getEffectiveFrom()
+                .isAfter(currentRule.getEffectiveFrom())) {
+
+            throw BusinessException.conflict(
+                    ErrorCode.RULE_EFFECTIVE_PERIOD_CONFLICT,
+                    "New rule effective date must be after the current rule effective date"
+            );
+        }
+    }*/
+    private void validateEffectiveFrom(
+            ProgramRuleRequest request,
+            RuleVersion currentRule,
+            LocalDateTime now
+    ) {
+
+        validateEffectiveFromRequired(request, now);
 
         if (!request.getEffectiveFrom()
                 .isAfter(currentRule.getEffectiveFrom())) {

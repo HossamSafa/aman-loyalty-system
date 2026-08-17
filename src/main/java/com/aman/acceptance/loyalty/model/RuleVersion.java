@@ -10,7 +10,13 @@ import java.time.LocalDateTime;
 
 
 @Entity
-@Table(name = "rule_versions")
+@Table(name = "rule_versions",uniqueConstraints = {
+        @UniqueConstraint(
+                name = "uk_rule_version_program_version",
+                columnNames = {"program_id", "version"}
+        )
+})
+
 @Getter
 @Setter
 @NoArgsConstructor

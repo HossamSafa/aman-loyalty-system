@@ -16,6 +16,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -32,10 +33,10 @@ public class ProgramRuleService {
     )
     @Transactional
     public ProgramRuleResponse updateRules(Long programId, ProgramRuleRequest request) {
-
+        LocalDateTime now = LocalDateTime.now();
         // 1. Find program
         LoyaltyProgram program = loyaltyProgramRepository
-                .findById(programId)
+                .findByIdForUpdate(programId)
                 .orElseThrow(() ->
                         BusinessException.notFound(
                                 ErrorCode.LOYALTY_PROGRAM_NOT_FOUND,
@@ -44,7 +45,7 @@ public class ProgramRuleService {
                 );
 
         // 2. Lock and find current rule
-        LocalDateTime now = LocalDateTime.now();
+
 
         /*RuleVersion currentRule = ruleVersionRepository
                 .findEffectiveRuleForUpdate(programId, now)
@@ -68,7 +69,7 @@ public class ProgramRuleService {
             programRuleValidator.validate(
                     programId,
                     request,
-                    currentRule
+                    currentRule,now
             );
             // 4. Close old rule
             currentRule.setEffectiveTo(
@@ -83,7 +84,7 @@ public class ProgramRuleService {
 
             programRuleValidator.validateFirstRule(
                     programId,
-                    request
+                    request,now
             );
         }
 
@@ -94,16 +95,17 @@ public class ProgramRuleService {
                 .map(rule -> rule.getVersion() + 1)
                 .orElse(1);
         // 6. Create new RuleVersion
+        //explicit scale and rounding mode to both BigDecimal.divide()operations to avoid ArithmeticException.
         BigDecimal earningRate =
                 BigDecimal.valueOf(request.getEarning().getPoints())
-                        .divide(request.getEarning().getSpendAmount());
+                        .divide(request.getEarning().getSpendAmount(),4, RoundingMode.HALF_UP);
 
         BigDecimal redemptionRate =
                 request.getRedemption().getDiscountAmount()
                         .divide(
                                 BigDecimal.valueOf(
                                         request.getRedemption().getPoints()
-                                )
+                                ),4,RoundingMode.HALF_UP
                         );
         RuleStatus newStatus =
                 request.getEffectiveFrom().isAfter(now)
