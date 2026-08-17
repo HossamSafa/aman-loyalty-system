@@ -23,4 +23,6 @@ public interface LoyaltyAccountRepository extends JpaRepository<LoyaltyAccount, 
             """)
     Optional<LoyaltyAccount> findByIdForUpdate(@Param("accountId") Long accountId);
 
+    boolean existsById(Long id);
+
 }

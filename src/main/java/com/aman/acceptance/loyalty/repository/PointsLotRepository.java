@@ -1,5 +1,6 @@
 package com.aman.acceptance.loyalty.repository;
 
+import com.aman.acceptance.loyalty.enums.LotStatus;
 import com.aman.acceptance.loyalty.model.PointsLot;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +15,11 @@ import java.util.Optional;
 //}
 public interface PointsLotRepository
         extends JpaRepository<PointsLot, Long> {
+    Optional<PointsLot>
+    findFirstByAccount_IdAndStatusAndRemainingPointsGreaterThanOrderByExpiresAtAscUnlockAtAsc(
+            Long accountId,
+            LotStatus status,
+            Integer remainingPoints);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("""
