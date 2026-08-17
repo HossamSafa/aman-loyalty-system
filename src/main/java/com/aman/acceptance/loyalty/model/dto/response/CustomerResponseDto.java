@@ -8,14 +8,14 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResolveCustomerApiResponse {
+public class CustomerResponseDto {
 
     private boolean success;
-    private ResolveCustomerResponse data;
+    private CustomerDto data;
     @Builder.Default
     private MetaDto meta = MetaDto.now();
 
-    public ResolveCustomerApiResponse(boolean success, ResolveCustomerResponse data) {
+    public CustomerResponseDto(boolean success, CustomerDto data) {
         this.success = success;
         this.data = data;
         this.meta = MetaDto.now();

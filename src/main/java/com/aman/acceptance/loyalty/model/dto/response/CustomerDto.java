@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 
-public class ResolveCustomerResponse {
+public class CustomerDto {
 
     private Long customerId;
 

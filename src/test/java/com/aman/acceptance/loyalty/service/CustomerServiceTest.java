@@ -1,7 +1,7 @@
 package com.aman.acceptance.loyalty.service;
 
-import com.aman.acceptance.loyalty.model.dto.request.ResolveCustomerRequest;
-import com.aman.acceptance.loyalty.model.dto.response.ResolveCustomerResponse;
+import com.aman.acceptance.loyalty.model.dto.request.CustomerRequestDto;
+import com.aman.acceptance.loyalty.model.dto.response.CustomerDto;
 import com.aman.acceptance.loyalty.exception.LoyaltyException;
 import com.aman.acceptance.loyalty.mapper.CustomerMapper;
 import com.aman.acceptance.loyalty.model.Customer;
@@ -50,7 +50,7 @@ class CustomerServiceTest {
     void resolve_newCustomer_createsCustomerAndAccount() {
 
 
-        ResolveCustomerRequest request = new ResolveCustomerRequest();
+        CustomerRequestDto request = new CustomerRequestDto();
         request.setMobileNumber("01012345678");
         request.setCustomerName("Ahmed Ali");
         request.setAutoEnroll(true);
@@ -71,7 +71,7 @@ class CustomerServiceTest {
                 .customer(savedCustomer)
                 .build();
 
-        ResolveCustomerResponse expectedResponse = ResolveCustomerResponse.builder()
+        CustomerDto expectedResponse = CustomerDto.builder()
                 .customerId(1L)
                 .accountId(1L)
                 .newlyEnrolled(true)
@@ -85,7 +85,7 @@ class CustomerServiceTest {
         when(customerMapper.toResolveCustomerResponse(eq(savedCustomer), eq(savedAccount), eq(true), anyString())).thenReturn(expectedResponse);
 
 
-        ResolveCustomerResponse result = customerService.resolve(request, programId);
+        CustomerDto result = customerService.resolve(request, programId);
         assertNotNull(result);
         assertTrue(result.getNewlyEnrolled());
         assertEquals(1L, result.getCustomerId());
@@ -101,7 +101,7 @@ class CustomerServiceTest {
     void resolve_existingCustomerAndAccount_returnsExistingData() {
 
         // Arrange
-        ResolveCustomerRequest request = new ResolveCustomerRequest();
+        CustomerRequestDto request = new CustomerRequestDto();
         request.setMobileNumber("01012345678");
         request.setCustomerName("Ahmed Ali");
         request.setAutoEnroll(true);
@@ -122,7 +122,7 @@ class CustomerServiceTest {
                 .customer(existingCustomer)
                 .build();
 
-        ResolveCustomerResponse expectedResponse = ResolveCustomerResponse.builder()
+        CustomerDto expectedResponse = CustomerDto.builder()
                 .customerId(1L)
                 .accountId(1L)
                 .newlyEnrolled(false)
@@ -134,7 +134,7 @@ class CustomerServiceTest {
         when(customerMapper.toResolveCustomerResponse(eq(existingCustomer), eq(existingAccount), eq(false), anyString())).thenReturn(expectedResponse);
 
         // Act
-        ResolveCustomerResponse result = customerService.resolve(request, programId);
+        CustomerDto result = customerService.resolve(request, programId);
 
         // Assert
         assertNotNull(result);
@@ -149,7 +149,7 @@ class CustomerServiceTest {
     void resolve_customerNotFoundAndAutoEnrollFalse_throwsException() {
 
         // Arrange
-        ResolveCustomerRequest request = new ResolveCustomerRequest();
+        CustomerRequestDto request = new CustomerRequestDto();
         request.setMobileNumber("01012345678");
         request.setAutoEnroll(false);
 
@@ -171,7 +171,7 @@ class CustomerServiceTest {
     void resolve_existingCustomerNewAccount_createsAccountOnly() {
 
         // Arrange
-        ResolveCustomerRequest request = new ResolveCustomerRequest();
+        CustomerRequestDto request = new CustomerRequestDto();
         request.setMobileNumber("01012345678");
         request.setAutoEnroll(true);
 
@@ -191,7 +191,7 @@ class CustomerServiceTest {
                 .customer(existingCustomer)
                 .build();
 
-        ResolveCustomerResponse expectedResponse = ResolveCustomerResponse.builder()
+        CustomerDto expectedResponse = CustomerDto.builder()
                 .customerId(1L)
                 .accountId(5L)
                 .newlyEnrolled(true)
@@ -204,7 +204,7 @@ class CustomerServiceTest {
         when(customerMapper.toResolveCustomerResponse(eq(existingCustomer), eq(newAccount), eq(true), anyString())).thenReturn(expectedResponse);
 
         // Act
-        ResolveCustomerResponse result = customerService.resolve(request, programId);
+        CustomerDto result = customerService.resolve(request, programId);
 
         // Assert
         assertTrue(result.getNewlyEnrolled());

@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ResolveCustomerRequest {
+public class CustomerRequestDto {
     @NotBlank(message = "phone number is required")
     @Pattern(
         regexp = "^(\\+20|0)?1[0125][0-9]{8}$",

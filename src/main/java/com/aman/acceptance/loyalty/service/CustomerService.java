@@ -1,7 +1,7 @@
 package com.aman.acceptance.loyalty.service;
 
-import com.aman.acceptance.loyalty.model.dto.request.ResolveCustomerRequest;
-import com.aman.acceptance.loyalty.model.dto.response.ResolveCustomerResponse;
+import com.aman.acceptance.loyalty.model.dto.request.CustomerRequestDto;
+import com.aman.acceptance.loyalty.model.dto.response.CustomerDto;
 import com.aman.acceptance.loyalty.enums.ProgramStatus;
 import com.aman.acceptance.loyalty.exception.LoyaltyException;
 import com.aman.acceptance.loyalty.mapper.CustomerMapper;
@@ -86,7 +86,7 @@ public class CustomerService {
     }
 
     @Transactional
-    public ResolveCustomerResponse resolve(ResolveCustomerRequest request, long programId) {
+    public CustomerDto resolve(CustomerRequestDto request, long programId) {
 
         String normalizeMobile = mobileUtil.normalizeMobile(request.getMobileNumber());
 
