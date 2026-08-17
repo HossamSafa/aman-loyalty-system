@@ -8,18 +8,17 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 //public interface PointsLotRepository  extends JpaRepository<PointsLot, Long> {
 //    Optional<PointsLot> findByEarningTransactionId(Long earningTransactionId);
 //}
-public interface PointsLotRepository
-        extends JpaRepository<PointsLot, Long> {
+public interface PointsLotRepository extends JpaRepository<PointsLot, Long> {
     Optional<PointsLot>
     findFirstByAccount_IdAndStatusAndRemainingPointsGreaterThanOrderByExpiresAtAscUnlockAtAsc(
-            Long accountId,
-            LotStatus status,
-            Integer remainingPoints);
+            Long accountId, LotStatus status, Integer remainingPoints);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("""
@@ -28,8 +27,13 @@ public interface PointsLotRepository
             WHERE lot.earningTransaction.id = :earningTransactionId
             """)
 
-    Optional<PointsLot> findByEarningTransactionIdForUpdate(
-            @Param("earningTransactionId")
-            Long earningTransactionId
-    );
+    Optional<PointsLot> findByEarningTransactionIdForUpdate(@Param("earningTransactionId") Long earningTransactionId);
+
+List<PointsLot> findByStatusAndUnlockAtLessThanEqualAndRemainingPointsGreaterThan(
+        LotStatus status, LocalDateTime unlockAt,Integer remainingPoints);
+
+    List<PointsLot> findByStatusAndExpiresAtLessThanEqualAndRemainingPointsGreaterThan(
+            LotStatus status, LocalDateTime expiresAt,Integer remainingPoints);
+
+
 }
