@@ -1,0 +1,350 @@
+openapi: 3.0.3
+info:
+  title: Aman POS Loyalty System API
+  version: "1.0"
+  description: >
+    Companion OpenAPI contract for loyalty-service, aligned with
+    Aman_Loyalty_System_Solution_Design_v1_0.pdf.
+    NOTE: Only POST /earnings is implemented in this codebase today.
+    The /admin/programs/{programId}/rules path below is documented per
+    change #9 (earningRate instead of spendAmount/points) but has no
+    corresponding controller in this repository yet.
+servers:
+  - url: /api/v1/loyalty
+
+paths:
+  /earnings:
+    post:
+      summary: Create points for an approved sale and lock them
+      operationId: createEarning
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          required: true
+          schema:
+            type: string
+            maxLength: 255
+        - in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+          description: "Bearer <JWT> - caller identity (clientId) is derived from this token."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EarningRequest'
+            example:
+              accountId: 4451
+              sourceTransactionId: sale-20260727-00091
+              amount:
+                value: "1000.00"
+                currency: EGP
+              transactionTime: "2026-07-27T07:15:20Z"
+              channel: POS
+      responses:
+        '201':
+          description: Points earned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EarningSuccessResponse'
+              example:
+                success: true
+                data:
+                  loyaltyTransactionId: 10001
+                  sourceTransactionId: sale-20260727-00091
+                  earnedPoints: 1000
+                  pointsStatus: LOCKED
+                  unlockAt: "2026-08-26T07:15:20Z"
+                  expiresAt: "2027-07-22T07:15:20Z"
+                  appliedRuleVersion: 4
+                  balance:
+                    available: 2500
+                    locked: 2000
+                    reserved: 0
+                    totalOwned: 4500
+                meta:
+                  correlationId: cor-7d8f2c
+                  timestamp: "2026-07-27T07:15:21Z"
+        '422':
+          description: Business validation error (e.g. currency mismatch, rule not found, program inactive)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '409':
+          description: Duplicate source transaction or idempotency key conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+
+  /admin/programs/{programId}/rules:
+    put:
+      summary: Create an effective-dated rule version for a program
+      description: >
+        Documentation-only per change #9. Not implemented as a controller
+        in this repository. Uses earningRate (not spendAmount/points),
+        consistent with the RuleVersion entity and the existing
+        calculation earnedPoints = amount x earningRate.
+      operationId: updateProgramRules
+      parameters:
+        - in: path
+          name: programId
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1001
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleUpdateRequest'
+            example:
+              effectiveFrom: "2026-08-01T00:00:00Z"
+              earning:
+                earningRate: 1.00
+                roundingMode: FLOOR
+              redemption:
+                redemptionRate: 0.005
+                minimumPoints: 100
+              lockDays: 30
+              expiryDays: 360
+      responses:
+        '200':
+          description: Rule version created (scheduled or active)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleUpdateSuccessResponse'
+              example:
+                success: true
+                data:
+                  programId: 1001
+                  ruleVersion: 5
+                  status: SCHEDULED
+                  effectiveFrom: "2026-08-01T00:00:00Z"
+                  earningRate: 1.00
+                  lockDays: 30
+                  expiryDays: 360
+                meta:
+                  correlationId: cor-rule-01
+                  timestamp: "2026-07-27T11:00:00Z"
+
+components:
+  schemas:
+    MoneyDto:
+      type: object
+      required: [value, currency]
+      properties:
+        value:
+          type: string
+          example: "1000.00"
+        currency:
+          type: string
+          pattern: '^[A-Z]{3}$'
+          example: EGP
+
+    BalanceDto:
+      type: object
+      properties:
+        available:
+          type: integer
+          example: 2500
+        locked:
+          type: integer
+          example: 2000
+        reserved:
+          type: integer
+          example: 0
+        totalOwned:
+          type: integer
+          example: 4500
+
+    EarningRequest:
+      type: object
+      required: [accountId, sourceTransactionId, amount, transactionTime]
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          example: 4451
+        sourceTransactionId:
+          type: string
+          example: sale-20260727-00091
+        amount:
+          $ref: '#/components/schemas/MoneyDto'
+        transactionTime:
+          type: string
+          format: date-time
+          example: "2026-07-27T07:15:20Z"
+        channel:
+          type: string
+          example: POS
+
+    EarningResponse:
+      type: object
+      properties:
+        loyaltyTransactionId:
+          type: integer
+          format: int64
+          example: 10001
+        sourceTransactionId:
+          type: string
+          example: sale-20260727-00091
+        earnedPoints:
+          type: integer
+          example: 1000
+        pointsStatus:
+          type: string
+          enum: [LOCKED, AVAILABLE, RESERVED, EXPIRED, CANCELLED]
+          example: LOCKED
+        unlockAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+        appliedRuleVersion:
+          type: integer
+          format: int64
+          example: 4
+        balance:
+          $ref: '#/components/schemas/BalanceDto'
+
+    EarningSuccessResponse:
+      allOf:
+        - $ref: '#/components/schemas/ApiSuccessEnvelope'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/EarningResponse'
+
+    RuleEarningBlock:
+      type: object
+      required: [earningRate]
+      properties:
+        earningRate:
+          type: number
+          format: double
+          description: Points earned per unit of program currency (earnedPoints = amount x earningRate).
+          example: 1.00
+        roundingMode:
+          type: string
+          enum: [FLOOR]
+          example: FLOOR
+
+    RuleRedemptionBlock:
+      type: object
+      properties:
+        redemptionRate:
+          type: number
+          format: double
+          description: Currency value of one point (matches RuleVersion.redemptionRate).
+          example: 0.005
+        minimumPoints:
+          type: integer
+          example: 100
+
+    RuleUpdateRequest:
+      type: object
+      required: [effectiveFrom, earning, lockDays, expiryDays]
+      properties:
+        effectiveFrom:
+          type: string
+          format: date-time
+          example: "2026-08-01T00:00:00Z"
+        earning:
+          $ref: '#/components/schemas/RuleEarningBlock'
+        redemption:
+          $ref: '#/components/schemas/RuleRedemptionBlock'
+        lockDays:
+          type: integer
+          example: 30
+        expiryDays:
+          type: integer
+          example: 360
+
+    RuleUpdateResponse:
+      type: object
+      properties:
+        programId:
+          type: integer
+          format: int64
+          example: 1001
+        ruleVersion:
+          type: integer
+          format: int64
+          example: 5
+        status:
+          type: string
+          enum: [SCHEDULED, ACTIVE, CLOSED]
+          example: SCHEDULED
+        effectiveFrom:
+          type: string
+          format: date-time
+        earningRate:
+          type: number
+          format: double
+          example: 1.00
+        lockDays:
+          type: integer
+          example: 30
+        expiryDays:
+          type: integer
+          example: 360
+
+    RuleUpdateSuccessResponse:
+      allOf:
+        - $ref: '#/components/schemas/ApiSuccessEnvelope'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/RuleUpdateResponse'
+
+    ApiSuccessEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    ApiErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: LOYALTY_RULE_NOT_FOUND
+            message:
+              type: string
+            retryable:
+              type: boolean
+              example: false
+            details:
+              type: object
+              nullable: true
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    Meta:
+      type: object
+      properties:
+        correlationId:
+          type: string
+          example: cor-7d8f2c
+        timestamp:
+          type: string
+          format: date-time
