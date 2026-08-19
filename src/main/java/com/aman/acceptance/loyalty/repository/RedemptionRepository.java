@@ -24,4 +24,6 @@ public interface RedemptionRepository extends JpaRepository<Redemption, Long> {
     List<Redemption> findByStatusAndOtpExpiresAtBefore(RedemptionStatus status, LocalDateTime time);
 
     List<Redemption> findByStatusAndReservationExpiresAtBefore(RedemptionStatus status, LocalDateTime time);
+
+    boolean existsByPurchaseTransactionId(String purchaseTransactionId);
 }

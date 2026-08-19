@@ -5,6 +5,7 @@ import java.time.Instant;
 public record OtpMetadataDto(
         String mobileNumberMasked,
         Instant expiresAt,
-        Integer attemptsRemaining
+        Integer attemptsRemaining,
+        String otp
 ) {
 }
