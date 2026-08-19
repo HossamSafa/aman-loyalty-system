@@ -79,6 +79,22 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Manual Points Adjustment",
+      "item": [
+        {
+          "name": "Adjustment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [

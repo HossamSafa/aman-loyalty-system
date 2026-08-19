@@ -37,6 +37,10 @@ public class LoyaltyException extends RuntimeException{
     public static LoyaltyException internal(ErrorCode code, String message) {
         return new LoyaltyException(code, message, HttpStatus.INTERNAL_SERVER_ERROR, true);
     }
+
+    public static LoyaltyException unprocessable(ErrorCode code, String message) {
+        return new LoyaltyException(code, message, HttpStatus.UNPROCESSABLE_ENTITY, false);
+    }
 }
 
 
