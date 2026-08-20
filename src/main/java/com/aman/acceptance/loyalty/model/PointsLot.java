@@ -64,4 +64,13 @@ public class PointsLot {
                 && expiresAt.isAfter(LocalDateTime.now());
     }
 
+    public void restore(int points) {
+        if (points <= 0) {
+            throw new IllegalArgumentException("Points to restore must be positive");
+        }
+        if (this.remainingPoints + points > this.originalPoints) {
+            throw new IllegalStateException("Cannot restore more points than originally granted");
+        }
+        this.remainingPoints += points;
+    }
 }

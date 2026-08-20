@@ -89,10 +89,35 @@ public class LoyaltyAccount {
         return availablePoints + lockedPoints + reservedPoints;
     }
 
+    public void reserveForRedemption(int points) {
+        if (points <= 0) {
+            throw new IllegalArgumentException("Points to reserve must be positive");
+        }
+        if (this.availablePoints < points) {
+            throw new IllegalStateException("Insufficient available points to reserve " + points);
+        }
+        this.availablePoints -= points;
+        this.reservedPoints += points;
+    }
+
+    public void finalizeReservation(int points) {
+        if (points <= 0) {
+            throw new IllegalArgumentException("Points to finalize must be positive");
+        }
+        if (this.reservedPoints < points) {
+            throw new IllegalStateException("Insufficient reserved points to finalize " + points);
+        }
+        this.reservedPoints -= points;
+    }
+
+    public void releaseReservation(int points) {
+        if (points <= 0) {
+            throw new IllegalArgumentException("Points to release must be positive");
+        }
+        if (this.reservedPoints < points) {
+            throw new IllegalStateException("Insufficient reserved points to release " + points);
+        }
+        this.reservedPoints -= points;
+        this.availablePoints += points;
+    }
 }
-
-
-
-
-
-
