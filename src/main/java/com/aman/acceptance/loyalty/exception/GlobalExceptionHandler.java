@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
                 .getFieldErrors()
                 .get(0)
                 .getDefaultMessage();
-        log.warn("Validation error: {}", message);
+        log.warn("Validation error: {}", ex.getMessage());
 
         Map<String, Object> errorBody = new HashMap<>();
         errorBody.put("code", "LOYALTY_INVALID_MOBILE");
