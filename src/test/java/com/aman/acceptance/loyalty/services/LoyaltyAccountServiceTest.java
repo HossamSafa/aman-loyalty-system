@@ -6,9 +6,10 @@ import com.aman.acceptance.loyalty.model.Customer;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import com.aman.acceptance.loyalty.model.LoyaltyProgram;
 import com.aman.acceptance.loyalty.model.PointsLot;
-import com.aman.acceptance.loyalty.repositries.LoyaltyAccountRepository;
-import com.aman.acceptance.loyalty.repositries.LoyaltyTransactionRepositoryFlow3;
-import com.aman.acceptance.loyalty.repositries.PointsLotRepositoryFlow3;
+
+import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
+import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
+import com.aman.acceptance.loyalty.repository.PointsLotRepository;
 import com.aman.acceptance.loyalty.service.LoyaltyAccountService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -30,13 +31,13 @@ class LoyaltyAccountServiceTest {
 private LoyaltyAccountService loyaltyAccountService;
 
     @MockitoBean
-    private LoyaltyAccountRepository loyaltyAccountRepositoryFlow3;
+    private LoyaltyAccountRepository loyaltyAccountRepository;
 
     @MockitoBean
-    private LoyaltyTransactionRepositoryFlow3 transactionRepository;
+    private LoyaltyTransactionRepository transactionRepository;
 
     @MockitoBean
-    private PointsLotRepositoryFlow3 pointsLotRepositoryFlow3;
+    private PointsLotRepository pointsLotRepository;
 
 @Test
 public void findAccountWhichIsFoundTest() {
@@ -53,11 +54,11 @@ public void findAccountWhichIsFoundTest() {
     final LoyaltyAccount loyaltyAccount = LoyaltyAccount.builder().customer(customer).id(accountId)
             .program(loyaltyProgram).availablePoints(100).lockedPoints(20).reservedPoints(10).status(ACTIVE).build();
 
-    Mockito.when(loyaltyAccountRepositoryFlow3.findById(accountId)).thenReturn(Optional.of(loyaltyAccount));
+    Mockito.when(loyaltyAccountRepository.findById(accountId)).thenReturn(Optional.of(loyaltyAccount));
 
     PointsLot pointsLot = PointsLot.builder().remainingPoints(50).expiresAt(LocalDateTime.now()).build();
 
-    Mockito.when(pointsLotRepositoryFlow3
+    Mockito.when(pointsLotRepository
                     .findFirstByAccount_IdAndStatusAndRemainingPointsGreaterThanOrderByExpiresAtAscUnlockAtAsc(
                             accountId, LotStatus.AVAILABLE, 0)).thenReturn(Optional.of(pointsLot));
 
@@ -90,7 +91,7 @@ public void findAccountWhichIsFoundTest() {
 
         final Long accountId = 999L;
 
-        Mockito.when(loyaltyAccountRepositoryFlow3.findById(accountId)).thenReturn(Optional.empty());
+        Mockito.when(loyaltyAccountRepository.findById(accountId)).thenReturn(Optional.empty());
 
         /**
          * Assert,Action
