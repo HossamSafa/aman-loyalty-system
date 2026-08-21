@@ -6,7 +6,6 @@ import com.aman.acceptance.loyalty.model.Customer;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import com.aman.acceptance.loyalty.model.LoyaltyProgram;
 import com.aman.acceptance.loyalty.model.PointsLot;
-
 import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
 import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.repository.PointsLotRepository;

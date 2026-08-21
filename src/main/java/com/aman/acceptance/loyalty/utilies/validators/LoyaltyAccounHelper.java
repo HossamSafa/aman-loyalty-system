@@ -30,10 +30,9 @@ public class LoyaltyAccounHelper {
  * this is gard if
  */
         if (!accountRepository.existsById(accountId)) {
-            throw new ResourceNotFoundException(
-                    "Loyalty account not found: " + accountId
-            );
-        }
+
+            throw new ResourceNotFoundException("Loyalty account not found: " + accountId);}
+
     }
 
     public static String mobileNumberMasked(final String mobileNumber) throws CredentialsException {

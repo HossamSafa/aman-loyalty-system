@@ -18,6 +18,8 @@ public interface LoyaltyTransactionRepository
 
     List<LoyaltyTransaction>
     findAllByAccount_IdAndOriginalSourceTransactionIdAndTypeAndStatus(Long accountId, String originalSourceTransactionId, TransactionType type, TransactionStatus status);
+    Optional<LoyaltyTransaction> findBySourceTransactionId(String sourceTransactionId);
+    Optional<LoyaltyTransaction> findByIdempotencyKey(String idempotencyKey);
+    //Using exists() followed by save() is not a real protection against concurrent requests. We need to read the existing operation and return the result of the retry instead.
 }
 
-//Using exists() followed by save() is not a real protection against concurrent requests. We need to read the existing operation and return the result of the retry instead.
