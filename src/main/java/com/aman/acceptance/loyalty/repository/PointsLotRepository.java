@@ -29,8 +29,8 @@ public interface PointsLotRepository extends JpaRepository<PointsLot, Long> {
 
     Optional<PointsLot> findByEarningTransactionIdForUpdate(@Param("earningTransactionId") Long earningTransactionId);
 
-List<PointsLot> findByStatusAndUnlockAtLessThanEqualAndRemainingPointsGreaterThan(
-        LotStatus status, LocalDateTime unlockAt,Integer remainingPoints);
+    List<PointsLot> findByStatusAndUnlockAtLessThanEqualAndRemainingPointsGreaterThan(
+            LotStatus status, LocalDateTime unlockAt,Integer remainingPoints);
 
     List<PointsLot> findByStatusAndExpiresAtLessThanEqualAndRemainingPointsGreaterThan(
             LotStatus status, LocalDateTime expiresAt,Integer remainingPoints);
