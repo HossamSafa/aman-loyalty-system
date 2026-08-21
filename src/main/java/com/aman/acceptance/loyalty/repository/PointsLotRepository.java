@@ -56,9 +56,9 @@ public interface PointsLotRepository extends JpaRepository<PointsLot, Long> {
             @Param("expiresAt") LocalDateTime expiresAt,
             @Param("remainingPoints") Integer remainingPoints,
             @Param("checkpointId") Long checkpointId,
-            Pageable pageable
+            Pageable pageable);
 
-    Optional<PointsLot> findByEarningTransactionIdForUpdate(@Param("earningTransactionId") Long earningTransactionId);
+//    Optional<PointsLot> findByEarningTransactionIdForUpdate(@Param("earningTransactionId") Long earningTransactionId);
 
 List<PointsLot> findByStatusAndUnlockAtLessThanEqualAndRemainingPointsGreaterThan(
         LotStatus status, LocalDateTime unlockAt,Integer remainingPoints);
