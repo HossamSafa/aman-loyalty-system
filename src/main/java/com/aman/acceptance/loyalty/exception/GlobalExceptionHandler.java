@@ -1,78 +1,140 @@
 package com.aman.acceptance.loyalty.exception;
 
-import com.aman.acceptance.loyalty.model.dto.common.MetaDto;
-import com.aman.acceptance.loyalty.model.dto.response.ApiResponse;
+import com.aman.acceptance.loyalty.model.dto.ApiErrorResponse;
+import com.aman.acceptance.loyalty.web.CorrelationIdFilter;
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
-@RestControllerAdvice
 @Slf4j
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(LoyaltyException.class)
-    public ResponseEntity<Map<String, Object>> handleLoyaltyException(LoyaltyException ex) {
-        log.warn("Business error [{}]: {}", ex.getCode(), ex.getMessage());
+    public ResponseEntity<ApiErrorResponse> handleLoyaltyException(
+            LoyaltyException exception
+    ) {
 
-        Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("code", ex.getCode().name());
-        errorBody.put("message", ex.getMessage());
-        errorBody.put("retryable", ex.isRetryable());
+        log.warn("Business error [{}]: {}", exception.getCode(), exception.getMessage());
 
-        Map<String, Object> response = new HashMap<>();
-        response.put("success", false);
-        response.put("error", errorBody);
-        response.put("meta", MetaDto.builder()
-                .correlationId(UUID.randomUUID().toString())
-                .timestamp(LocalDateTime.now())
-                .build());
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .success(false)
+                .error(
+                        ApiErrorResponse.ErrorDetail.builder()
+                                .code(exception.getCode().name())
+                                .message(exception.getMessage())
+                                .retryable(exception.isRetryable())
+                                .details(exception.getDetails())
+                                .build()
+                )
+                .meta(buildMeta())
+                .build();
 
-        return ResponseEntity.status(ex.getStatus()).body(response);
+        return ResponseEntity
+                .status(exception.getStatus())
+                .body(response);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, Object>> handleValidationException(MethodArgumentNotValidException ex) {
+    public ResponseEntity<ApiErrorResponse> handleValidationException(
+            MethodArgumentNotValidException exception
+    ) {
 
-        String errorMessage = ex.getBindingResult()
-                .getFieldErrors()
-                .get(0)
-                .getDefaultMessage();
-        log.warn("Validation error: {}", ex.getMessage());
+        log.warn("Validation error: {}", exception.getMessage());
 
-        Map<String, Object> errorBody = new HashMap<>();
-        errorBody.put("code", "LOYALTY_INVALID_MOBILE");
-        errorBody.put("message", errorMessage);
+        Map<String, String> fieldErrors = new LinkedHashMap<>();
+        exception.getBindingResult().getFieldErrors().forEach(fieldError ->
+                fieldErrors.put(
+                        fieldError.getField(),
+                        fieldError.getDefaultMessage()
+                )
+        );
 
-        Map<String, Object> response = new HashMap<>();
-        response.put("success", false);
-        response.put("error", errorBody);
-        response.put("meta", MetaDto.builder()
-                .correlationId(UUID.randomUUID().toString())
-                .timestamp(LocalDateTime.now())
-                .build());
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .success(false)
+                .error(
+                        ApiErrorResponse.ErrorDetail.builder()
+                                .code("LOYALTY_VALIDATION_ERROR")
+                                .message("Request validation failed")
+                                .retryable(false)
+                                .details(fieldErrors)
+                                .build()
+                )
+                .meta(buildMeta())
+                .build();
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(response);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ApiErrorResponse> handleConstraintViolationException(
+            ConstraintViolationException exception
+    ) {
+
+        Map<String, String> violations = new LinkedHashMap<>();
+        exception.getConstraintViolations().forEach(violation ->
+                violations.put(
+                        violation.getPropertyPath().toString(),
+                        violation.getMessage()
+                )
+        );
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .success(false)
+                .error(
+                        ApiErrorResponse.ErrorDetail.builder()
+                                .code("LOYALTY_VALIDATION_ERROR")
+                                .message("Request validation failed")
+                                .retryable(false)
+                                .details(violations)
+                                .build()
+                )
+                .meta(buildMeta())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(response);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponse<Void>> handleGenericException(Exception ex) {
-        log.error("Unexpected error occurred", ex);
+    public ResponseEntity<ApiErrorResponse> handleGenericException(Exception exception) {
 
-        ApiResponse<Void> body = ApiResponse.error(
-                "LOYALTY_INTERNAL_ERROR",
-                "An unexpected error occurred. Please try again later.",
-                true
-        );
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
+        log.error("Unexpected error occurred", exception);
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .success(false)
+                .error(
+                        ApiErrorResponse.ErrorDetail.builder()
+                                .code("LOYALTY_INTERNAL_ERROR")
+                                .message("An unexpected error occurred. Please try again later.")
+                                .retryable(true)
+                                .details(null)
+                                .build()
+                )
+                .meta(buildMeta())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(response);
+    }
+
+    private ApiErrorResponse.Meta buildMeta() {
+        return ApiErrorResponse.Meta.builder()
+                .correlationId(MDC.get(CorrelationIdFilter.MDC_KEY))
+                .timestamp(LocalDateTime.now())
+                .build();
     }
 }
