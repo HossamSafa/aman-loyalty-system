@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface PointsLotRepository extends JpaRepository<PointsLot, Long> {
 
     Optional<PointsLot>
