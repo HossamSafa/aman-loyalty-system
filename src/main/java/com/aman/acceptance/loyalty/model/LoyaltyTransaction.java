@@ -56,7 +56,7 @@ public class LoyaltyTransaction {
     private TransactionStatus status = TransactionStatus.COMMITTED;
 
 
-    @Column(name = "idempotency_key", length = 255)
+    @Column(name = "idempotency_key",nullable = false, unique = true, length = 255)
     private String idempotencyKey;
 
 

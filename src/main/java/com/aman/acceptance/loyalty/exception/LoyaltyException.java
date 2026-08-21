@@ -63,4 +63,11 @@ public class LoyaltyException extends RuntimeException {
     ) {
         return new LoyaltyException(code, status, message, retryable, null);
     }
+    public static LoyaltyException unprocessable(ErrorCode code, String message) {
+        return new LoyaltyException(code, message, HttpStatus.UNPROCESSABLE_ENTITY, false);
+    }
+
+    public static LoyaltyException tooManyRequests(ErrorCode code, String message) {
+        return new LoyaltyException(code, message, HttpStatus.TOO_MANY_REQUESTS, false);
+    }
 }

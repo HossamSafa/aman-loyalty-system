@@ -3,6 +3,7 @@ package com.aman.acceptance.loyalty.exception;
 import com.aman.acceptance.loyalty.model.dto.ApiErrorResponse;
 import com.aman.acceptance.loyalty.web.CorrelationIdFilter;
 import jakarta.validation.ConstraintViolationException;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -22,11 +24,14 @@ public class GlobalExceptionHandler {
             LoyaltyException exception
     ) {
 
+        log.warn("Business error [{}]: {}", exception.getCode(), exception.getMessage());
+
         ApiErrorResponse response = ApiErrorResponse.builder()
                 .success(false)
                 .error(
                         ApiErrorResponse.ErrorDetail.builder()
-                                .code(exception.getCode().name())                                .message(exception.getMessage())
+                                .code(exception.getCode().name())
+                                .message(exception.getMessage())
                                 .retryable(exception.isRetryable())
                                 .details(exception.getDetails())
                                 .build()
@@ -43,6 +48,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorResponse> handleValidationException(
             MethodArgumentNotValidException exception
     ) {
+
+        log.warn("Validation error: {}", exception.getMessage());
 
         Map<String, String> fieldErrors = new LinkedHashMap<>();
         exception.getBindingResult().getFieldErrors().forEach(fieldError ->
@@ -98,6 +105,29 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
+                .body(response);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiErrorResponse> handleGenericException(Exception exception) {
+
+        log.error("Unexpected error occurred", exception);
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .success(false)
+                .error(
+                        ApiErrorResponse.ErrorDetail.builder()
+                                .code("LOYALTY_INTERNAL_ERROR")
+                                .message("An unexpected error occurred. Please try again later.")
+                                .retryable(true)
+                                .details(null)
+                                .build()
+                )
+                .meta(buildMeta())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(response);
     }
 
