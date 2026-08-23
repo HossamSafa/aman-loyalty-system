@@ -51,6 +51,12 @@ public class RefundService {
                         "Loyalty account was not found."
                 ));
 
+        // Recheck after acquiring the lock — protects against concurrent duplicate refunds
+        LoyaltyTransaction existingRefundAfterLock = findExistingRefund(request);
+        if (existingRefundAfterLock != null) {
+            return buildExistingResponse(existingRefundAfterLock, request);
+        }
+
         PointsLot pointsLot = pointsLotRepository.findByEarningTransactionIdForUpdate(originalTransaction.getId())
                 .orElseThrow(() -> BusinessException.notFound(
                         ErrorCode.POINTS_LOT_NOT_FOUND,
@@ -89,7 +95,7 @@ public class RefundService {
         updateAccount(account, pointsToReverse);
 
         RedemptionRestoreResult restoration =
-                restoreRedeemedPointsIfApplicable(request, account, originalTransaction.getMoneyAmount());
+                restoreRedeemedPointsIfApplicable(request, account, originalTransaction, previouslyRefundedAmount);
 
         BalanceDto balance = buildBalance(account);
 
@@ -148,7 +154,8 @@ public class RefundService {
     }
 
     private RedemptionRestoreResult restoreRedeemedPointsIfApplicable(RefundRequest request, LoyaltyAccount account,
-                                                                      BigDecimal originalSaleAmount) {
+                                                                      LoyaltyTransaction originalTransaction,
+                                                                      BigDecimal previouslyRefundedAmount) {
 
         if (request.getRedemptionId() == null) {
             return RedemptionRestoreResult.none();
@@ -160,21 +167,45 @@ public class RefundService {
                         "Redemption was not found for this account."
                 ));
 
-        int pointsToRestore;
+        if (redemption.getStatus() != RedemptionStatus.COMMITTED) {
+            throw BusinessException.conflict(
+                    ErrorCode.LOYALTY_REDEMPTION_STATE_CONFLICT,
+                    "Redemption is not committed and cannot be restored."
+            );
+        }
+
+        if (!redemption.getPurchaseTransactionId().equals(originalTransaction.getSourceTransactionId())) {
+            throw BusinessException.conflict(
+                    ErrorCode.INVALID_REFUND_STATE,
+                    "Redemption is not linked to the original refunded purchase."
+            );
+        }
+
+        BigDecimal originalSaleAmount = originalTransaction.getMoneyAmount();
+
+        BigDecimal cumulativeRefundAmount = previouslyRefundedAmount.add(request.getRefundAmount().getValue());
+
+        int targetRestoredPoints;
 
         if (request.getRefundType() == RefundType.FULL) {
-            pointsToRestore = redemption.getRequestedPoints();
+            targetRestoredPoints = redemption.getRequestedPoints();
         } else {
-            pointsToRestore = BigDecimal.valueOf(redemption.getRequestedPoints())
-                    .multiply(request.getRefundAmount().getValue())
+            targetRestoredPoints = BigDecimal.valueOf(redemption.getRequestedPoints())
+                    .multiply(cumulativeRefundAmount)
                     .divide(originalSaleAmount, 0, RoundingMode.FLOOR)
                     .intValueExact();
         }
 
-        if (pointsToRestore > redemption.getRequestedPoints()) {
+        int previouslyRestoredPoints = redemption.getAllocations().stream()
+                .mapToInt(RedemptionAllocation::getRestoredPoints)
+                .sum();
+
+        int pointsToRestore = Math.subtractExact(targetRestoredPoints, previouslyRestoredPoints);
+
+        if (pointsToRestore < 0) {
             throw BusinessException.conflict(
                     ErrorCode.INVALID_REFUND_STATE,
-                    "Points to restore exceed the originally redeemed points."
+                    "Previously restored points exceed the expected restoration."
             );
         }
 
@@ -216,8 +247,16 @@ public class RefundService {
 
             remainingToDistribute -= pointsForThisAllocation;
 
+            // Track how many points have been restored for this specific allocation
+            allocation.setRestoredPoints(Math.addExact(allocation.getRestoredPoints(), pointsForThisAllocation));
+
             PointsLot lot = allocation.getLot();
             lot.setRemainingPoints(Math.addExact(lot.getRemainingPoints(), pointsForThisAllocation));
+
+            // A lot that was fully consumed (CANCELLED) becomes AVAILABLE again once it has remaining points
+            if (lot.getStatus() == LotStatus.CANCELLED && lot.getRemainingPoints() > 0) {
+                lot.setStatus(LotStatus.AVAILABLE);
+            }
         }
     }
 
@@ -241,6 +280,7 @@ public class RefundService {
                 .account(account)
                 .type(TransactionType.REFUND_EARN_REVERSAL)
                 .sourceTransactionId(request.getRefundTransactionId())
+                .idempotencyKey(request.getRefundTransactionId())
                 .originalSourceTransactionId(originalTransaction.getSourceTransactionId())
                 .refundType(request.getRefundType())
                 .points(Math.negateExact(reversedPoints))

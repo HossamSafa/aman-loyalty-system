@@ -108,6 +108,7 @@ class RefundServiceTest {
         Redemption redemption = Redemption.builder()
                 .id(1L)
                 .account(account)
+                .purchaseTransactionId("sale-test-001")
                 .requestedPoints(1000)
                 .discountAmount(new BigDecimal("100.00"))
                 .status(RedemptionStatus.COMMITTED)
@@ -232,4 +233,5 @@ class RefundServiceTest {
                 .isInstanceOf(BusinessException.class)
                 .hasMessageContaining("Redemption was not found for this account.");
     }
+
 }
