@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -34,6 +36,20 @@ public class GlobalExceptionHandler {
         log.warn("Validation error: {}", message);
 
         ApiResponse<Void> body = ApiResponse.error("LOYALTY_VALIDATION_ERROR", message, false);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+    }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleNoResourceFound(NoResourceFoundException ex) {
+        log.warn("Route not found: {}", ex.getMessage());
+        ApiResponse<Void> body = ApiResponse.error("LOYALTY_ROUTE_NOT_FOUND", "The requested endpoint does not exist.", false);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+    }
+
+    @ExceptionHandler(InvalidDataAccessApiUsageException.class)
+    public ResponseEntity<ApiResponse<Void>> handleInvalidSort(InvalidDataAccessApiUsageException ex) {
+        log.warn("Invalid query usage: {}", ex.getMessage());
+        ApiResponse<Void> body = ApiResponse.error("LOYALTY_VALIDATION_ERROR", "Invalid sort field provided.", false);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
     }
 
