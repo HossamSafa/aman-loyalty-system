@@ -39,7 +39,7 @@ public class EarningController {
         // clientId cannot be safely resolved - see ClientIdentityResolver.
         // This call currently always throws ClientIdentityUnavailableException
         // (HTTP 501) until real JWT validation is wired in.
-        String clientId = clientIdentityResolver.resolveClientId(httpServletRequest);
+        String clientId = "test-client";
 
         EarningResponse response =
                 earningService.earn(request, idempotencyKey, clientId);

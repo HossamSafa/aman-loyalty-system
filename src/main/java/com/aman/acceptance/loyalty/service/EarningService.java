@@ -1,5 +1,6 @@
 package com.aman.acceptance.loyalty.service;
 
+import com.aman.acceptance.loyalty.enums.CurrencyCode;
 import com.aman.acceptance.loyalty.enums.AccountStatus;
 import com.aman.acceptance.loyalty.enums.LotStatus;
 import com.aman.acceptance.loyalty.enums.ProgramStatus;
@@ -232,12 +233,14 @@ public class EarningService {
             throw new ProgramInactiveException(program.getId());
         }
 
-        if (!request.getAmount().getCurrency().equals(program.getCurrency())) {
+        if (!request.getAmount().getCurrency().name().equals(program.getCurrency())) {
             throw new CurrencyMismatchException(
                     program.getId(),
-                    program.getCurrency(),
+                    CurrencyCode.valueOf(program.getCurrency()),
                     request.getAmount().getCurrency()
             );
+
+
         }
 
         Long programId = program.getId();
@@ -389,7 +392,7 @@ public class EarningService {
         AuditEvent.CalculationDetails details = new AuditEvent.CalculationDetails(
                 program.getId(),
                 rule.getId(),
-                request.getAmount().getCurrency(),
+                request.getAmount().getCurrency().name(),
                 request.getAmount().getValue(),
                 earnedPoints
         );
