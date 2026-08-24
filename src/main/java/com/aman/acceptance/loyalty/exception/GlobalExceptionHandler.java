@@ -15,11 +15,13 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-     private static final Logger log = (Logger) LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    private static final Logger log =
+            (Logger) LoggerFactory.getLogger(GlobalExceptionHandler.class);
     @ExceptionHandler(LoyaltyException.class)
     public ResponseEntity<Map<String, Object>> handleLoyaltyException(LoyaltyException ex) {
 
@@ -67,7 +69,7 @@ public class GlobalExceptionHandler {
             AccessDeniedException ex
     ) {
 
-     // log.warn("Access denied: {}", ex.getMessage());
+      log.warn("Access denied: {}", ex.getMessage());
 
         ApiResponse<Void> body = ApiResponse.error(
                 "LOYALTY_ACCESS_DENIED",
@@ -84,11 +86,11 @@ public class GlobalExceptionHandler {
             BusinessException ex
     ) {
 
-//        log.warn(
-//                "Business error [{}]: {}",
-//                ex.getCode(),
-//                ex.getMessage()
-//        );
+       log.warn(
+               "Business error [{}]: {}",
+                ex.getCode(),
+               ex.getMessage()
+      );
 
         ApiResponse<Void> body = ApiResponse.error(
                 ex.getCode().name(),
