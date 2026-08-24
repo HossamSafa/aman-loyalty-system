@@ -60,6 +60,13 @@ public class LoyaltyAccount {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    public LoyaltyAccount(LoyaltyProgram program, Customer customer) {
+        this.program = program;
+        this.customer = customer;
+        this.availablePoints = 0;
+        this.lockedPoints = 0;
+        this.reservedPoints = 0;
+    }
 
     @PrePersist
     protected void onCreate(){
