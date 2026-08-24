@@ -9,5 +9,4 @@ public enum TransactionType {
     EXPIRE,
     ADJUSTMENT_CREDIT,
     ADJUSTMENT_DEBIT
-
 }
