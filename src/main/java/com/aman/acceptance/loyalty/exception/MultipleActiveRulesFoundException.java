@@ -1,5 +1,6 @@
 package com.aman.acceptance.loyalty.exception;
 
+import com.aman.acceptance.loyalty.enums.ErrorCode;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
@@ -8,7 +9,7 @@ public class MultipleActiveRulesFoundException extends LoyaltyException {
 
     public MultipleActiveRulesFoundException(Long programId, LocalDateTime transactionTime) {
         super(
-                "LOYALTY_RULE_CONFIGURATION_ERROR",
+                ErrorCode.LOYALTY_RULE_CONFIGURATION_ERROR,
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 "Multiple active loyalty rules found for programId: "
                         + programId

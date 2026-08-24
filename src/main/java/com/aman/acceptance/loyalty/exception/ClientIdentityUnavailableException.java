@@ -1,5 +1,6 @@
 package com.aman.acceptance.loyalty.exception;
 
+import com.aman.acceptance.loyalty.enums.ErrorCode;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -12,7 +13,7 @@ public class ClientIdentityUnavailableException extends LoyaltyException {
 
     public ClientIdentityUnavailableException() {
         super(
-                "LOYALTY_CLIENT_IDENTITY_NOT_IMPLEMENTED",
+                ErrorCode.LOYALTY_CLIENT_IDENTITY_NOT_IMPLEMENTED,
                 HttpStatus.NOT_IMPLEMENTED,
                 "Authenticated client identity resolution is not implemented yet. "
                         + "This service has no authentication layer (JWT signature/issuer "

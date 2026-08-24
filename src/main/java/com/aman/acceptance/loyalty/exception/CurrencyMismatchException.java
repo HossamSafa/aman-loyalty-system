@@ -1,16 +1,18 @@
 package com.aman.acceptance.loyalty.exception;
 
+import com.aman.acceptance.loyalty.enums.CurrencyCode;
+import com.aman.acceptance.loyalty.enums.ErrorCode;
 import org.springframework.http.HttpStatus;
 
 public class CurrencyMismatchException extends LoyaltyException {
 
     public CurrencyMismatchException(
             Long programId,
-            String programCurrency,
-            String requestCurrency
+            CurrencyCode programCurrency,
+            CurrencyCode requestCurrency
     ) {
         super(
-                "LOYALTY_CURRENCY_MISMATCH",
+                ErrorCode.LOYALTY_CURRENCY_MISMATCH,
                 HttpStatus.UNPROCESSABLE_ENTITY,
                 "Transaction currency ("
                         + requestCurrency
