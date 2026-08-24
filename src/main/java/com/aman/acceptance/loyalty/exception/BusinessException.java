@@ -1,8 +1,13 @@
 package com.aman.acceptance.loyalty.exception;
 
 import com.aman.acceptance.loyalty.enums.ErrorCode;
+import com.aman.acceptance.loyalty.model.response.ApiResponse;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import org.springframework.security.access.AccessDeniedException;
 
 @Getter
 public class BusinessException extends RuntimeException {
@@ -74,6 +79,8 @@ public class BusinessException extends RuntimeException {
                 HttpStatus.INTERNAL_SERVER_ERROR
         );
     }
+
+
 }
 
 

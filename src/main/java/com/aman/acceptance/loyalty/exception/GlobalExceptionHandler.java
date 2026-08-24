@@ -5,8 +5,13 @@ import com.aman.acceptance.loyalty.web.CorrelationIdFilter;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import com.aman.acceptance.loyalty.model.dto.common.MetaDto;
+import com.aman.acceptance.loyalty.model.response.ApiResponse;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -14,6 +19,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.UUID;
+import org.slf4j.Logger;
+
 
 @Slf4j
 @RestControllerAdvice
@@ -137,4 +145,44 @@ public class GlobalExceptionHandler {
                 .timestamp(LocalDateTime.now())
                 .build();
     }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ApiResponse<Void>> handleAccessDeniedException(
+            AccessDeniedException ex
+    ) {
+
+      log.warn("Access denied: {}", ex.getMessage());
+
+        ApiResponse<Void> body = ApiResponse.error(
+                "LOYALTY_ACCESS_DENIED",
+                "You do not have permission to perform this operation.",
+                false
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.FORBIDDEN)
+                .body(body);
+    }
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiResponse<Void>> handleBusinessException(
+            BusinessException ex
+    ) {
+
+       log.warn(
+               "Business error [{}]: {}",
+                ex.getCode(),
+               ex.getMessage()
+      );
+
+        ApiResponse<Void> body = ApiResponse.error(
+                ex.getCode().name(),
+                ex.getMessage(),
+                false
+        );
+
+        return ResponseEntity
+                .status(ex.getStatus())
+                .body(body);
+    }
 }
+
