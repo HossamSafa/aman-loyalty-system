@@ -26,4 +26,8 @@ public class RedemptionAllocation {
 
     @Column(name = "points", nullable = false)
     private Integer points;
+    
+    @Column(name = "restored_points", nullable = false)
+    @Builder.Default
+    private Integer restoredPoints = 0;
 }

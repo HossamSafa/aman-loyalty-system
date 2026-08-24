@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Repository
 public interface RedemptionRepository extends JpaRepository<Redemption, Long> {
-
+    Optional<Redemption> findByIdAndAccount_Id(Long id, Long accountId);
     List<Redemption> findByStatusAndCreatedAtBefore(RedemptionStatus status, LocalDateTime cutoffTime);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
