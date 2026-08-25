@@ -12,23 +12,14 @@ import java.util.Optional;
 
 public interface LoyaltyTransactionRepository
         extends JpaRepository<LoyaltyTransaction, Long> {
-
     Page<LoyaltyTransaction> findByAccount_Id(Long accountId, Pageable pageable);
 
-    Optional<LoyaltyTransaction> findBySourceTransactionIdAndType(String sourceTransactionId, TransactionType type);
+    Optional<LoyaltyTransaction> findBySourceTransactionIdAndType(String sourceTransactionId,TransactionType type);
 
     List<LoyaltyTransaction>
     findAllByAccount_IdAndOriginalSourceTransactionIdAndTypeAndStatus(Long accountId, String originalSourceTransactionId, TransactionType type, TransactionStatus status);
-
-    boolean existsByAccount_Program_IdAndSourceTransactionIdAndType(
-            Long programId,
-            String sourceTransactionId,
-            TransactionType type
-    );
-
     Optional<LoyaltyTransaction> findBySourceTransactionId(String sourceTransactionId);
-
     Optional<LoyaltyTransaction> findByIdempotencyKey(String idempotencyKey);
-
     //Using exists() followed by save() is not a real protection against concurrent requests. We need to read the existing operation and return the result of the retry instead.
 }
+

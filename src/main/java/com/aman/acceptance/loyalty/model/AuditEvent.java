@@ -33,12 +33,10 @@ public class AuditEvent {
     private Long entityId;
 
 
-    @Lob
-    @Column(name = "before_json")
+    @Column(name = "before_json", columnDefinition = "TEXT")
     private String beforeJson;
 
-    @Lob
-    @Column(name = "after_json")
+    @Column(name = "after_json", columnDefinition = "TEXT")
     private String afterJson;
 
     @Column(name = "correlation_id", length = 100)
@@ -50,14 +48,5 @@ public class AuditEvent {
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
-    }
-    @Getter
-    @AllArgsConstructor
-    public static class CalculationDetails {
-        private final Long programId;
-        private final Long appliedRuleVersionId;
-        private final String currency;
-        private final java.math.BigDecimal moneyAmount;
-        private final Integer earnedPoints;
     }
 }

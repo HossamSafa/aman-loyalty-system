@@ -69,19 +69,19 @@ public class LoyaltyTransaction {
     }
 
 
-    @Column(name = "original_source_transaction_id")
-    private String originalSourceTransactionId;
+@Column(name = "original_source_transaction_id")
+private String originalSourceTransactionId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "refund_type")
-    private RefundType refundType;
+@Enumerated(EnumType.STRING)
+@Column(name = "refund_type")
+private RefundType refundType;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "currency_code")
-    private CurrencyCode currency;
+@Enumerated(EnumType.STRING)
+@Column(name = "currency_code")
+private CurrencyCode currency;
 
-    @Column(name = "transaction_time")
-    private LocalDateTime transactionTime;
+@Column(name = "transaction_time")
+private LocalDateTime transactionTime;
 
 
 }

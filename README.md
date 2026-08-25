@@ -1,13 +1,10 @@
-# aman-loyalty-system
-A scalable loyalty system supporting points earning, OTP-based redemption, refunds, and expiry with real-world business logic.
-
 
 # Flow 9 – Fraud Freeze & Unfreeze
 
 **Service:** `loyalty-service`
 **Branch:** `feature/flow-9-freeze-unfreeze-account`
 **Base path:** `/api/v1/loyalty`
-
+ 
 
 ---
 
@@ -178,4 +175,9 @@ It covers:
 6. Freeze — missing `reasonCode` (400)
 7. Freeze — missing `actorId` (400)
  
+
+
+
+
+
 

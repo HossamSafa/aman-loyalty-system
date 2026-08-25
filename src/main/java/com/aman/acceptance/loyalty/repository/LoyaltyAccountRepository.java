@@ -1,6 +1,8 @@
 package com.aman.acceptance.loyalty.repository;
 
+import com.aman.acceptance.loyalty.model.Customer;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
+import com.aman.acceptance.loyalty.model.LoyaltyProgram;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
@@ -12,6 +14,8 @@ import java.util.Optional;
 
 @Repository
 public interface LoyaltyAccountRepository extends JpaRepository<LoyaltyAccount, Long> {
+
+    Optional<LoyaltyAccount> findByProgramAndCustomer(LoyaltyProgram program, Customer customer);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("""
@@ -25,4 +29,5 @@ public interface LoyaltyAccountRepository extends JpaRepository<LoyaltyAccount, 
 
 
     boolean existsById(Long id);
+
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class ProgramRuleStatusScheduler {
@@ -39,11 +40,13 @@ public class ProgramRuleStatusScheduler {
         );
 
         for (RuleVersion rule : scheduledRules) {
+
             System.out.println(
                     "ACTIVATING VERSION = " + rule.getVersion()
             );
 
             rule.setStatus(RuleStatus.ACTIVE);
+
             Cache cache = cacheManager.getCache("activeProgramRules");
 
             if (cache != null) {
@@ -63,11 +66,13 @@ public class ProgramRuleStatusScheduler {
         );
 
         for (RuleVersion rule : activeRules) {
+
             System.out.println(
                     "CLOSING VERSION = " + rule.getVersion()
             );
 
             rule.setStatus(RuleStatus.CLOSED);
+
             Cache cache = cacheManager.getCache("activeProgramRules");
 
             if (cache != null) {

@@ -34,9 +34,6 @@ public class IdempotencyRecord {
     private String idempotencyKey;
 
 
-    @Column(name = "request_hash", nullable = false, length = 64)
-    private String requestHash;
-
     @Lob
     @Column(name = "response_body")
     private String responseBody;
