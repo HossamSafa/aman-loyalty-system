@@ -10,7 +10,13 @@ import java.time.LocalDateTime;
 
 
 @Entity
-@Table(name = "rule_versions")
+@Table(name = "rule_versions",uniqueConstraints = {
+        @UniqueConstraint(
+                name = "uk_rule_version_program_version",
+                columnNames = {"program_id", "version"}
+        )
+})
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -50,6 +56,18 @@ public class RuleVersion {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @Column(name = "lock_days", nullable = false)
+    private Integer lockDays;
+
+    @Column(name = "expiry_days", nullable = false)
+    private Integer expiryDays;
+
+    @Column(name = "minimum_redemption_points", nullable = false)
+    private Integer minimumRedemptionPoints;
+
+    @Column(name = "version", nullable = false)
+    private Integer version;
 
     @PrePersist
     protected void onCreate() {

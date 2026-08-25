@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @Table(
         name = "loyalty_transactions",
         uniqueConstraints = @UniqueConstraint(
-                name = "uk_account_source_type",
-                columnNames = {"account_id", "source_transaction_id", "type"}
+                name = "uq_refund_transaction_id",
+                columnNames = {"source_transaction_id", "type"}
         )
 )
 @Getter
@@ -56,7 +56,7 @@ public class LoyaltyTransaction {
     private TransactionStatus status = TransactionStatus.COMMITTED;
 
 
-    @Column(name = "idempotency_key", length = 255)
+    @Column(name = "idempotency_key",nullable = false, unique = true, length = 255)
     private String idempotencyKey;
 
 

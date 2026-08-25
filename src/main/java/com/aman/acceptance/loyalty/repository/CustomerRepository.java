@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface CustomerRepository  extends JpaRepository<Customer,Long> {
 
     Page<Customer> findByNameContainingIgnoreCase(String name, Pageable pageable);
+    
     Optional<Customer> findByMobileHash(String mobileHash);
-
 }
+
