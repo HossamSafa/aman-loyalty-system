@@ -12,7 +12,6 @@ import com.aman.acceptance.loyalty.service.LoyaltyAccountService;
 import com.aman.acceptance.loyalty.utilies.validators.LoyaltyAccounHelper;
 
 import lombok.RequiredArgsConstructor;
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/dashboard")
 @RequiredArgsConstructor
