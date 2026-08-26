@@ -4,7 +4,11 @@ import com.aman.acceptance.loyalty.model.dto.response.AuditEventResponse;
 import com.aman.acceptance.loyalty.model.dto.response.BalanceOverviewResponse;
 import com.aman.acceptance.loyalty.model.dto.response.OtpFunnelResponse;
 import com.aman.acceptance.loyalty.model.dto.response.PointsFlowResponse;
-import com.aman.acceptance.loyalty.repository.*;
+import com.aman.acceptance.loyalty.repository.AuditEventRepository;
+import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
+import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
+import com.aman.acceptance.loyalty.repository.PointsLotRepository;
+import com.aman.acceptance.loyalty.repository.RedemptionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +26,19 @@ public class AdminDashboardService {
     private final RedemptionRepository redemptionRepository;
     private final AuditEventRepository auditEventRepository;
 
+
+    // =========================================================
+    // BALANCE COMPOSITION
+    // =========================================================
+
     public BalanceOverviewResponse getBalanceOverview() {
 
-
         List<Object[]> results = loyaltyAccountRepository.getBalanceTotals();
-        Object[] result = results.isEmpty() ? new Object[3] : results.get(0);
+
+        Object[] result = results.isEmpty()
+                ? new Object[3]
+                : results.get(0);
+
         Long available = getLongValue(result, 0);
         Long locked = getLongValue(result, 1);
         Long reserved = getLongValue(result, 2);
@@ -49,9 +61,15 @@ public class AdminDashboardService {
         );
     }
 
+
+    // =========================================================
+    // POINTS FLOW
+    // =========================================================
+
     public List<PointsFlowResponse> getPointsFlow() {
 
-        LocalDateTime startDate = LocalDateTime.now().minusMonths(6);
+        LocalDateTime startDate =
+                LocalDateTime.now().minusMonths(6);
 
         List<Object[]> results =
                 loyaltyTransactionRepository.getPointsFlowByMonth(startDate);
@@ -65,45 +83,92 @@ public class AdminDashboardService {
                 .toList();
     }
 
+
+    // =========================================================
+    // OTP FUNNEL
+    // =========================================================
+
     public OtpFunnelResponse getOtpFunnel() {
 
-        LocalDateTime startDate = LocalDateTime.now().minusDays(30);
+        LocalDateTime startDate =
+                LocalDateTime.now().minusDays(30);
 
-        List<Object[]> results = redemptionRepository.getOtpFunnelCounts(startDate);
-        Object[] result = results.isEmpty() ? new Object[3] : results.get(0);
+        List<Object[]> results =
+                redemptionRepository.getOtpFunnelCounts(startDate);
+
+        Object[] result = results.isEmpty()
+                ? new Object[3]
+                : results.get(0);
 
         Long reserved = getLongValue(result, 0);
         Long verified = getLongValue(result, 1);
         Long committed = getLongValue(result, 2);
 
-        return new OtpFunnelResponse(reserved, verified, committed);
+        return new OtpFunnelResponse(
+                reserved,
+                verified,
+                committed
+        );
     }
+
+
+    // =========================================================
+    // RECENT ALERTS
+    // =========================================================
 
     public List<AuditEventResponse> getRecentAlerts(int limit) {
 
-        List<Object[]> results = auditEventRepository.getRecentAuditEvents(limit);
+        List<Object[]> results =
+                auditEventRepository.getRecentAuditEvents(limit);
 
         return results.stream()
                 .map(row -> new AuditEventResponse(
-                        ((Number) row[0]).longValue(),
+
+                        // id
+                        row[0] == null
+                                ? null
+                                : ((Number) row[0]).longValue(),
+
+                        // actorId
                         (String) row[1],
+
+                        // action
                         (String) row[2],
+
+                        // entityType
                         (String) row[3],
-                        ((Number) row[4]).longValue(),
+
+                        // entityId
+                        row[4] == null
+                                ? null
+                                : ((Number) row[4]).longValue(),
+
+                        // afterJson
                         (String) row[5],
-                        ((java.sql.Timestamp) row[6]).toLocalDateTime()
+
+                        // createdAt
+                        (LocalDateTime) row[6]
                 ))
                 .toList();
     }
 
+
+    // =========================================================
+    // HELPER METHODS
+    // =========================================================
+
     private Long getLongValue(Object[] result, int index) {
 
-        if (result == null || result.length <= index || result[index] == null) {
+        if (result == null
+                || result.length <= index
+                || result[index] == null) {
+
             return 0L;
         }
 
         return ((Number) result[index]).longValue();
     }
+
 
     private Long getLongValue(Object value) {
 
