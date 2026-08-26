@@ -1,4 +1,5 @@
 package com.aman.acceptance.loyalty.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -17,6 +18,9 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.List;
 
+
+
+
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
@@ -24,6 +28,19 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
     @Bean
@@ -48,30 +65,17 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("*"));
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(List.of("*"));
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
-
-
-    @Bean
     public InMemoryUserDetailsManager userDetailsService(PasswordEncoder encoder) {
 
         UserDetails admin = User
                 .withUsername("admin")
-                .password(encoder.encode("admin123")) // تم تشفير كلمة السر بدلاً من {noop}
+                .password(encoder.encode("admin123"))
                 .authorities("loyalty.admin")
                 .build();
 
         UserDetails user = User
                 .withUsername("user")
-                .password(encoder.encode("user123")) // تم تشفير كلمة السر بدلاً من {noop}
+                .password(encoder.encode("user123"))
                 .authorities("loyalty.user")
                 .build();
 
