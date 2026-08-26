@@ -15,12 +15,7 @@ import com.aman.acceptance.loyalty.model.RedemptionAllocation;
 import com.aman.acceptance.loyalty.model.dto.request.CancelRequest;
 import com.aman.acceptance.loyalty.model.dto.request.CommitRequest;
 import com.aman.acceptance.loyalty.model.dto.request.RedemptionRequest;
-import com.aman.acceptance.loyalty.model.dto.response.CancelResponseData;
-import com.aman.acceptance.loyalty.model.dto.response.CommitResponseData;
-import com.aman.acceptance.loyalty.model.dto.response.OtpMetadataDto;
-import com.aman.acceptance.loyalty.model.dto.response.RedemptionMoneyDto;
-import com.aman.acceptance.loyalty.model.dto.response.RedemptionResponseData;
-import com.aman.acceptance.loyalty.model.dto.response.VerifyRedemptionResponseData;
+import com.aman.acceptance.loyalty.model.dto.response.*;
 import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
 import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.repository.PointsLotRepository;
@@ -41,7 +36,6 @@ import java.util.List;
 public class RedemptionService {
 
         private static final Duration RESERVATION_TTL = Duration.ofMinutes(5);
-
         private final LoyaltyAccountRepository accountRepository;
         private final PointsLotRepository pointsLotRepository;
         private final RedemptionRepository redemptionRepository;
@@ -50,7 +44,6 @@ public class RedemptionService {
         private final PointsAllocationService allocationService;
         private final OtpService otpService;
         private final RedemptionResponseMapper responseMapper;
-
         @Transactional
         public RedemptionResponseData initiateRedemption(RedemptionRequest request) {
                 Long accountId = request.accountId();

@@ -83,4 +83,11 @@ List<PointsLot> findByStatusAndUnlockAtLessThanEqualAndRemainingPointsGreaterTha
     );
 
     List<PointsLot> findByAccountAndStatusOrderByExpiresAtAsc(LoyaltyAccount account, LotStatus status);
+
+    @Query("SELECT COALESCE(SUM(p.remainingPoints), 0) FROM PointsLot p " +
+            "WHERE p.status = com.aman.acceptance.loyalty.enums.LotStatus.AVAILABLE " +
+            "AND p.expiresAt BETWEEN :now AND :cutoff")
+    Long getExpiringSoonPoints(@Param("now") LocalDateTime now,
+                               @Param("cutoff") LocalDateTime cutoff);
+
 }
