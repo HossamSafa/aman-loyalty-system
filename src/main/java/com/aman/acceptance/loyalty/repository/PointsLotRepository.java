@@ -90,4 +90,18 @@ List<PointsLot> findByStatusAndUnlockAtLessThanEqualAndRemainingPointsGreaterTha
     Long getExpiringSoonPoints(@Param("now") LocalDateTime now,
                                @Param("cutoff") LocalDateTime cutoff);
 
+
+    @Query("""
+    SELECT COALESCE(SUM(p.originalPoints), 0)
+    FROM PointsLot p
+    WHERE p.account.program.id = :programId
+      AND p.unlockAt >= :from
+      AND p.unlockAt <= :to
+      AND p.status <> com.aman.acceptance.loyalty.enums.LotStatus.LOCKED
+    """)
+    Long sumUnlockedPoints(
+            @Param("programId") Long programId,
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to
+    );
 }

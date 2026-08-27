@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -37,4 +39,32 @@ public interface RedemptionRepository extends JpaRepository<Redemption, Long> {
         """, nativeQuery = true)
     List<Object[]> getOtpFunnelCounts(@Param("startDate") LocalDateTime startDate);
 
+
+    @Query("""
+    SELECT COALESCE(SUM(r.discountAmount), 0)
+    FROM Redemption r
+    WHERE r.account.program.id = :programId
+      AND r.status = com.aman.acceptance.loyalty.enums.RedemptionStatus.COMMITTED
+      AND r.createdAt >= :from
+      AND r.createdAt <= :to
+    """)
+    BigDecimal sumCommittedRedemptionValue(
+            @Param("programId") Long programId,
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to
+    );
+
+    @Query("""
+    SELECT COUNT(r)
+    FROM Redemption r
+    WHERE r.account.program.id = :programId
+      AND r.status = com.aman.acceptance.loyalty.enums.RedemptionStatus.COMMITTED
+      AND r.createdAt >= :from
+      AND r.createdAt <= :to
+    """)
+    Long countCommittedRedemptions(
+            @Param("programId") Long programId,
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to
+    );
 }
