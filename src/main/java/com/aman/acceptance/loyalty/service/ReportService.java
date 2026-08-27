@@ -1,6 +1,8 @@
 package com.aman.acceptance.loyalty.service;
 
+import com.aman.acceptance.loyalty.enums.ErrorCode;
 import com.aman.acceptance.loyalty.enums.TransactionType;
+import com.aman.acceptance.loyalty.exception.BusinessException;
 import com.aman.acceptance.loyalty.model.dto.response.MonthlyReportResponse;
 import com.aman.acceptance.loyalty.model.dto.response.ReportSummaryResponse;
 import com.aman.acceptance.loyalty.repository.*;
@@ -35,12 +37,8 @@ public class ReportService {
             LocalDateTime to
     ) {
 
-        // Make sure the requested program exists
-        if (!loyaltyProgramRepository.existsById(programId)) {
-            throw new IllegalArgumentException(
-                    "Loyalty program not found: " + programId
-            );
-        }
+        validateReportRequest(programId, from, to);
+
 
         Long activeCustomers =
                 loyaltyAccountRepository.countActiveCustomers(programId);
@@ -124,11 +122,7 @@ public class ReportService {
             LocalDateTime to
     ) {
 
-        if (!loyaltyProgramRepository.existsById(programId)) {
-            throw new IllegalArgumentException(
-                    "Loyalty program not found: " + programId
-            );
-        }
+        validateReportRequest(programId, from, to);
 
         List<MonthlyPointsTrendProjection> results =
                 loyaltyTransactionRepository.findMonthlyPointsTrend(
@@ -180,5 +174,32 @@ public class ReportService {
                             .build();
                 })
                 .toList();
+    }
+    private void validateReportRequest(
+            Long programId,
+            LocalDateTime from,
+            LocalDateTime to
+    ) {
+
+        if (!loyaltyProgramRepository.existsById(programId)) {
+            throw BusinessException.notFound(
+                    ErrorCode.LOYALTY_PROGRAM_NOT_FOUND,
+                    "Loyalty program not found: " + programId
+            );
+        }
+
+        if (from == null || to == null) {
+            throw BusinessException.badRequest(
+                    ErrorCode.INVALID_REPORT_DATE_RANGE,
+                    "From and to dates are required"
+            );
+        }
+
+        if (from.isAfter(to)) {
+            throw BusinessException.badRequest(
+                    ErrorCode.INVALID_REPORT_DATE_RANGE,
+                    "From date must not be after to date"
+            );
+        }
     }
 }
