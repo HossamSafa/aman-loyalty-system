@@ -7,7 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import com.aman.acceptance.loyalty.model.dto.response.ProgramResponse;
+import com.aman.acceptance.loyalty.model.dto.response.ProgramRuleDetailsResponse;
 
+import java.util.List;
 @RestController
 @RequestMapping("/admin/programs")
 @RequiredArgsConstructor
@@ -26,6 +29,27 @@ public class ProgramRuleController {
                 programRuleService.updateRules(programId, request);
 
         return ResponseEntity.ok(response);
+    }
+
+    @PreAuthorize("hasAuthority('loyalty.admin')")
+    @GetMapping
+    public ResponseEntity<List<ProgramResponse>> getPrograms() {
+
+        List<ProgramResponse> programs =
+                programRuleService.getPrograms();
+
+        return ResponseEntity.ok(programs);
+    }
+    @PreAuthorize("hasAuthority('loyalty.admin')")
+    @GetMapping("/{programId}/rules")
+    public ResponseEntity<List<ProgramRuleDetailsResponse>> getProgramRules(
+            @PathVariable Long programId
+    ) {
+
+        List<ProgramRuleDetailsResponse> rules =
+                programRuleService.getProgramRules(programId);
+
+        return ResponseEntity.ok(rules);
     }
 
 }

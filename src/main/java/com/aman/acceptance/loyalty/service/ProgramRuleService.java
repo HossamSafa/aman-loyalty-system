@@ -19,6 +19,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.Optional;
+import com.aman.acceptance.loyalty.model.dto.response.ProgramResponse;
+import com.aman.acceptance.loyalty.model.dto.response.ProgramRuleDetailsResponse;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -142,5 +146,53 @@ public class ProgramRuleService {
 
     }
 
+    public List<ProgramResponse> getPrograms() {
 
+        return loyaltyProgramRepository.findAll()
+                .stream()
+                .map(program -> ProgramResponse.builder()
+                        .id(program.getId())
+                        .merchantId(program.getMerchantId())
+                        .name(program.getName())
+                        .status(program.getStatus())
+                        .currency(program.getCurrency())
+                        .lockDays(program.getLockDays())
+                        .expiryDays(program.getExpiryDays())
+                        .build()
+                )
+                .toList();
+    }
+    public List<ProgramRuleDetailsResponse> getProgramRules(Long programId) {
+
+        LoyaltyProgram program = loyaltyProgramRepository
+                .findById(programId)
+                .orElseThrow(() ->
+                        BusinessException.notFound(
+                                ErrorCode.LOYALTY_PROGRAM_NOT_FOUND,
+                                "Loyalty program not found with id: " + programId
+                        )
+                );
+
+        return ruleVersionRepository
+                .findByProgramId(program.getId())
+                .stream()
+                .map(rule -> ProgramRuleDetailsResponse.builder()
+                        .id(rule.getId())
+                        .programId(rule.getProgram().getId())
+                        .version(rule.getVersion())
+                        .earningRate(rule.getEarningRate())
+                        .redemptionRate(rule.getRedemptionRate())
+                        .roundingMode(rule.getRoundingMode())
+                        .minimumRedemptionPoints(
+                                rule.getMinimumRedemptionPoints()
+                        )
+                        .lockDays(rule.getLockDays())
+                        .expiryDays(rule.getExpiryDays())
+                        .effectiveFrom(rule.getEffectiveFrom())
+                        .effectiveTo(rule.getEffectiveTo())
+                        .status(rule.getStatus())
+                        .build()
+                )
+                .toList();
+    }
 }
