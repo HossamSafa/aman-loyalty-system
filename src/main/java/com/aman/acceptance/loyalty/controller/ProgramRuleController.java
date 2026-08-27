@@ -1,6 +1,7 @@
 package com.aman.acceptance.loyalty.controller;
 
 import com.aman.acceptance.loyalty.model.dto.request.ProgramRuleRequest;
+import com.aman.acceptance.loyalty.model.dto.response.ProgramRuleHistoryResponse;
 import com.aman.acceptance.loyalty.model.dto.response.ProgramRuleResponse;
 import com.aman.acceptance.loyalty.service.ProgramRuleService;
 import lombok.RequiredArgsConstructor;
@@ -51,5 +52,13 @@ public class ProgramRuleController {
 
         return ResponseEntity.ok(rules);
     }
+    @GetMapping("/rules")
+    @PreAuthorize("hasAuthority('loyalty.admin')")
+    public ResponseEntity<List<ProgramRuleHistoryResponse>>
+    getAllProgramRules() {
 
+        return ResponseEntity.ok(
+                programRuleService.getAllProgramRules()
+        );
+    }
 }

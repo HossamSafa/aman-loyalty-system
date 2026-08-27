@@ -6,6 +6,7 @@ import com.aman.acceptance.loyalty.exception.BusinessException;
 import com.aman.acceptance.loyalty.model.LoyaltyProgram;
 import com.aman.acceptance.loyalty.model.RuleVersion;
 import com.aman.acceptance.loyalty.model.dto.request.ProgramRuleRequest;
+import com.aman.acceptance.loyalty.model.dto.response.ProgramRuleHistoryResponse;
 import com.aman.acceptance.loyalty.model.dto.response.ProgramRuleResponse;
 import com.aman.acceptance.loyalty.repository.LoyaltyProgramRepository;
 import com.aman.acceptance.loyalty.repository.RuleVersionRepository;
@@ -195,4 +196,31 @@ public class ProgramRuleService {
                 )
                 .toList();
     }
+    public List<ProgramRuleHistoryResponse> getAllProgramRules() {
+
+        return ruleVersionRepository
+                .findAll()
+                .stream()
+                .map(rule ->
+                        ProgramRuleHistoryResponse.builder()
+                                .id(rule.getId())
+                                .programId(rule.getProgram().getId())
+                                .programName(rule.getProgram().getName())
+                                .version(rule.getVersion())
+                                .earningRate(rule.getEarningRate())
+                                .redemptionRate(rule.getRedemptionRate())
+                                .roundingMode(rule.getRoundingMode())
+                                .minimumRedemptionPoints(
+                                        rule.getMinimumRedemptionPoints()
+                                )
+                                .lockDays(rule.getLockDays())
+                                .expiryDays(rule.getExpiryDays())
+                                .effectiveFrom(rule.getEffectiveFrom())
+                                .effectiveTo(rule.getEffectiveTo())
+                                .status(rule.getStatus())
+                                .build()
+                )
+                .toList();
+    }
+
 }
