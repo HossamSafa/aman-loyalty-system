@@ -1,4 +1,4 @@
-package com.aman.acceptance.loyalty.model.dto.response;
+package com.aman.acceptance.loyalty.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MonthlyReportResponse {
+public class MonthlyReportDto {
 
     private String month;
 

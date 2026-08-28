@@ -1,6 +1,7 @@
 package com.aman.acceptance.loyalty.controller;
 
-import com.aman.acceptance.loyalty.model.dto.response.MonthlyReportResponse;
+import com.aman.acceptance.loyalty.model.dto.MonthlyReportDto;
+import com.aman.acceptance.loyalty.model.dto.response.ApiResponse;
 import com.aman.acceptance.loyalty.model.dto.response.ReportSummaryResponse;
 import com.aman.acceptance.loyalty.service.ReportService;
 import lombok.RequiredArgsConstructor;
@@ -19,52 +20,25 @@ public class ReportController {
 
     private final ReportService reportService;
 
-    // Flow 11 - Merchant Reporting
     @PreAuthorize("hasAuthority('loyalty.admin')")
     @GetMapping("/summary")
-    public ResponseEntity<ReportSummaryResponse> getSummary(
+    public ResponseEntity<ApiResponse<ReportSummaryResponse>> getSummary(
             @RequestParam Long programId,
-
-            @RequestParam
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime from,
-
-            @RequestParam
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime to
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime from,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime to
     ) {
-
-        ReportSummaryResponse response =
-                reportService.getSummary(
-                        programId,
-                        from,
-                        to
-                );
-
-        return ResponseEntity.ok(response);
+        ReportSummaryResponse data = reportService.getSummary(programId, from, to);
+        return ResponseEntity.ok(ApiResponse.success(data));
     }
 
     @PreAuthorize("hasAuthority('loyalty.admin')")
     @GetMapping("/trend")
-    public ResponseEntity<List<MonthlyReportResponse>> getMonthlyTrend(
+    public ResponseEntity<ApiResponse<List<MonthlyReportDto>>> getMonthlyTrend(
             @RequestParam Long programId,
-
-            @RequestParam
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime from,
-
-            @RequestParam
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime to
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime from,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime to
     ) {
-
-        List<MonthlyReportResponse> response =
-                reportService.getMonthlyTrend(
-                        programId,
-                        from,
-                        to
-                );
-
-        return ResponseEntity.ok(response);
+        List<MonthlyReportDto> data = reportService.getMonthlyTrend(programId, from, to);
+        return ResponseEntity.ok(ApiResponse.success(data));
     }
 }
