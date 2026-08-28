@@ -1,4 +1,4 @@
-package com.aman.acceptance.loyalty.service.validator;
+package com.aman.acceptance.loyalty.service.validators;
 
 import com.aman.acceptance.loyalty.enums.ErrorCode;
 import com.aman.acceptance.loyalty.exception.BusinessException;
