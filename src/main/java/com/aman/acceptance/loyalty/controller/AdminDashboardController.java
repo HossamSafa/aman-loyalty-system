@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.aman.acceptance.loyalty.model.dto.response.LedgerEntryResponse;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import java.util.List;
 
 @RestController
@@ -39,6 +41,15 @@ public class AdminDashboardController {
     public ResponseEntity<ApiResponseDto<List<AuditEventResponse>>> getRecentAlerts(
             @RequestParam(defaultValue = "10") int limit) {
         List<AuditEventResponse> data = adminDashboardService.getRecentAlerts(limit);
+        return ResponseEntity.ok(new ApiResponseDto<>(true, data));
+    }
+    @GetMapping("/ledger")
+    public ResponseEntity<ApiResponseDto<List<LedgerEntryResponse>>> getGlobalLedger(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        List<LedgerEntryResponse> data = adminDashboardService.getGlobalLedger(pageable);
         return ResponseEntity.ok(new ApiResponseDto<>(true, data));
     }
 
