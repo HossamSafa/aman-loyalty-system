@@ -2,6 +2,7 @@ package com.aman.acceptance.loyalty.service;
 
 import com.aman.acceptance.loyalty.enums.AccountStatus;
 import com.aman.acceptance.loyalty.enums.ErrorCode;
+import com.aman.acceptance.loyalty.enums.RedemptionCancelReason;
 import com.aman.acceptance.loyalty.exception.*;
 import com.aman.acceptance.loyalty.model.AuditEvent;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
@@ -30,6 +31,8 @@ public class AccountFreezeService {
     private final LoyaltyAccountRepository loyaltyAccountRepository;
     private final AuditEventRepository auditEventRepository;
     private final ObjectMapper objectMapper;
+    private final AccountStatusGuard accountStatusGuard;
+    private final RedemptionService redemptionService;
 
     @Transactional
     public AccountStatusResponse freeze(Long accountId, FreezeAccountRequest request){
@@ -50,7 +53,9 @@ public class AccountFreezeService {
         // TODO: هنا محتاجين نربط مع Flow 4 (Redemption)
         // المفروض نجيب كل الـ Redemption اللي حالتها OTP_PENDING أو AUTHORIZED
         // وبعدها نلغي الحجز على النقط دي (CANCELLED) ونرجعها Available للحساب
-        cancelActiveReservationsMock(accountId);
+//        cancelActiveReservationsMock(accountId);
+        int cancelledCount = redemptionService.cancelActiveRedemptionsForAccount(accountId, RedemptionCancelReason.ACCOUNT_FROZEN);
+        log.info("Cancelled {} active redemption(s) for account [{}] due to freeze", cancelledCount, accountId);
 
         account.setStatus(AccountStatus.FROZEN);
         loyaltyAccountRepository.save(account);
@@ -106,9 +111,9 @@ public class AccountFreezeService {
 
     // ================= Helper methods =================
 
-    private void cancelActiveReservationsMock(Long accountId) {
-        log.info("MOCK: cancelling active reservations for account [{}] (real logic pending Flow 4)", accountId);
-    }
+//    private void cancelActiveReservationsMock(Long accountId) {
+//        log.info("MOCK: cancelling active reservations for account [{}] (real logic pending Flow 4)", accountId);
+//    }
 
     private AuditEvent saveAuditEvent(String actorId, String action, Long accountId, String beforeJson, String afterJson) {
         AuditEvent auditEvent = AuditEvent.builder()
@@ -149,11 +154,7 @@ public class AccountFreezeService {
     }
 
     public void assertAccountActive(LoyaltyAccount account) {
-        if (account.getStatus() == AccountStatus.FROZEN) {
-            throw LoyaltyException.locked(
-                    ErrorCode.LOYALTY_ACCOUNT_FROZEN,
-                    "This loyalty account is temporarily frozen.");
-        }
+        accountStatusGuard.assertActive(account);
     }
 
 }

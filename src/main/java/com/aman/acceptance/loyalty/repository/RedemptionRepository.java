@@ -37,4 +37,6 @@ public interface RedemptionRepository extends JpaRepository<Redemption, Long> {
         """, nativeQuery = true)
     List<Object[]> getOtpFunnelCounts(@Param("startDate") LocalDateTime startDate);
 
+    List<Redemption> findByAccount_IdAndStatusIn(Long accountId, List<RedemptionStatus> statuses);
+
 }

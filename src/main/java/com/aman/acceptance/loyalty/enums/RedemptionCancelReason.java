@@ -6,5 +6,6 @@ public enum RedemptionCancelReason {
     PAYMENT_DECLINED,
     POS_TIMEOUT,
     CUSTOMER_CANCELLED,
-    SYSTEM_ERROR
+    SYSTEM_ERROR,
+    ACCOUNT_FROZEN
 }
