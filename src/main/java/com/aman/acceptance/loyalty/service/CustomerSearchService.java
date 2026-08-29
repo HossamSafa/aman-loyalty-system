@@ -4,7 +4,8 @@ import com.aman.acceptance.loyalty.model.Customer;
 import com.aman.acceptance.loyalty.model.response.CustomerSummaryResponse;
 import com.aman.acceptance.loyalty.model.response.PagedResponse;
 import com.aman.acceptance.loyalty.repository.CustomerRepository;
-import com.aman.acceptance.loyalty.util.MobileHashUtil;
+//import com.aman.acceptance.loyalty.util.MobileHashUtil;
+import com.aman.acceptance.loyalty.util.MobileUtil;
 import org.springframework.data.domain.PageImpl;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ import java.util.Optional;
 public class CustomerSearchService {
 
     private final CustomerRepository customerRepository;
+    private final MobileUtil mobileUtil;
 
     private static final String MOBILE_PATTERN = "^[+0-9]+$";
 
@@ -43,8 +45,8 @@ public class CustomerSearchService {
     }
 
     private Page<Customer> searchByMobile(String rawMobile, Pageable pageable) {
-        String normalized = MobileHashUtil.normalizeMobile(rawMobile);
-        String hash = MobileHashUtil.hashMobile(normalized);
+        String normalized = mobileUtil.normalizeMobile(rawMobile);
+        String hash = mobileUtil.hashMobile(normalized);
 
         Optional<Customer> match = customerRepository.findByMobileHash(hash);
         List<Customer> results = match.map(List::of).orElse(List.of());

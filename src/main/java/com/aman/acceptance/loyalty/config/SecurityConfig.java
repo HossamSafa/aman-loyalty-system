@@ -56,6 +56,10 @@ public class SecurityConfig {
                         .requestMatchers("/dashboard/**").permitAll()
                         .requestMatchers("/admin/accounts/**").permitAll()
                         .requestMatchers("/admin/customers/**").permitAll()
+                        .requestMatchers("/admin/balance-composition/**").permitAll()
+                        .requestMatchers("/admin/alerts/**").permitAll()
+                        .requestMatchers("/admin/otp-funnel/**").permitAll()
+                        .requestMatchers("/admin/points-flow/**").permitAll()
 
                         .anyRequest().authenticated()
                 )
