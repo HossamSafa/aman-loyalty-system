@@ -173,7 +173,7 @@ public class AdminDashboardService {
 
         LedgerEntryResponse response = new LedgerEntryResponse();
         response.setLoyaltyTransactionId(String.valueOf(transaction.getId()));
-        response.setAccountId(String.valueOf(account.getId()));
+        response.setAccountId(account.getId());
         response.setMobileNumberMasked(
                 PhoneMaskingUtil.maskPhoneNumber(account.getCustomer().getMobileEncrypted()));
         response.setType(transaction.getType().name());
