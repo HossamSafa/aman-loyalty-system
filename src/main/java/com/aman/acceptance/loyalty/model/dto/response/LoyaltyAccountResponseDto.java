@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoyaltyAccountResponseDto {
-    private String accountId;
+    private Long accountId;
     private String customerMobile;
     private String programName;
     private Integer availablePoints;

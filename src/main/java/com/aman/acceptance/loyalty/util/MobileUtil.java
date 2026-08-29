@@ -1,6 +1,7 @@
 package com.aman.acceptance.loyalty.util;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -8,7 +9,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
-
 @Component
 public class MobileUtil {
 
@@ -81,6 +81,21 @@ public class MobileUtil {
 
         } catch (Exception e) {
             throw new RuntimeException("Encryption failed", e);
+        }
+    }
+
+    public String decryptMobile(String encryptedMobile) {
+        try {
+            SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.DECRYPT_MODE, keySpec);
+
+            byte[] decodedBytes = Base64.getDecoder().decode(encryptedMobile);
+            byte[] decryptedBytes = cipher.doFinal(decodedBytes);
+            return new String(decryptedBytes, StandardCharsets.UTF_8);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Decryption failed", e);
         }
     }
 

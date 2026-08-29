@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.ZoneId;
 import com.aman.acceptance.loyalty.model.dto.response.LoyaltyAccountResponseDto;
+import com.aman.acceptance.loyalty.util.MobileUtil;
 import com.aman.acceptance.loyalty.util.PhoneMaskingUtil;
 
 @Service
@@ -28,6 +29,7 @@ public class LoyaltyAccountService {
     private final LoyaltyTransactionRepository loyaltyTransactionRepository;
     private final PointsLotRepository pointsLotRepository;
     private final LoyaltyAccounHelper loyaltyAccounHelper;
+    private final MobileUtil mobileUtil;
 
     /**findAccount*/
     public AccountResponse findAccount(final Long accountId) {
@@ -107,8 +109,8 @@ public class LoyaltyAccountService {
 
     private LoyaltyAccountResponseDto toLoyaltyAccountResponseDto(LoyaltyAccount account) {
         return LoyaltyAccountResponseDto.builder()
-                .accountId("lac-" + account.getId())
-                .customerMobile(PhoneMaskingUtil.maskPhoneNumber((account.getCustomer().getMobileEncrypted())))
+                .accountId(account.getId())
+                .customerMobile(PhoneMaskingUtil.maskPhoneNumber(mobileUtil.decryptMobile(account.getCustomer().getMobileEncrypted())))
                 .programName(account.getProgram().getName())
                 .availablePoints(account.getAvailablePoints())
                 .lockedPoints(account.getLockedPoints())
