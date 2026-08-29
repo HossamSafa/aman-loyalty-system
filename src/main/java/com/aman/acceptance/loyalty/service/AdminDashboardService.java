@@ -1,17 +1,18 @@
 package com.aman.acceptance.loyalty.service;
 
-import com.aman.acceptance.loyalty.model.dto.response.AuditEventResponse;
-import com.aman.acceptance.loyalty.model.dto.response.BalanceOverviewResponse;
-import com.aman.acceptance.loyalty.model.dto.response.OtpFunnelResponse;
-import com.aman.acceptance.loyalty.model.dto.response.PointsFlowResponse;
+import com.aman.acceptance.loyalty.model.LoyaltyAccount;
+import com.aman.acceptance.loyalty.model.LoyaltyTransaction;
+import com.aman.acceptance.loyalty.model.dto.response.*;
 import com.aman.acceptance.loyalty.repository.AuditEventRepository;
 import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
 import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.repository.PointsLotRepository;
 import com.aman.acceptance.loyalty.repository.RedemptionRepository;
+import com.aman.acceptance.loyalty.util.PhoneMaskingUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-
+import org.springframework.data.domain.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +27,6 @@ public class AdminDashboardService {
     private final RedemptionRepository redemptionRepository;
     private final AuditEventRepository auditEventRepository;
 
-
-    // =========================================================
-    // BALANCE COMPOSITION
-    // =========================================================
 
     public BalanceOverviewResponse getBalanceOverview() {
 
@@ -61,11 +58,6 @@ public class AdminDashboardService {
         );
     }
 
-
-    // =========================================================
-    // POINTS FLOW
-    // =========================================================
-
     public List<PointsFlowResponse> getPointsFlow() {
 
         LocalDateTime startDate =
@@ -82,11 +74,6 @@ public class AdminDashboardService {
                 ))
                 .toList();
     }
-
-
-    // =========================================================
-    // OTP FUNNEL
-    // =========================================================
 
     public OtpFunnelResponse getOtpFunnel() {
 
@@ -110,11 +97,6 @@ public class AdminDashboardService {
                 committed
         );
     }
-
-
-    // =========================================================
-    // RECENT ALERTS
-    // =========================================================
 
     public List<AuditEventResponse> getRecentAlerts(int limit) {
 
@@ -153,9 +135,6 @@ public class AdminDashboardService {
     }
 
 
-    // =========================================================
-    // HELPER METHODS
-    // =========================================================
 
     private Long getLongValue(Object[] result, int index) {
 
@@ -177,5 +156,32 @@ public class AdminDashboardService {
         }
 
         return ((Number) value).longValue();
+    }
+    public List<LedgerEntryResponse> getGlobalLedger(Pageable pageable) {
+
+        Page<LoyaltyTransaction> transactionPage =
+                loyaltyTransactionRepository.findAllByOrderByCreatedAtDesc(pageable);
+
+        return transactionPage.stream()
+                .map(this::toLedgerEntryResponse)
+                .toList();
+    }
+
+    private LedgerEntryResponse toLedgerEntryResponse(LoyaltyTransaction transaction) {
+
+        LoyaltyAccount account = transaction.getAccount();
+
+        LedgerEntryResponse response = new LedgerEntryResponse();
+        response.setLoyaltyTransactionId(String.valueOf(transaction.getId()));
+        response.setAccountId(String.valueOf(account.getId()));
+        response.setMobileNumberMasked(
+                PhoneMaskingUtil.maskPhoneNumber(account.getCustomer().getMobileEncrypted()));
+        response.setType(transaction.getType().name());
+        response.setPoints(transaction.getPoints());
+        response.setStatus(transaction.getStatus().name());
+        response.setSourceTransactionId(transaction.getSourceTransactionId());
+        response.setCreatedAt(transaction.getCreatedAt());
+
+        return response;
     }
 }
