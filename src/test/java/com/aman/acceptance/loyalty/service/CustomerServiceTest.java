@@ -162,7 +162,7 @@ class CustomerServiceTest {
             customerService.resolve(request, programId);
         });
 
-        assertEquals("LOYALTY_ACCOUNT_NOT_FOUND", exception.getErrorCode());
+        assertEquals("LOYALTY_ACCOUNT_NOT_FOUND", exception.getCode());
 
         verify(customerRepository, never()).save(any(Customer.class));
     }
