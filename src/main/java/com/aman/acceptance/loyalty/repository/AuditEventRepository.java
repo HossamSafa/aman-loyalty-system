@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -18,4 +19,12 @@ public interface AuditEventRepository extends JpaRepository<AuditEvent, Long> {
             LIMIT :limit
             """, nativeQuery = true)
     List<Object[]> getRecentAuditEvents(@Param("limit") int limit);
+
+    @Query("SELECT COUNT(DISTINCT a.entityId) FROM AuditEvent a " +
+            "WHERE a.action = :action AND a.createdAt > :after")
+    long countDistinctAccountsByActionAndCreatedAtAfter(@Param("action") String action, @Param("after") LocalDateTime after);
+
+    List<AuditEvent> findTop20ByOrderByCreatedAtDesc();
+
+    List<AuditEvent> findTop5ByEntityIdOrderByCreatedAtDesc(Long entityId);
 }
