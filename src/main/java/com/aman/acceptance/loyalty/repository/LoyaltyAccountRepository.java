@@ -6,11 +6,15 @@ import com.aman.acceptance.loyalty.model.LoyaltyProgram;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Repository
 public interface LoyaltyAccountRepository extends JpaRepository<LoyaltyAccount, Long> {
@@ -27,7 +31,11 @@ public interface LoyaltyAccountRepository extends JpaRepository<LoyaltyAccount, 
     @Query("SELECT a FROM LoyaltyAccount a WHERE a.id = :id")
     Optional<LoyaltyAccount> findByIdWithLock( Long id);
 
+    @Query("SELECT SUM(a.availablePoints), SUM(a.lockedPoints), SUM(a.reservedPoints) " +
+            "FROM LoyaltyAccount a")
+    List<Object[]> getBalanceTotals();
 
-    boolean existsById(Long id);
+    @EntityGraph(attributePaths = {"program", "customer"})
+    Page<LoyaltyAccount> findAll(Pageable pageable);
 
 }

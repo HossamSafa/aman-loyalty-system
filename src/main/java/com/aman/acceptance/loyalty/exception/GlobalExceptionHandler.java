@@ -3,21 +3,32 @@ package com.aman.acceptance.loyalty.exception;
 import com.aman.acceptance.loyalty.model.dto.common.MetaDto;
 import com.aman.acceptance.loyalty.model.dto.response.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
+import com.aman.acceptance.loyalty.model.dto.common.MetaDto;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
+import java.util.stream.Collectors;
+import com.aman.acceptance.loyalty.model.dto.common.MetaDto;
+import org.slf4j.LoggerFactory;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collectors;
+import org.slf4j.Logger;
 
-@RestControllerAdvice
+
 @Slf4j
+@RestControllerAdvice
+
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(LoyaltyException.class)
@@ -64,6 +75,20 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleNoResourceFound(NoResourceFoundException ex) {
+        log.warn("Route not found: {}", ex.getMessage());
+        ApiResponse<Void> body = ApiResponse.error("LOYALTY_ROUTE_NOT_FOUND", "The requested endpoint does not exist.", false);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+    }
+
+    @ExceptionHandler(InvalidDataAccessApiUsageException.class)
+    public ResponseEntity<ApiResponse<Void>> handleInvalidSort(InvalidDataAccessApiUsageException ex) {
+        log.warn("Invalid query usage: {}", ex.getMessage());
+        ApiResponse<Void> body = ApiResponse.error("LOYALTY_VALIDATION_ERROR", "Invalid sort field provided.", false);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleGenericException(Exception ex) {
         log.error("Unexpected error occurred", ex);
@@ -74,5 +99,44 @@ public class GlobalExceptionHandler {
                 true
         );
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ApiResponse<Void>> handleAccessDeniedException(
+            AccessDeniedException ex
+    ) {
+
+      log.warn("Access denied: {}", ex.getMessage());
+
+        ApiResponse<Void> body = ApiResponse.error(
+                "LOYALTY_ACCESS_DENIED",
+                "You do not have permission to perform this operation.",
+                false
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.FORBIDDEN)
+                .body(body);
+    }
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiResponse<Void>> handleBusinessException(
+            BusinessException ex
+    ) {
+
+       log.warn(
+               "Business error [{}]: {}",
+                ex.getCode(),
+               ex.getMessage()
+      );
+
+        ApiResponse<Void> body = ApiResponse.error(
+                ex.getCode().name(),
+                ex.getMessage(),
+                false
+        );
+
+        return ResponseEntity
+                .status(ex.getStatus())
+                .body(body);
     }
 }

@@ -1,13 +1,386 @@
--- Test data (Freeze/Unfreeze) manual testing
+---- Test data (Freeze/Unfreeze) manual testing
+--
+--INSERT INTO customers (id, mobile_hash, mobile_encrypted, name, status, created_at)
+--VALUES (1, 'test-hash-01', 'encrypted-mobile-01', 'Ahmed Test Customer', 'ACTIVE', now())
+--ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO loyalty_programs (id, merchant_id, name, currency, lock_days, expiry_days, status, created_at)
+--VALUES (1, 'merchant-001', 'Test Loyalty Program', 'EGP', 30, 360, 'ACTIVE', now())
+--ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO loyalty_accounts (id, program_id, customer_id, available_points, locked_points, reserved_points, status, version, created_at, updated_at)
+--VALUES (1, 1, 1, 2500, 1000, 0, 'ACTIVE', 0, now(), now())
+--ON CONFLICT (id) DO NOTHING;
+--
+--
+--INSERT INTO loyalty_transactions (id, account_id, type, source_transaction_id, points, status, transaction_time, created_at)
+--VALUES (1, 1, 'EARN', 'sale-seed-001', 2500, 'COMMITTED', now(), now())
+--ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO points_lots (id, account_id, earning_transaction_id, original_points, remaining_points, unlock_at, expires_at, status, version, created_at)
+--VALUES (1, 1, 1, 2500, 2500, now() - interval '1 day', now() + interval '360 days', 'AVAILABLE', 0, now())
+--ON CONFLICT (id) DO NOTHING;
+--
+--
+--UPDATE customers
+--SET mobile_hash = '0895f44c7a43ae484d10b8509021516091079927afc18baa37fad1a70f35c01',
+--    name = 'Ahmed Mohamed'
+--WHERE id = 1;
+--
+--INSERT INTO customers (id, mobile_hash, mobile_encrypted, name, status, created_at)
+--VALUES
+--    (2, 'b1033eccac57cabbb1890d06d1459dbbe82f4eff984dfb428d163dd3dd638a5', 'encrypted-02', 'Sara Ali', 'ACTIVE', now()),
+--    (3, '6386b07d492d714ac407d3f4af867a0bcdc325cb9fe63e58e585c3ce90abfd0', 'encrypted-03', 'Mohamed Hassan', 'ACTIVE', now()),
+--    (4, '6afb0e2c89ae5b6f0dca979aa91327da9974d47dc320b64c79cdb724c00056d', 'encrypted-04', 'Nour Ahmed', 'ACTIVE', now())
+--ON CONFLICT (id) DO NOTHING;
+--
+--
+--UPDATE customers
+--SET mobile_hash = '0895f44c7a43ae484d10b8509021516091079927afc18baa37fad1a70f35c01d',
+--    name = 'Ahmed Mohamed'
+--WHERE id = 1;
+--
+--UPDATE customers SET mobile_hash = 'b1033eccac57cabbb1890d06d1459dbbe82f4eff984dfb428d163dd3dd638a59' WHERE id = 2;
+--UPDATE customers SET mobile_hash = '6386b07d492d714ac407d3f4af867a0bcdc325cb9fe63e58e585c3ce90abfd09' WHERE id = 3;
+--UPDATE customers SET mobile_hash = '6afb0e2c89ae5b6f0dca979aa91327da9974d47dc320b64c79cdb724c00056d7' WHERE id = 4;
+--
+---- Test data
+--INSERT INTO loyalty_transactions
+--(
+--    account_id,
+--    type,
+--    source_transaction_id,
+--    points,
+--    money_amount,
+--    status,
+--    idempotency_key,
+--    original_source_transaction_id,
+--    refund_type,
+--    currency_code,
+--    transaction_time,
+--    created_at
+--)
+--VALUES
+--    (
+--        6,
+--        'EARN',
+--        'sale-20260727-00091',
+--        1000,
+--        1000.00,
+--        'COMMITTED',
+--        NULL,
+--        NULL,
+--        NULL,
+--        'EGP',
+--        '2026-07-27 09:00:00',
+--        '2026-07-27 09:00:00'
+--    );
+--
+--INSERT INTO loyalty_transactions (account_id, type, source_transaction_id, points, money_amount, currency_code, status, transaction_time, created_at)
+--VALUES (7, 'EARN', 'sale-test-001', 1000, 1000.00, 'EGP', 'COMMITTED', NOW(), NOW());
+--
+--INSERT INTO loyalty_transactions
+--(
+--    id,
+--    account_id,
+--    type,
+--    source_transaction_id,
+--    points,
+--    status,
+--    transaction_time,
+--    created_at
+--)
+--VALUES
+--    (
+--        1,
+--        1,
+--        'EARN',
+--        'sale-seed-001',
+--        2500,
+--        'COMMITTED',
+--        NOW(),
+--        NOW()
+--    )
+--    ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO loyalty_transactions
+--(
+--    id,
+--    account_id,
+--    type,
+--    source_transaction_id,
+--    points,
+--    status,
+--    transaction_time,
+--    created_at
+--)
+--VALUES
+--    (
+--        1,
+--        1,
+--        'EARN',
+--        'sale-seed-001',
+--        2500,
+--        'COMMITTED',
+--        NOW(),
+--        NOW()
+--    )
+--    ON CONFLICT (id) DO UPDATE
+--                            SET
+--                                account_id = EXCLUDED.account_id,
+--                            points = EXCLUDED.points,
+--                            status = EXCLUDED.status;
+--
+--INSERT INTO loyalty_transactions
+--(
+--    id,
+--    account_id,
+--    type,
+--    source_transaction_id,
+--    points,
+--    status,
+--    transaction_time,
+--    created_at
+--)
+--VALUES
+--    (
+--        1,
+--        1,
+--        'EARN',
+--        'sale-seed-001',
+--        2500,
+--        'COMMITTED',
+--        NOW(),
+--        NOW()
+--    )
+--    ON CONFLICT (id) DO UPDATE
+--                            SET
+--                                account_id = EXCLUDED.account_id,
+--                            points = EXCLUDED.points,
+--                            status = EXCLUDED.status;
+--
+--INSERT INTO customers (id, mobile_hash, mobile_encrypted, name, status, created_at)
+--VALUES (1, 'test-hash-01', 'encrypted-mobile-01', 'Ahmed Test Customer', 'ACTIVE', now())
+--    ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO customers (id, mobile_hash, mobile_encrypted, name, status, created_at)
+--VALUES
+--    (2, 'b1033eccac57cabbb1890d06d1459dbbe82f4eff984dfb428d163dd3dd638a5', 'encrypted-02', 'Sara Ali', 'ACTIVE', now()),
+--    (3, '6386b07d492d714ac407d3f4af867a0bcdc325cb9fe63e58e585c3ce90abfd0', 'encrypted-03', 'Mohamed Hassan', 'ACTIVE', now()),
+--    (4, '6afb0e2c89ae5b6f0dca979aa91327da9974d47dc320b64c79cdb724c00056d', 'encrypted-04', 'Nour Ahmed', 'ACTIVE', now())
+--    ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO customers
+--(
+--    id,
+--    mobile_hash,
+--    mobile_encrypted,
+--    name,
+--    status,
+--    created_at
+--)
+--VALUES
+--    (
+--        1,
+--        '0895f44c7a43ae484d10b8509021516091079927afc18baa37fad1',
+--        'encrypted-mobile-01',
+--        'Ahmed Mohamed',
+--        'ACTIVE',
+--        NOW()
+--    )
+--    ON CONFLICT (id) DO UPDATE
+--                            SET
+--                                mobile_hash = EXCLUDED.mobile_hash,
+--                            mobile_encrypted = EXCLUDED.mobile_encrypted,
+--                            name = EXCLUDED.name,
+--                            status = EXCLUDED.status;
+--
+--INSERT INTO loyalty_programs (id, merchant_id, name, currency, lock_days, expiry_days, status, created_at)
+--VALUES (1, 'merchant-001', 'Test Loyalty Program', 'EGP', 30, 360, 'ACTIVE', now())
+--    ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO loyalty_programs
+--(
+--    id,
+--    merchant_id,
+--    name,
+--    currency,
+--    lock_days,
+--    expiry_days,
+--    status,
+--    created_at
+--)
+--VALUES
+--    (
+--        1,
+--        'merchant-001',
+--        'Test Loyalty Program',
+--        'EGP',
+--        30,
+--        360,
+--        'ACTIVE',
+--        NOW()
+--    )
+--    ON CONFLICT (id) DO UPDATE
+--                            SET
+--                                name = EXCLUDED.name,
+--                            status = EXCLUDED.status;
+--
+--INSERT INTO loyalty_accounts (id, program_id, customer_id, available_points, locked_points, reserved_points, status, version, created_at, updated_at)
+--VALUES (1, 1, 1, 2500, 1000, 0, 'ACTIVE', 0, now(), now())
+--    ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO loyalty_accounts
+--(
+--    id,
+--    program_id,
+--    customer_id,
+--    available_points,
+--    locked_points,
+--    reserved_points,
+--    status,
+--    version,
+--    created_at,
+--    updated_at
+--)
+--VALUES
+--    (
+--        1,
+--        1,
+--        1,
+--        2500,
+--        1000,
+--        0,
+--        'ACTIVE',
+--        0,
+--        NOW(),
+--        NOW()
+--    )
+--    ON CONFLICT (id) DO UPDATE
+--                            SET
+--                                available_points = EXCLUDED.available_points,
+--                            locked_points = EXCLUDED.locked_points,
+--                            reserved_points = EXCLUDED.reserved_points,
+--                            status = EXCLUDED.status,
+--                            updated_at = NOW();
+--
+--INSERT INTO points_lots (id, account_id, earning_transaction_id, original_points, remaining_points, unlock_at, expires_at, status, version, created_at)
+--VALUES (1, 1, 1, 2500, 2500, now() - interval '1 day', now() + interval '360 days', 'AVAILABLE', 0, now())
+--    ON CONFLICT (id) DO NOTHING;
+--
+--INSERT INTO points_lots
+--(
+--    id,
+--    account_id,
+--    earning_transaction_id,
+--    original_points,
+--    remaining_points,
+--    unlock_at,
+--    expires_at,
+--    status,
+--    version,
+--    created_at
+--)
+--VALUES
+--    (
+--        1,
+--        1,
+--        1,
+--        2500,
+--        2500,
+--        NOW() - INTERVAL '1 day',
+--        NOW() + INTERVAL '360 days',
+--        'AVAILABLE',
+--        0,
+--        NOW()
+--    )
+--    ON CONFLICT (id) DO UPDATE
+--                            SET
+--                                remaining_points = EXCLUDED.remaining_points,
+--                            status = EXCLUDED.status;
+--
+--INSERT INTO audit_events
+--(
+--    action,
+--    actor_id,
+--    after_json,
+--    before_json,
+--    correlation_id,
+--    created_at,
+--    entity_id,
+--    entity_type
+--)
+--VALUES
+--    (
+--        'EARN_POINTS',
+--        'admin',
+--        '{"points":2500,"status":"COMMITTED"}',
+--        NULL,
+--        'test-correlation-001',
+--        NOW(),
+--        1,
+--        'LOYALTY_TRANSACTION'
+--    );
+--
+--
+--INSERT INTO audit_events (actor_id, action, entity_type, entity_id, after_json, created_at)
+--VALUES
+--    ('admin', 'FREEZE_APPLIED', 'LOYALTY_ACCOUNT', 4451, '{"status":"FROZEN"}', NOW() - INTERVAL '48 minutes'),
+--    ('admin', 'RULE_VERSION_PUBLISHED', 'LOYALTY_PROGRAM', 1001, '{"ruleVersion":7}', NOW() - INTERVAL '3 hours'),
+--    ('system', 'MANUAL_ADJUSTMENT', 'LOYALTY_ACCOUNT', 4451, '{"points":500}', NOW() - INTERVAL '1 day');
 
-INSERT INTO customers (id, mobile_hash, mobile_encrypted, name, status, created_at)
-VALUES (1, 'test-hash-01', 'encrypted-mobile-01', 'Ahmed Test Customer', 'ACTIVE', now())
-ON CONFLICT (id) DO NOTHING;
+--//////////////////////////////////////////////////
+--
+---- CUSTOMERS
+--INSERT INTO customers (id, mobile_hash, mobile_encrypted, name, status, created_at)
+--VALUES
+--(1, 'hash-1', 'enc-1', 'Ahmed Mohamed', 'ACTIVE', now()),
+--(2, 'hash-2', 'enc-2', 'Sara Ali', 'ACTIVE', now()),
+--(3, 'hash-3', 'enc-3', 'Mohamed Hassan', 'ACTIVE', now()),
+--(4, 'hash-4', 'enc-4', 'Nour Ahmed', 'ACTIVE', now())
+--ON CONFLICT (id) DO UPDATE
+--SET name = EXCLUDED.name,
+--    mobile_hash = EXCLUDED.mobile_hash;
+--
+--
+---- PROGRAM
+--INSERT INTO loyalty_programs (id, merchant_id, name, currency, lock_days, expiry_days, status, created_at)
+--VALUES (1, 'merchant-001', 'Test Loyalty Program', 'EGP', 30, 360, 'ACTIVE', now())
+--ON CONFLICT (id) DO UPDATE
+--SET name = EXCLUDED.name,
+--    status = EXCLUDED.status;
+--
+--
+---- ACCOUNT
+--INSERT INTO loyalty_accounts (id, program_id, customer_id, available_points, locked_points, reserved_points, status, version, created_at, updated_at)
+--VALUES (1, 1, 1, 2500, 1000, 0, 'ACTIVE', 0, now(), now())
+--ON CONFLICT (id) DO UPDATE
+--SET available_points = EXCLUDED.available_points,
+--    locked_points = EXCLUDED.locked_points,
+--    updated_at = now();
+--
+--
+---- TRANSACTION
+--INSERT INTO loyalty_transactions (id, account_id, type, source_transaction_id, points, status, transaction_time, created_at)
+--VALUES (1, 1, 'EARN', 'sale-seed-001', 2500, 'COMMITTED', now(), now())
+--ON CONFLICT (id) DO UPDATE
+--SET points = EXCLUDED.points,
+--    status = EXCLUDED.status;
+--
+--
+---- POINTS LOT
+--INSERT INTO points_lots (id, account_id, earning_transaction_id, original_points, remaining_points, unlock_at, expires_at, status, version, created_at)
+--VALUES (1, 1, 1, 2500, 2500, now() - interval '1 day', now() + interval '360 days', 'AVAILABLE', 0, now())
+--ON CONFLICT (id) DO UPDATE
+--SET remaining_points = EXCLUDED.remaining_points,
+--    status = EXCLUDED.status;
+--////////////////////////////////////
 
-INSERT INTO loyalty_programs (id, merchant_id, name, currency, lock_days, expiry_days, status, created_at)
-VALUES (1, 'merchant-001', 'Test Loyalty Program', 'EGP', 30, 360, 'ACTIVE', now())
-ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO loyalty_accounts (id, program_id, customer_id, available_points, locked_points, reserved_points, status, version, created_at, updated_at)
-VALUES (1, 1, 1, 2500, 1000, 0, 'ACTIVE', 0, now(), now())
+
+--
+INSERT INTO loyalty_programs
+    (id, merchant_id, name, currency, lock_days, expiry_days, status, created_at)
+VALUES
+    (1, 'merchant-001', 'Aman Test Loyalty Program', 'EGP', 30, 360, 'ACTIVE', now())
 ON CONFLICT (id) DO NOTHING;

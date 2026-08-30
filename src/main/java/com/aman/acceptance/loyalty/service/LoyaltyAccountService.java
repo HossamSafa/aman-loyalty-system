@@ -17,6 +17,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.ZoneId;
+import com.aman.acceptance.loyalty.model.dto.response.LoyaltyAccountResponseDto;
+import com.aman.acceptance.loyalty.util.MobileUtil;
+import com.aman.acceptance.loyalty.util.PhoneMaskingUtil;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +29,7 @@ public class LoyaltyAccountService {
     private final LoyaltyTransactionRepository loyaltyTransactionRepository;
     private final PointsLotRepository pointsLotRepository;
     private final LoyaltyAccounHelper loyaltyAccounHelper;
+    private final MobileUtil mobileUtil;
 
     /**findAccount*/
     public AccountResponse findAccount(final Long accountId) {
@@ -96,6 +100,24 @@ public class LoyaltyAccountService {
         return new BalanceResponse(loyaltyAccount.getAvailablePoints()
                 ,loyaltyAccount.getLockedPoints(),
                 loyaltyAccount.getReservedPoints(),loyaltyAccount.getTotalOwned());
+    }
+
+    public Page<LoyaltyAccountResponseDto> getEnrolledAccounts(Pageable pageable) {
+        Page<LoyaltyAccount> accounts = loyaltyAccountRepository.findAll(pageable);
+        return accounts.map(this::toLoyaltyAccountResponseDto);
+    }
+
+    private LoyaltyAccountResponseDto toLoyaltyAccountResponseDto(LoyaltyAccount account) {
+        return LoyaltyAccountResponseDto.builder()
+                .accountId(account.getId())
+                .customerMobile(PhoneMaskingUtil.maskPhoneNumber(mobileUtil.decryptMobile(account.getCustomer().getMobileEncrypted())))
+                .programName(account.getProgram().getName())
+                .availablePoints(account.getAvailablePoints())
+                .lockedPoints(account.getLockedPoints())
+                .reservedPoints(account.getReservedPoints())
+                .status(account.getStatus().name())
+                .enrolledDate(account.getCreatedAt().toLocalDate())
+                .build();
     }
 
 

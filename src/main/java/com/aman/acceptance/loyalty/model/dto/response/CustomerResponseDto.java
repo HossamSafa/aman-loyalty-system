@@ -1,6 +1,7 @@
 package com.aman.acceptance.loyalty.model.dto.response;
 
 import com.aman.acceptance.loyalty.model.dto.common.MetaDto;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 
 @Getter
@@ -8,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonPropertyOrder({"success", "data", "error", "meta"})
 public class CustomerResponseDto {
 
     private boolean success;

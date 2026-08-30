@@ -18,6 +18,7 @@ public class RefundRequest
     private String refundTransactionId;
     @NotBlank(message = "Original transaction ID is required")
     private String originalTransactionId;
+    private Long redemptionId;
     @NotNull(message = "Refund type is required")
     private RefundType refundType;
     @NotNull(message = "Refund amount is required")

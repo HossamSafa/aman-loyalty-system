@@ -15,12 +15,7 @@ import com.aman.acceptance.loyalty.model.RedemptionAllocation;
 import com.aman.acceptance.loyalty.model.dto.request.CancelRequest;
 import com.aman.acceptance.loyalty.model.dto.request.CommitRequest;
 import com.aman.acceptance.loyalty.model.dto.request.RedemptionRequest;
-import com.aman.acceptance.loyalty.model.dto.response.CancelResponseData;
-import com.aman.acceptance.loyalty.model.dto.response.CommitResponseData;
-import com.aman.acceptance.loyalty.model.dto.response.OtpMetadataDto;
-import com.aman.acceptance.loyalty.model.dto.response.RedemptionMoneyDto;
-import com.aman.acceptance.loyalty.model.dto.response.RedemptionResponseData;
-import com.aman.acceptance.loyalty.model.dto.response.VerifyRedemptionResponseData;
+import com.aman.acceptance.loyalty.model.dto.response.*;
 import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
 import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.repository.PointsLotRepository;
@@ -41,7 +36,6 @@ import java.util.List;
 public class RedemptionService {
 
         private static final Duration RESERVATION_TTL = Duration.ofMinutes(5);
-
         private final LoyaltyAccountRepository accountRepository;
         private final PointsLotRepository pointsLotRepository;
         private final RedemptionRepository redemptionRepository;
@@ -50,6 +44,8 @@ public class RedemptionService {
         private final PointsAllocationService allocationService;
         private final OtpService otpService;
         private final RedemptionResponseMapper responseMapper;
+        private final AccountStatusGuard accountStatusGuard;
+
 
         @Transactional
         public RedemptionResponseData initiateRedemption(RedemptionRequest request) {
@@ -71,7 +67,11 @@ public class RedemptionService {
                                 "No loyalty account exists with id: " + accountId));
                 log.info("[LOYALTY] Account found | accountId={}", accountId);
 
-                List<PointsLot> availableLots = pointsLotRepository.findAvailableLotsForRedemption(accountId, LocalDateTime.now());
+            accountStatusGuard.assertActive(account);
+            log.info("[LOYALTY] Account status validated as ACTIVE | accountId={}", accountId);
+
+
+            List<PointsLot> availableLots = pointsLotRepository.findAvailableLotsForRedemption(accountId, LocalDateTime.now());
 
                 long totalAvailablePoints = availableLots.stream()
                         .mapToLong(PointsLot::getRemainingPoints)
@@ -236,4 +236,21 @@ public class RedemptionService {
                         .orElseThrow(() -> LoyaltyException.notFound(ErrorCode.LOYALTY_ACCOUNT_NOT_FOUND,
                                 "Redemption not found with id: " + id));
         }
+
+        // helper method for freeze service
+        private static final List<RedemptionStatus> ACTIVE_RESERVATION_STATUSES =
+                List.of(RedemptionStatus.OTP_PENDING, RedemptionStatus.AUTHORIZED);
+
+    @Transactional
+    public int cancelActiveRedemptionsForAccount(Long accountId, RedemptionCancelReason reason) {
+        List<Redemption> activeRedemptions =
+                redemptionRepository.findByAccount_IdAndStatusIn(accountId, ACTIVE_RESERVATION_STATUSES);
+
+        for (Redemption redemption : activeRedemptions) {
+            cancelRedemptionInternal(redemption.getId(), reason);
+        }
+
+        return activeRedemptions.size();
+    }
+
 }

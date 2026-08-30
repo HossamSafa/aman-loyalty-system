@@ -1,6 +1,7 @@
 package com.aman.acceptance.loyalty.repository;
 
 import com.aman.acceptance.loyalty.enums.LotStatus;
+import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import com.aman.acceptance.loyalty.model.PointsLot;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.domain.Pageable;
@@ -80,4 +81,13 @@ List<PointsLot> findByStatusAndUnlockAtLessThanEqualAndRemainingPointsGreaterTha
             @Param("accountId") Long accountId,
             @Param("now") LocalDateTime now
     );
+
+    List<PointsLot> findByAccountAndStatusOrderByExpiresAtAsc(LoyaltyAccount account, LotStatus status);
+
+    @Query("SELECT COALESCE(SUM(p.remainingPoints), 0) FROM PointsLot p " +
+            "WHERE p.status = com.aman.acceptance.loyalty.enums.LotStatus.AVAILABLE " +
+            "AND p.expiresAt BETWEEN :now AND :cutoff")
+    Long getExpiringSoonPoints(@Param("now") LocalDateTime now,
+                               @Param("cutoff") LocalDateTime cutoff);
+
 }
