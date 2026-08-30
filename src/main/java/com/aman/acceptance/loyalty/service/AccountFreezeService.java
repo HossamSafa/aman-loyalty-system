@@ -50,10 +50,6 @@ public class AccountFreezeService {
 
         String beforeJson = buildSnapshotJson(account, null, null);
 
-        // TODO: هنا محتاجين نربط مع Flow 4 (Redemption)
-        // المفروض نجيب كل الـ Redemption اللي حالتها OTP_PENDING أو AUTHORIZED
-        // وبعدها نلغي الحجز على النقط دي (CANCELLED) ونرجعها Available للحساب
-//        cancelActiveReservationsMock(accountId);
         int cancelledCount = redemptionService.cancelActiveRedemptionsForAccount(accountId, RedemptionCancelReason.ACCOUNT_FROZEN);
         log.info("Cancelled {} active redemption(s) for account [{}] due to freeze", cancelledCount, accountId);
 
@@ -110,10 +106,6 @@ public class AccountFreezeService {
     }
 
     // ================= Helper methods =================
-
-//    private void cancelActiveReservationsMock(Long accountId) {
-//        log.info("MOCK: cancelling active reservations for account [{}] (real logic pending Flow 4)", accountId);
-//    }
 
     private AuditEvent saveAuditEvent(String actorId, String action, Long accountId, String beforeJson, String afterJson) {
         AuditEvent auditEvent = AuditEvent.builder()
