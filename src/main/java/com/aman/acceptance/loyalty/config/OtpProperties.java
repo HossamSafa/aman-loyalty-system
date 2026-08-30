@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(prefix = "otp")
+@ConfigurationProperties(prefix = "loyalty.otp")
 public class OtpProperties {
     private int length;
     private int ttlSeconds;

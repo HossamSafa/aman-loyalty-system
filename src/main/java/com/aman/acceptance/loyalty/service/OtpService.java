@@ -7,6 +7,7 @@ import com.aman.acceptance.loyalty.exception.OtpInvalidException;
 import com.aman.acceptance.loyalty.model.LoyaltyAccount;
 import com.aman.acceptance.loyalty.model.Redemption;
 import com.aman.acceptance.loyalty.model.dto.response.OtpMetadataDto;
+import com.aman.acceptance.loyalty.util.MobileUtil;
 import com.aman.acceptance.loyalty.util.PhoneMaskingUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,14 +25,16 @@ public class OtpService {
     private final OtpProperties otpProperties;
     private final OtpNotificationService otpNotificationService;
     private final PasswordEncoder passwordEncoder;
+    private final MobileUtil mobileUtil;
     private final SecureRandom secureRandom = new SecureRandom();
 
     public OtpMetadataDto initiate(LoyaltyAccount account, Redemption redemption) {
         log.info("[LOYALTY] START OtpService.initiate | redemptionId={}", redemption.getId());
 
-        String phoneNumber = account.getCustomer().getMobileEncrypted();
+        String encryptedPhoneNumber = account.getCustomer().getMobileEncrypted();
 
-        String maskedPhone = PhoneMaskingUtil.maskPhoneNumber(phoneNumber);
+        String decryptedPhoneNumber = mobileUtil.decryptMobile(encryptedPhoneNumber);
+        String maskedPhone = PhoneMaskingUtil.maskPhoneNumber(decryptedPhoneNumber);
 
         String otp = generateOtp(otpProperties.getLength());
         log.info("[LOYALTY] OTP generated | redemptionId={} | length={}", redemption.getId(), otp.length());
