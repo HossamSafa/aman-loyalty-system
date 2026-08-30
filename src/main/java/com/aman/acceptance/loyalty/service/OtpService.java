@@ -48,7 +48,7 @@ public class OtpService {
         );
 
         redemption.setOtpExpiresAt(
-                LocalDateTime.now().plusSeconds(
+                LocalDateTime.now(java.time.ZoneOffset.UTC).plusSeconds(
                         otpProperties.getTtlSeconds()
                 )
         );
@@ -73,7 +73,7 @@ public class OtpService {
 
     public void verifyOtp(Redemption redemption, String otpInput) {
         log.info("[LOYALTY] START OtpService.verifyOtp | redemptionId={}", redemption.getId());
-        if (redemption.getOtpExpiresAt() == null || LocalDateTime.now().isAfter(redemption.getOtpExpiresAt())) {
+        if (redemption.getOtpExpiresAt() == null || LocalDateTime.now(java.time.ZoneOffset.UTC).isAfter(redemption.getOtpExpiresAt())) {
             log.warn("[LOYALTY] OTP validation failed - expired | redemptionId={}", redemption.getId());
             throw LoyaltyException.unprocessable(ErrorCode.LOYALTY_OTP_EXPIRED, "OTP has expired.");
         }
