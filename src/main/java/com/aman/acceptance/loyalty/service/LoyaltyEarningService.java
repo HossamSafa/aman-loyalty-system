@@ -30,6 +30,7 @@ public class LoyaltyEarningService {
     private final LoyaltyAccountRepository loyaltyAccountRepository;
     private final LoyaltyTransactionRepository loyaltyTransactionRepository;
     private final PointsLotRepository pointsLotRepository;
+    private final AccountStatusGuard accountStatusGuard;
 
     @Transactional
     public EarningResponse earnPoints(
@@ -61,7 +62,9 @@ public class LoyaltyEarningService {
 
                         .orElseThrow(() -> new AccountException("Loyalty account not found"));
 
-        final long earnedPoints = calculatePoints(earningRequest.getAmount().getValue());
+        accountStatusGuard.assertActive(account);
+
+        final long earnedPoints = earningRequest.getAmount().getValue().longValue();
 
         final OffsetDateTime transactionTime = earningRequest.getTransactionTime();
 
@@ -115,13 +118,13 @@ public class LoyaltyEarningService {
 
     }
 
-    private static long calculatePoints(final BigDecimal amount) {
-
-        return amount
-                .multiply(BigDecimal.valueOf(200))
-                .setScale(0, RoundingMode.FLOOR)
-                .longValue();
-    }
+//    private static long calculatePoints(final BigDecimal amount) {
+//
+//        return amount
+//                .multiply(BigDecimal.valueOf(200))
+//                .setScale(0, RoundingMode.FLOOR)
+//                .longValue();
+//    }
 
     private static void validateRequest(final EarningRequest earningRequest) throws NoSuchElementException {
 
