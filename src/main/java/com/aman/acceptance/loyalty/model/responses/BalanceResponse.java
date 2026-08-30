@@ -1,11 +1,10 @@
 package com.aman.acceptance.loyalty.model.responses;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Data;
 
-@Getter
-@RequiredArgsConstructor
+@Data
 public class BalanceResponse {
+
     private final Integer available;
     private final Integer locked;
     private final Integer reserved;
