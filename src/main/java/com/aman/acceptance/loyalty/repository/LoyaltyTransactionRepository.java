@@ -49,4 +49,6 @@ public interface LoyaltyTransactionRepository
         ORDER BY DATE_TRUNC('month', created_at)
         """, nativeQuery = true)
     List<Object[]> getPointsFlowByMonth(@Param("startDate") LocalDateTime startDate);
+
+    long countByTypeInAndCreatedAtAfter(List<TransactionType> types, LocalDateTime after);
 }
