@@ -102,10 +102,11 @@ public class RedemptionService {
                 account.reserveForRedemption(pointsToRedeemInt);
                 log.info("[LOYALTY] Points reserved | accountId={} | points={}", accountId, pointsToRedeemInt);
 
+                redemption = redemptionRepository.saveAndFlush(redemption);
+
                 OtpMetadataDto otpMetadata = otpService.initiate(account, redemption);
                 log.info("[LOYALTY] OTP initiated | redemptionId={}", redemption.getId());
 
-                redemptionRepository.save(redemption);
                 log.info("[LOYALTY] Redemption saved | redemptionId={} | status={}", redemption.getId(), redemption.getStatus());
                 log.info("[LOYALTY] END RedemptionService.initiateRedemption | redemptionId={}", redemption.getId());
                 return new RedemptionResponseData(
