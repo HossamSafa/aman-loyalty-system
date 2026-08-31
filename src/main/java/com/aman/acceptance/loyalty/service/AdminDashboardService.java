@@ -8,6 +8,7 @@ import com.aman.acceptance.loyalty.repository.LoyaltyAccountRepository;
 import com.aman.acceptance.loyalty.repository.LoyaltyTransactionRepository;
 import com.aman.acceptance.loyalty.repository.PointsLotRepository;
 import com.aman.acceptance.loyalty.repository.RedemptionRepository;
+import com.aman.acceptance.loyalty.util.MobileUtil;
 import com.aman.acceptance.loyalty.util.PhoneMaskingUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,7 @@ public class AdminDashboardService {
     private final LoyaltyTransactionRepository loyaltyTransactionRepository;
     private final RedemptionRepository redemptionRepository;
     private final AuditEventRepository auditEventRepository;
+    private final MobileUtil mobileUtil;
 
 
     public BalanceOverviewResponse getBalanceOverview() {
@@ -173,9 +175,9 @@ public class AdminDashboardService {
 
         LedgerEntryResponse response = new LedgerEntryResponse();
         response.setLoyaltyTransactionId(String.valueOf(transaction.getId()));
-        response.setAccountId(String.valueOf(account.getId()));
+        response.setAccountId(account.getId());
         response.setMobileNumberMasked(
-                PhoneMaskingUtil.maskPhoneNumber(account.getCustomer().getMobileEncrypted()));
+                safeMaskMobile(account.getCustomer().getMobileEncrypted()));
         response.setType(transaction.getType().name());
         response.setPoints(transaction.getPoints());
         response.setStatus(transaction.getStatus().name());
@@ -183,5 +185,13 @@ public class AdminDashboardService {
         response.setCreatedAt(transaction.getCreatedAt());
 
         return response;
+    }
+
+    private String safeMaskMobile(String encryptedMobile) {
+        try {
+            return PhoneMaskingUtil.maskPhoneNumber(mobileUtil.decryptMobile(encryptedMobile));
+        } catch (Exception e) {
+            return "N/A";
+        }
     }
 }

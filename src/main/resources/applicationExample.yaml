@@ -15,8 +15,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/aman_loyalty
-    username: DB_USERNAME
-    password: DB_PASSWORD
+    username: postgres
+    password: 212004
     driver-class-name: org.postgresql.Driver
 
   jpa:
