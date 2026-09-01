@@ -2,7 +2,7 @@ package com.aman.acceptance.loyalty.controller;
 
 import com.aman.acceptance.loyalty.model.dto.MonthlyReportDto;
 import com.aman.acceptance.loyalty.model.dto.response.ApiResponse;
-import com.aman.acceptance.loyalty.model.dto.response.ReportSummaryResponse;
+import com.aman.acceptance.loyalty.model.dto.ReportSummaryDto;
 import com.aman.acceptance.loyalty.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,12 +22,12 @@ public class ReportController {
 
     @PreAuthorize("hasAuthority('loyalty.admin')")
     @GetMapping("/summary")
-    public ResponseEntity<ApiResponse<ReportSummaryResponse>> getSummary(
+    public ResponseEntity<ApiResponse<ReportSummaryDto>> getSummary(
             @RequestParam Long programId,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime from,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime to
     ) {
-        ReportSummaryResponse data = reportService.getSummary(programId, from, to);
+        ReportSummaryDto data = reportService.getSummary(programId, from, to);
         return ResponseEntity.ok(ApiResponse.success(data));
     }
 

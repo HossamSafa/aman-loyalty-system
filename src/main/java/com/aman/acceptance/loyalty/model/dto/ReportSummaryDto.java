@@ -1,13 +1,12 @@
-package com.aman.acceptance.loyalty.model.dto.response;
+package com.aman.acceptance.loyalty.model.dto;
 
-import com.aman.acceptance.loyalty.model.dto.MonthlyReportDto;
+import com.aman.acceptance.loyalty.model.dto.response.MoneyResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReportSummaryResponse {
+public class ReportSummaryDto {
 
     private Long programId;
 
