@@ -228,6 +228,7 @@ class CustomerServiceTest {
         when(mobileUtil.hashMobile(anyString()))
                 .thenReturn("hashed-mobile");
 
+
         when(customerRepository.findByMobileHash(anyString()))
                 .thenReturn(Optional.empty());
 

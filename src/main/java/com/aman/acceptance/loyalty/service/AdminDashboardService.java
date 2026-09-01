@@ -12,8 +12,9 @@ import com.aman.acceptance.loyalty.util.MobileUtil;
 import com.aman.acceptance.loyalty.util.PhoneMaskingUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -60,6 +61,7 @@ public class AdminDashboardService {
         );
     }
 
+
     public List<PointsFlowResponse> getPointsFlow() {
 
         LocalDateTime startDate =
@@ -76,6 +78,7 @@ public class AdminDashboardService {
                 ))
                 .toList();
     }
+
 
     public OtpFunnelResponse getOtpFunnel() {
 
@@ -99,6 +102,7 @@ public class AdminDashboardService {
                 committed
         );
     }
+
 
     public List<AuditEventResponse> getRecentAlerts(int limit) {
 
@@ -137,7 +141,6 @@ public class AdminDashboardService {
     }
 
 
-
     private Long getLongValue(Object[] result, int index) {
 
         if (result == null
@@ -159,6 +162,8 @@ public class AdminDashboardService {
 
         return ((Number) value).longValue();
     }
+
+
     public List<LedgerEntryResponse> getGlobalLedger(Pageable pageable) {
 
         Page<LoyaltyTransaction> transactionPage =
@@ -169,27 +174,59 @@ public class AdminDashboardService {
                 .toList();
     }
 
-    private LedgerEntryResponse toLedgerEntryResponse(LoyaltyTransaction transaction) {
+
+    private LedgerEntryResponse toLedgerEntryResponse(
+            LoyaltyTransaction transaction) {
 
         LoyaltyAccount account = transaction.getAccount();
 
         LedgerEntryResponse response = new LedgerEntryResponse();
-        response.setLoyaltyTransactionId(String.valueOf(transaction.getId()));
-        response.setAccountId(account.getId());
+
+        response.setLoyaltyTransactionId(
+                String.valueOf(transaction.getId())
+        );
+
+        response.setAccountId(
+                account.getId()
+        );
+
         response.setMobileNumberMasked(
-                safeMaskMobile(account.getCustomer().getMobileEncrypted()));
-        response.setType(transaction.getType().name());
-        response.setPoints(transaction.getPoints());
-        response.setStatus(transaction.getStatus().name());
-        response.setSourceTransactionId(transaction.getSourceTransactionId());
-        response.setCreatedAt(transaction.getCreatedAt());
+                safeMaskMobile(
+                        account.getCustomer().getMobileEncrypted()
+                )
+        );
+
+        response.setType(
+                transaction.getType().name()
+        );
+
+        response.setPoints(
+                transaction.getPoints()
+        );
+
+        response.setStatus(
+                transaction.getStatus().name()
+        );
+
+        response.setSourceTransactionId(
+                transaction.getSourceTransactionId()
+        );
+
+        response.setCreatedAt(
+                transaction.getCreatedAt()
+        );
 
         return response;
     }
 
+
     private String safeMaskMobile(String encryptedMobile) {
+
         try {
-            return PhoneMaskingUtil.maskPhoneNumber(mobileUtil.decryptMobile(encryptedMobile));
+            return PhoneMaskingUtil.maskPhoneNumber(
+                    mobileUtil.decryptMobile(encryptedMobile)
+            );
+
         } catch (Exception e) {
             return "N/A";
         }

@@ -71,6 +71,8 @@ public class SecurityConfig {
                         .requestMatchers("/admin/alerts/**").permitAll()
                         .requestMatchers("/admin/otp-funnel/**").permitAll()
                         .requestMatchers("/admin/points-flow/**").permitAll()
+                        .requestMatchers("/admin/ledger/**").permitAll()
+
 
                         .anyRequest().authenticated()
                 )

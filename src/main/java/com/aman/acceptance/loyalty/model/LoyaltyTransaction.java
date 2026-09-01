@@ -45,6 +45,8 @@ public class LoyaltyTransaction {
     @Column(name = "points", nullable = false)
     private Integer points;
 
+    @Column(name = "rule_version", nullable = true)
+    private Integer ruleVersion;
 
     @Column(name = "money_amount", precision = 12, scale = 2)
     private BigDecimal moneyAmount;

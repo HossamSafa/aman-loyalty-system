@@ -97,10 +97,13 @@ public class AdjustmentService {
 
         int expiryDays = (request.getExpiresInDays() != null) ? request.getExpiresInDays() : defaultExpiryDays;
 
+        String adjustmentReference = "adj-" + UUID.randomUUID();
+
         LoyaltyTransaction transaction = LoyaltyTransaction.builder()
                 .account(account)
                 .type(TransactionType.ADJUSTMENT_CREDIT)
-                .sourceTransactionId("adj-" + UUID.randomUUID())
+                .sourceTransactionId(adjustmentReference)
+                .idempotencyKey(adjustmentReference)
                 .points(request.getPoints())
                 .transactionTime(LocalDateTime.now())
                 .build();
@@ -135,10 +138,13 @@ public class AdjustmentService {
 
         consumeLotsFifo(account, request.getPoints());
 
+        String adjustmentReference = "adj-" + UUID.randomUUID();
+
         LoyaltyTransaction transaction = LoyaltyTransaction.builder()
                 .account(account)
                 .type(TransactionType.ADJUSTMENT_DEBIT)
-                .sourceTransactionId("adj-" + UUID.randomUUID())
+                .sourceTransactionId(adjustmentReference)
+                .idempotencyKey(adjustmentReference)
                 .points(-request.getPoints())
                 .transactionTime(LocalDateTime.now())
                 .build();
