@@ -49,4 +49,86 @@ public interface LoyaltyTransactionRepository
         ORDER BY DATE_TRUNC('month', created_at)
         """, nativeQuery = true)
     List<Object[]> getPointsFlowByMonth(@Param("startDate") LocalDateTime startDate);
+
+    long countByTypeInAndCreatedAtAfter(List<TransactionType> types, LocalDateTime after);
+
+    @Query("""
+    SELECT COALESCE(SUM(t.points), 0)
+    FROM LoyaltyTransaction t
+    WHERE t.account.program.id = :programId
+      AND t.type = :type
+      AND t.status = com.aman.acceptance.loyalty.enums.TransactionStatus.COMMITTED
+      AND t.createdAt >= :from
+      AND t.createdAt <= :to
+    """)
+    Long sumPointsByType(
+            @Param("programId") Long programId,
+            @Param("type") TransactionType type,
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to
+    );
+
+
+    @Query(value = """
+        SELECT
+            DATE_TRUNC('month', t.created_at) AS month,
+
+            COALESCE(
+                SUM(
+                    CASE
+                        WHEN t.type = 'EARN'
+                             AND t.status = 'COMMITTED'
+                        THEN t.points
+                        ELSE 0
+                    END
+                ),
+                0
+            ) AS pointsIssued,
+
+            COALESCE(
+                ABS(
+                    SUM(
+                        CASE
+                            WHEN t.type = 'REDEEM'
+                                 AND t.status = 'COMMITTED'
+                            THEN t.points
+                            ELSE 0
+                        END
+                    )
+                ),
+                0
+            ) AS pointsRedeemed,
+
+            COALESCE(
+                ABS(
+                    SUM(
+                        CASE
+                            WHEN t.type = 'EXPIRE'
+                                 AND t.status = 'COMMITTED'
+                            THEN t.points
+                            ELSE 0
+                        END
+                    )
+                ),
+                0
+            ) AS pointsExpired
+
+        FROM loyalty_transactions t
+
+        JOIN loyalty_accounts a
+            ON a.id = t.account_id
+
+        WHERE a.program_id = :programId
+          AND t.created_at >= :from
+          AND t.created_at <= :to
+
+        GROUP BY DATE_TRUNC('month', t.created_at)
+
+        ORDER BY DATE_TRUNC('month', t.created_at)
+        """, nativeQuery = true)
+    List<MonthlyPointsTrendProjection> findMonthlyPointsTrend(
+            @Param("programId") Long programId,
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to
+    );
 }

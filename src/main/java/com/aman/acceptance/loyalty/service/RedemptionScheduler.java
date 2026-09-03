@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class RedemptionScheduler {
 
     @Scheduled(fixedDelay = 60000) // run every minute
     public void cancelExpiredRedemptions() {
-        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
 
         // Expired OTP validations
         List<Redemption> expiredOtpPending = redemptionRepository.findByStatusAndOtpExpiresAtBefore(RedemptionStatus.OTP_PENDING, now);

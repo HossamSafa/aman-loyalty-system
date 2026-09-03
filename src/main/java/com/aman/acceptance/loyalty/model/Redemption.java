@@ -8,6 +8,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,7 +74,7 @@ public class Redemption {
 
     @PrePersist
     protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now(ZoneOffset.UTC);
         if (this.status == null) {
             this.status = RedemptionStatus.OTP_PENDING;
         }
@@ -94,7 +95,7 @@ public class Redemption {
         assertStatus(RedemptionStatus.OTP_PENDING);
         this.status = RedemptionStatus.AUTHORIZED;
         this.authorizationCode = authorizationCode;
-        this.reservationExpiresAt = LocalDateTime.now().plus(reservationTtl);
+        this.reservationExpiresAt = LocalDateTime.now(ZoneOffset.UTC).plus(reservationTtl);
         this.otpHash = null;
     }
 
@@ -109,7 +110,7 @@ public class Redemption {
         }
         this.status = RedemptionStatus.CANCELLED;
         this.cancelReason = reason;
-        this.cancelledAt = LocalDateTime.now();
+        this.cancelledAt = LocalDateTime.now(ZoneOffset.UTC);
     }
 
     public boolean isAuthorizedWith(String code) {

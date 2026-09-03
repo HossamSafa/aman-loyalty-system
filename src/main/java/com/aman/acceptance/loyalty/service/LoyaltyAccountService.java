@@ -45,7 +45,7 @@ public class LoyaltyAccountService {
        return new AccountResponse(String.valueOf(loyaltyAccount.getCustomer().getId()),
                String.valueOf(loyaltyAccount.getId()),
                String.valueOf(loyaltyAccount.getProgram().getId()),loyaltyAccount.getStatus().name(),
-               LoyaltyAccounHelper.mobileNumberMasked(loyaltyAccount.getCustomer().getMobileEncrypted()),
+               PhoneMaskingUtil.maskPhoneNumber(mobileUtil.decryptMobile(loyaltyAccount.getCustomer().getMobileEncrypted())),
                balanceResponse, nearestExpiryResponse,conversionResponse);
     }
 
