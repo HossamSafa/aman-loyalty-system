@@ -39,12 +39,20 @@ class AccountFreezeServiceTest {
 
     private AccountFreezeService accountFreezeService;
 
+    @Mock
+    private AccountStatusGuard accountStatusGuard;
+
+    @Mock
+    private RedemptionService redemptionService;
+
     @BeforeEach
     void setUp() {
         accountFreezeService = new AccountFreezeService(
                 loyaltyAccountRepository,
                 auditEventRepository,
-                new ObjectMapper()
+                new ObjectMapper(),
+                accountStatusGuard,
+                redemptionService
         );
     }
 
