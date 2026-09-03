@@ -1,0 +1,30 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl          Field(program_id,INT8,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl          Field(redemption_rate,NUMERIC,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl          Field(rounding_mode,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl          Field(status,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl          Field(version,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 0)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(T)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.registry  HHH10002507: Registering result set [HikariProxyResultSet@907167518 wrapping org.postgresql.jdbc.PgResultSet@61fb2a6f]
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.registry  HHH10002504: Releasing result set [HikariProxyResultSet@907167518 wrapping org.postgresql.jdbc.PgResultSet@61fb2a6f]
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.registry  HHH10002505: Closing result set [HikariProxyResultSet@907167518 wrapping org.postgresql.jdbc.PgResultSet@61fb2a6f]
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.registry  HHH10002503: Releasing statement [HikariProxyPreparedStatement@2023089510 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('ACTIVE') and rv1_0.effective_to<=('2026-09-03 14:45:13.783997+03')]
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.registry  HHH10002506: Closing prepared statement [HikariProxyPreparedStatement@2023089510 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('ACTIVE') and rv1_0.effective_to<=('2026-09-03 14:45:13.783997+03')]
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.jdbc  HHH100004: Statement execution complete (connection release mode ON_CLOSE) in JdbcCoordinator @924162331
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] DEBUG org.hibernate.orm.core  HHH006584: Committing transaction
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.jdbc  HHH100034: Notifying resource-local transaction observers before completion
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.jdbc  HHH100006: Transaction before completion in JdbcCoordinator @924162331
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.session  Before transaction completion processing
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.session  Automatically flushing session
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.session  Before transaction completion processing
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.synchronization  HHH90008001: Notifying Synchronizations (before completion)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.jdbc  HHH10003003: Preparing to commit transaction via JDBC Connection.commit()
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@648a822f, maxRows=0, fetchSize=0, flags=22
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=S_1,portal=null)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=1)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(COMMIT)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.jdbc  HHH10003004: Transaction committed via JDBC Connection.commit()
+[39m[scheduling-1][0;39m [2026-09-03  14-45-13-79] TRACE org.hibernate.orm.resource.jdbc  HHH10003007: Re-enabling auto-commit on JDBC Connection after completion of JDBC-based transaction

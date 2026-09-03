@@ -1,0 +1,55 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (r1: com.aman.acceptance.loyalty.model.Redemption(r)) {
+          primaryTableReference: redemptions as r1_0
+          TableGroupJoins {
+            left join LazyTableGroup (a1: com.aman.acceptance.loyalty.model.Redemption(r).account) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE org.hibernate.orm.sql.exec  HHH90004016: Skipping reading query result cache data (query cache disabled, cache mode NORMAL)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=? and r1_0.reservation_expires_at<?
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] DEBUG org.hibernate.SQL  
+    select
+        r1_0.id,
+        r1_0.account_id,
+        r1_0.authorization_code,
+        r1_0.cancel_reason,
+        r1_0.cancelled_at,
+        r1_0.created_at,
+        r1_0.discount_amount,
+        r1_0.otp_attempts_remaining,
+        r1_0.otp_expires_at,
+        r1_0.otp_hash,
+        r1_0.purchase_transaction_id,
+        r1_0.requested_points,
+        r1_0.reservation_expires_at,
+        r1_0.status 
+    from
+        redemptions r1_0 
+    where
+        r1_0.status=? 
+        and r1_0.reservation_expires_at<?
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@1615301009 wrapping select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=? and r1_0.reservation_expires_at<?]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE org.hibernate.orm.jdbc.bind  binding parameter (1:VARCHAR) <- [AUTHORIZED]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE org.hibernate.orm.jdbc.bind  binding parameter (2:TIMESTAMP) <- [2026-09-03T14:42:13.998401800]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@76c74bfc, maxRows=0, fetchSize=0, flags=17
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=$1 and r1_0.reservation_expires_at<$2",oids={1043,0})
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null,$1=<('AUTHORIZED')>,type=VARCHAR,$2=<('2026-09-03 14:42:13.998402+03')>,type=UNSPECIFIED)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(14)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl          Field(id,INT8,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl          Field(account_id,INT8,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl          Field(authorization_code,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl          Field(cancel_reason,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl          Field(cancelled_at,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl          Field(created_at,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-14-08] TRACE o.p.core.v3.QueryExecutorImpl          Field(discount_amount,NUMERIC,65535,T)

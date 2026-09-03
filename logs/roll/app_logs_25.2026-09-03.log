@@ -1,0 +1,28 @@
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-57] TRACE org.postgresql.jdbc.PgConnection      integer date/time = true
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-58] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Established new connection (dd6b0d8f-1eb1-4be9-9347-d6fcae351d4e)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-58] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@13ea3bb9
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-61] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Any)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyDiscriminator)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyDiscriminatorImplicitValues)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyDiscriminatorValues)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyDiscriminatorValue)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyDiscriminatorValues)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyKeyJavaClass)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyKeyJavaType)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyKeyJdbcType)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AnyKeyJdbcTypeCode)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.boot.internal.AnyKeyType)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Array)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AttributeAccessor)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.AttributeBinderType)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Bag)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.BatchSize)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Cache)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Cascade)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-62] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After adding stats (total=6/10, idle=6/10, active=0, waiting=0)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Checks)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-62] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (16f8460b-85ce-4758-a053-948f11bb89da)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Check)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-62] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-62] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Checks)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-62] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11

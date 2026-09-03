@@ -1,0 +1,44 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-21] TRACE org.hibernate.orm.resource.jdbc  HHH10003003: Preparing to commit transaction via JDBC Connection.commit()
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@cc0de7a, maxRows=0, fetchSize=0, flags=22
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=S_1,query="COMMIT",oids={})
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=S_1,portal=null)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=1)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [S_1]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(COMMIT)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.resource.jdbc  HHH10003004: Transaction committed via JDBC Connection.commit()
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.resource.jdbc  HHH10003007: Re-enabling auto-commit on JDBC Connection after completion of JDBC-based transaction
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] DEBUG org.postgresql.jdbc.PgConnection    setAutoCommit = true
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.jdbc  HHH100035: Notifying resource-local transaction observers after completion
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.synchronization  HHH90008002: Notifying Synchronizations (after completion with status 3)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.jdbc  HHH100007: Transaction after successful completion in JdbcCoordinator @576269465
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.session  After transaction completion processing (successful=true, delayed=false)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.session  After transaction completion processing (successful=true, delayed=false)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.session  Closing session [987e226f-30c9-4d93-8f86-b902aada5202]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] DEBUG org.hibernate.session.metrics  HHH000401: Logging session metrics:
+	833400 ns acquiring 1 JDBC connections
+	0 ns releasing 0 JDBC connections
+	252200 ns preparing 2 JDBC statements
+	12585600 ns executing 2 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	42800 ns executing 1 flushes (flushing a total of 0 entities and 0 collections)
+	174600 ns executing 2 pre-partial-flushes
+	193800 ns executing 2 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @576269465
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @917976086
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @917976086
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE i.m.o.SimpleObservation$SimpleScope  NoOp observation used with SimpleScope
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @388358873
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.session  Opened Session [48149b6f-1955-439f-ad97-e24a7881e2eb] at timestamp: 1788436162225
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM Redemption r WHERE r.status = :status AND r.otpExpiresAt < :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-22] TRACE org.hibernate.orm.query.hql  HQL: SELECT r FROM Redemption r WHERE r.status = :status AND r.otpExpiresAt < :time

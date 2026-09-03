@@ -1,0 +1,33 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.Redemption.purchaseTransactionId]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [purchaseTransactionId]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.Redemption.purchaseTransactionId
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.Redemption.requestedPoints]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [requestedPoints]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.Redemption.requestedPoints
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.Redemption.reservationExpiresAt]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [reservationExpiresAt]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.Redemption.reservationExpiresAt
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.Redemption.status]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [status]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.enums.RedemptionStatus com.aman.acceptance.loyalty.model.Redemption.status
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Type: basicType@19(com.aman.acceptance.loyalty.enums.RedemptionStatus,12) [BasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE o.h.m.m.d.i.AbstractIdentifiableType  Interpreting domain-model identifier descriptor
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Completed entity [com.aman.acceptance.loyalty.model.Redemption]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting entity [com.aman.acceptance.loyalty.model.LoyaltyTransaction]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building identifier attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.id]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [id]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Member: private java.lang.Long com.aman.acceptance.loyalty.model.LoyaltyTransaction.id
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Type: long [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.account]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [account]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.model.LoyaltyAccount com.aman.acceptance.loyalty.model.LoyaltyTransaction.account
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Type: com.aman.acceptance.loyalty.model.LoyaltyAccount [ManyToOneType]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.createdAt]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [createdAt]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.LoyaltyTransaction.createdAt
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.currency]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-29] TRACE org.hibernate.orm.core  Starting attribute metadata determination [currency]

@@ -1,0 +1,28 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-22] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.TypeRegistrations)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-22] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.UpdateTimestamp)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-22] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.UuidGenerator)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-22] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.ValueGenerationType)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-22] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.View)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After adding stats (total=7/10, idle=7/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (b5e9c71b-b03a-47bf-ae46-291bab2ebec1)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-24] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$Checks)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$Check)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$Checks)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$ColumnDefaults)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$ColumnDefault)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$ColumnDefaults)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$GeneratedColumns)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$GeneratedColumn)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$GeneratedColumns)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$DiscriminatorFormulas)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$DiscriminatorFormula)
+[39m[restartedMain][0;39m [2026-09-03  14-49-15-25] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$DiscriminatorFormulas)

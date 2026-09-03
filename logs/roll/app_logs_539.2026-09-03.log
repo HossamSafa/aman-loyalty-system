@@ -1,0 +1,48 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl          Field(lock_days,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl          Field(minimum_redemption_points,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl          Field(program_id,INT8,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl          Field(redemption_rate,NUMERIC,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl          Field(rounding_mode,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl          Field(status,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl          Field(version,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 0)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(T)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-18] TRACE org.hibernate.orm.resource.registry  HHH10002507: Registering result set [HikariProxyResultSet@1236214780 wrapping org.postgresql.jdbc.PgResultSet@1924856a]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-19] TRACE org.hibernate.orm.results  Registering initializer: EntityDelayedFetchInitializer(com.aman.acceptance.loyalty.model.RuleVersion(r).program)
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-19] TRACE org.hibernate.orm.results  Registering initializer: EntityJoinedFetchInitializer(com.aman.acceptance.loyalty.model.RuleVersion(r))
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-19] TRACE org.hibernate.orm.resource.registry  HHH10002504: Releasing result set [HikariProxyResultSet@1236214780 wrapping org.postgresql.jdbc.PgResultSet@1924856a]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-19] TRACE org.hibernate.orm.resource.registry  HHH10002505: Closing result set [HikariProxyResultSet@1236214780 wrapping org.postgresql.jdbc.PgResultSet@1924856a]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-19] TRACE org.hibernate.orm.resource.registry  HHH10002503: Releasing statement [HikariProxyPreparedStatement@2082258867 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('SCHEDULED') and rv1_0.effective_from<=('2026-09-03 14:49:22.1009+03')]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-19] TRACE org.hibernate.orm.resource.registry  HHH10002506: Closing prepared statement [HikariProxyPreparedStatement@2082258867 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('SCHEDULED') and rv1_0.effective_from<=('2026-09-03 14:49:22.1009+03')]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-19] TRACE org.hibernate.orm.jdbc  HHH100004: Statement execution complete (connection release mode ON_CLOSE) in JdbcCoordinator @576269465
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-20] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveTo <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-20] TRACE org.hibernate.orm.query.hql  HQL: SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveTo <= :time
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-20] TRACE org.hibernate.orm.query.sqm.ast  SqmStatement Tree:
+    -> [select]
+      -> [query-spec]
+        -> [select]
+          -> [selection]
+            -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+            <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [selection]
+        <- [select]
+        -> [from]
+          -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+        <- [from]
+        -> [where]
+          -> [and]
+            -> [EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).status'
+                :status
+            <- [EQUAL]
+            -> [LESS_THAN_OR_EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveTo'
+                :time
+            <- [LESS_THAN_OR_EQUAL]
+          <- [and]
+        <- [where]
+      <- [query-spec]
+    <- [select]
+
+[39m[scheduling-1][0;39m [2026-09-03  14-49-22-20] TRACE org.hibernate.orm.query.plan.cache  Resolving cached query plan for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveTo <= :time]

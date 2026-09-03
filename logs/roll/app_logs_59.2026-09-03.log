@@ -1,0 +1,34 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.status]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [status]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.enums.ProgramStatus com.aman.acceptance.loyalty.model.LoyaltyProgram.status
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: basicType@11(com.aman.acceptance.loyalty.enums.ProgramStatus,12) [BasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE o.h.m.m.d.i.AbstractIdentifiableType  Interpreting domain-model identifier descriptor
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Completed entity [com.aman.acceptance.loyalty.model.LoyaltyProgram]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting entity [com.aman.acceptance.loyalty.model.RuleVersion]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building identifier attribute [com.aman.acceptance.loyalty.model.RuleVersion.id]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [id]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.lang.Long com.aman.acceptance.loyalty.model.RuleVersion.id
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: long [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.createdAt]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [createdAt]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.RuleVersion.createdAt
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.earningRate]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [earningRate]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.math.BigDecimal com.aman.acceptance.loyalty.model.RuleVersion.earningRate
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: big_decimal [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.effectiveFrom]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [effectiveFrom]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.RuleVersion.effectiveFrom
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.effectiveTo]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [effectiveTo]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.RuleVersion.effectiveTo
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.expiryDays]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [expiryDays]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.RuleVersion.expiryDays
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.lockDays]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [lockDays]

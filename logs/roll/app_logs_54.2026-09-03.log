@@ -1,0 +1,65 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-72] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (lt1: com.aman.acceptance.loyalty.model.LoyaltyTransaction) {
+          primaryTableReference: loyalty_transactions as lt1_0
+          TableGroupJoins {
+            left join LazyTableGroup (a1: com.aman.acceptance.loyalty.model.LoyaltyTransaction.account) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.LoyaltyTransaction
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from loyalty_transactions where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into loyalty_transactions (account_id,created_at,currency_code,idempotency_key,money_amount,original_source_transaction_id,points,refund_type,rule_version,source_transaction_id,status,transaction_time,type) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update loyalty_transactions set account_id=?,currency_code=?,idempotency_key=?,money_amount=?,original_source_transaction_id=?,points=?,refund_type=?,rule_version=?,source_transaction_id=?,status=?,transaction_time=?,type=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from loyalty_transactions where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.RedemptionAllocation]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.RedemptionAllocation.lot]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RedemptionAllocation.points]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.RedemptionAllocation.redemption]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.RedemptionAllocation.restoredPoints]
+
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (ra1: com.aman.acceptance.loyalty.model.RedemptionAllocation) {
+          primaryTableReference: redemption_allocations as ra1_0
+          TableGroupJoins {
+            left join LazyTableGroup (l1: com.aman.acceptance.loyalty.model.RedemptionAllocation.lot) {
+            }
+            left join LazyTableGroup (r1: com.aman.acceptance.loyalty.model.RedemptionAllocation.redemption) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.RedemptionAllocation
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from redemption_allocations where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into redemption_allocations (lot_id,points,redemption_id,restored_points) values (?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update redemption_allocations set lot_id=?,points=?,redemption_id=?,restored_points=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from redemption_allocations where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.Customer]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Customer.createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Customer.mobileEncrypted]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Customer.mobileHash]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Customer.name]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.Customer.status]
+
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (c1: com.aman.acceptance.loyalty.model.Customer) {
+          primaryTableReference: customers as c1_0
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.Customer
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from customers where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-73] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into customers (created_at,mobile_encrypted,mobile_hash,name,status) values (?,?,?,?,?)

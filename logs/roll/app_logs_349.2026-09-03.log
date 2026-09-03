@@ -1,0 +1,37 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-04] TRACE org.hibernate.orm.boot  HHH160141: Binding column: idempotency_key
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-04] TRACE org.hibernate.orm.boot  HHH160141: Binding column: response_body
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-04] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.LoyaltyAccount
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-04] TRACE org.hibernate.orm.boot  HHH160155: Import: LoyaltyAccount -> com.aman.acceptance.loyalty.model.LoyaltyAccount
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-05] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.LoyaltyAccount -> com.aman.acceptance.loyalty.model.LoyaltyAccount
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-05] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-06] TRACE org.hibernate.orm.boot  HHH160141: Binding column: available_points
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-06] TRACE org.hibernate.orm.boot  HHH160141: Binding column: created_at
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-07] TRACE org.hibernate.orm.boot  HHH160141: Binding column: customer_id
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-07] TRACE org.hibernate.orm.boot  HHH160141: Binding column: locked_points
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-07] TRACE org.hibernate.orm.boot  HHH160141: Binding column: program_id
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-07] TRACE org.hibernate.orm.boot  HHH160141: Binding column: reserved_points
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-07] TRACE org.hibernate.orm.boot  HHH160141: Binding column: status
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-07] TRACE org.hibernate.orm.boot  HHH160141: Binding column: updated_at
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-07] TRACE org.hibernate.orm.boot  HHH160141: Binding column: version
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.LoyaltyProgram
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160155: Import: LoyaltyProgram -> com.aman.acceptance.loyalty.model.LoyaltyProgram
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.LoyaltyProgram -> com.aman.acceptance.loyalty.model.LoyaltyProgram
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: created_at
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: currency
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: expiry_days
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: lock_days
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: merchant_id
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: name
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: status
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.LoyaltyTransaction
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160155: Import: LoyaltyTransaction -> com.aman.acceptance.loyalty.model.LoyaltyTransaction
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.LoyaltyTransaction -> com.aman.acceptance.loyalty.model.LoyaltyTransaction
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-08] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-09] TRACE org.hibernate.orm.boot  HHH160141: Binding column: account_id
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-09] TRACE org.hibernate.orm.boot  HHH160141: Binding column: created_at
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-09] TRACE org.hibernate.orm.boot  HHH160141: Binding column: currency_code
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-09] TRACE org.hibernate.orm.boot  HHH160141: Binding column: idempotency_key
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-09] TRACE org.hibernate.orm.boot  HHH160141: Binding column: money_amount
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-09] TRACE org.hibernate.orm.boot  HHH160141: Binding column: original_source_transaction_id
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-09] TRACE org.hibernate.orm.boot  HHH160141: Binding column: points

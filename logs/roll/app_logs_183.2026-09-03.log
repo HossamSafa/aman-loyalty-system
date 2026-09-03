@@ -1,0 +1,32 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-50] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-50] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 6
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 12
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getShort columnIndex: 7
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 6
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 12
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getShort columnIndex: 7
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 6
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 12
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@4efffb62, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="SELECT setting FROM pg_catalog.pg_settings WHERE name='max_index_keys'",oids={})
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-51] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(1)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl          Field(setting,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=2)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 1)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE org.postgresql.jdbc.PgConnection    getInt columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@45bda182, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-52] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="SELECT current_database() AS "PKTABLE_CAT", pkn.nspname AS "PKTABLE_SCHEM", pkc.relname AS "PKTABLE_NAME", pka.attname AS "PKCOLUMN_NAME", current_database() AS "FKTABLE_CAT", fkn.nspname AS "FKTABLE_SCHEM", fkc.relname AS "FKTABLE_NAME", fka.attname AS "FKCOLUMN_NAME", pos.n AS "KEY_SEQ", CASE con.confupdtype  WHEN 'c' THEN 0 WHEN 'n' THEN 2 WHEN 'd' THEN 4 WHEN 'r' THEN 1 WHEN 'p' THEN 1 WHEN 'a' THEN 3 ELSE NULL END AS "UPDATE_RULE", CASE con.confdeltype  WHEN 'c' THEN 0 WHEN 'n' THEN 2 WHEN 'd' THEN 4 WHEN 'r' THEN 1 WHEN 'p' THEN 1 WHEN 'a' THEN 3 ELSE NULL END AS "DELETE_RULE", con.conname AS "FK_NAME", pkic.relname AS "PK_NAME", CASE  WHEN con.condeferrable AND con.condeferred THEN 5 WHEN con.condeferrable THEN 6 ELSE 7 END AS "DEFERRABILITY"  FROM  pg_catalog.pg_namespace pkn, pg_catalog.pg_class pkc, pg_catalog.pg_attribute pka,  pg_catalog.pg_namespace fkn, pg_catalog.pg_class fkc, pg_catalog.pg_attribute fka,  pg_catalog.pg_constraint con,  pg_catalog.generate_series(1, 32) pos(n),  pg_catalog.pg_class pkic WHERE pkn.oid = pkc.relnamespace AND pkc.oid = pka.attrelid AND pka.attnum = con.confkey[pos.n] AND con.confrelid = pkc.oid  AND fkn.oid = fkc.relnamespace AND fkc.oid = fka.attrelid AND fka.attnum = con.conkey[pos.n] AND con.conrelid = fkc.oid  AND con.contype = 'f' AND (pkic.relkind = 'i' OR pkic.relkind = 'I') AND pkic.oid = con.conindid  AND fkn.nspname = $1 ORDER BY pkn.nspname,pkc.relname, con.conname,pos.n",oids={1043})

@@ -1,0 +1,35 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-82] TRACE org.hibernate.orm.core  Starting attribute metadata determination [unlockAt]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-82] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.PointsLot.unlockAt
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-82] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-82] TRACE o.h.m.m.d.i.AbstractIdentifiableType  Interpreting domain-model identifier descriptor
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-82] TRACE org.hibernate.orm.core  Completed entity [com.aman.acceptance.loyalty.model.PointsLot]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-83] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.transaction.jta.platform.spi.JtaPlatform
+[34m[restartedMain][0;39m [2026-09-03  14-42-08-83] INFO  org.hibernate.orm.core  HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-83] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.event.spi.EntityCopyObserverFactory
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-83] TRACE org.hibernate.orm.event.copy  HHH90080100: Configured EntityCopyObserver strategy: disallow
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-83] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.batch.spi.BatchBuilder
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-83] TRACE org.hibernate.orm.jdbc.batch  Using standard JDBC batch builder
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-84] DEBUG org.hibernate.orm.service  HHH010454: EventListenerRegistry access via ServiceRegistry is deprecated - use 'sessionFactory.getEventEngine().getListenerRegistry()' instead
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-84] TRACE o.h.q.named.NamedObjectRepository  Checking 0 named HQL queries
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-84] TRACE o.h.q.named.NamedObjectRepository  Checking 0 named SQL queries
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-84] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.tool.schema.spi.SchemaManagementTool
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-85] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-86] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@26a8f892, maxRows=0, fetchSize=0, flags=1,041
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-86] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-86] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-86] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-86] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@28767993, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="select * from information_schema.sequences",oids={})
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(12)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl          Field(sequence_catalog,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl          Field(sequence_schema,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl          Field(sequence_name,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl          Field(data_type,VARCHAR,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-87] TRACE o.p.core.v3.QueryExecutorImpl          Field(numeric_precision,INT4,4,T)

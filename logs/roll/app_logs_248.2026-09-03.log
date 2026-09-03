@@ -1,0 +1,47 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-79] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_to<=?
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-79] DEBUG org.hibernate.SQL  
+    select
+        rv1_0.id,
+        rv1_0.created_at,
+        rv1_0.earning_rate,
+        rv1_0.effective_from,
+        rv1_0.effective_to,
+        rv1_0.expiry_days,
+        rv1_0.lock_days,
+        rv1_0.minimum_redemption_points,
+        rv1_0.program_id,
+        rv1_0.redemption_rate,
+        rv1_0.rounding_mode,
+        rv1_0.status,
+        rv1_0.version 
+    from
+        rule_versions rv1_0 
+    where
+        rv1_0.status=? 
+        and rv1_0.effective_to<=?
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@1228183383 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_to<=?]
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE org.hibernate.orm.jdbc.bind  binding parameter (1:VARCHAR) <- [ACTIVE]
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE org.hibernate.orm.jdbc.bind  binding parameter (2:TIMESTAMP) <- [2026-09-03T14:43:13.792418200]
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@59c584db, maxRows=0, fetchSize=0, flags=1
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=$1 and rv1_0.effective_to<=$2",oids={1043,0})
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null,$1=<('ACTIVE')>,type=VARCHAR,$2=<('2026-09-03 14:43:13.792418+03')>,type=UNSPECIFIED)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(13)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(id,INT8,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(created_at,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(earning_rate,NUMERIC,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(effective_from,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(effective_to,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(expiry_days,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(lock_days,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(minimum_redemption_points,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(program_id,INT8,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(redemption_rate,NUMERIC,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(rounding_mode,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(status,VARCHAR,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl          Field(version,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-43-13-80] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 0)

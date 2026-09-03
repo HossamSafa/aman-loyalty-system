@@ -1,0 +1,25 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl          Field(numeric_precision_radix,INT4,4,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl          Field(numeric_scale,INT4,4,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl          Field(start_value,VARCHAR,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl          Field(minimum_value,VARCHAR,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl          Field(maximum_value,VARCHAR,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl          Field(increment,VARCHAR,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl          Field(cycle_option,VARCHAR,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 0)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-37] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-38] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@59120bff, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-38] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="SELECT current_database() AS "TABLE_CAT", n.nspname AS "TABLE_SCHEM", c.relname AS "TABLE_NAME",  CASE n.nspname ~ '^pg_' OR n.nspname = 'information_schema'  WHEN true THEN CASE  WHEN n.nspname = 'pg_catalog' OR n.nspname = 'information_schema' THEN CASE c.relkind   WHEN 'r' THEN 'SYSTEM TABLE'   WHEN 'v' THEN 'SYSTEM VIEW'   WHEN 'i' THEN 'SYSTEM INDEX'   ELSE NULL   END  WHEN n.nspname = 'pg_toast' THEN CASE c.relkind   WHEN 'r' THEN 'SYSTEM TOAST TABLE'   WHEN 'i' THEN 'SYSTEM TOAST INDEX'   ELSE NULL   END  ELSE CASE c.relkind   WHEN 'r' THEN 'TEMPORARY TABLE'   WHEN 'p' THEN 'TEMPORARY TABLE'   WHEN 'i' THEN 'TEMPORARY INDEX'   WHEN 'S' THEN 'TEMPORARY SEQUENCE'   WHEN 'v' THEN 'TEMPORARY VIEW'   ELSE NULL   END  END  WHEN false THEN CASE c.relkind  WHEN 'r' THEN 'TABLE'  WHEN 'p' THEN 'PARTITIONED TABLE'  WHEN 'i' THEN 'INDEX'  WHEN 'P' then 'PARTITIONED INDEX'  WHEN 'S' THEN 'SEQUENCE'  WHEN 'v' THEN 'VIEW'  WHEN 'c' THEN 'TYPE'  WHEN 'f' THEN 'FOREIGN TABLE'  WHEN 'm' THEN 'MATERIALIZED VIEW'  ELSE NULL  END  ELSE NULL  END  AS "TABLE_TYPE", d.description AS "REMARKS",  '' as "TYPE_CAT", '' as "TYPE_SCHEM", '' as "TYPE_NAME", '' AS "SELF_REFERENCING_COL_NAME", '' AS "REF_GENERATION"  FROM pg_catalog.pg_namespace n, pg_catalog.pg_class c  LEFT JOIN pg_catalog.pg_description d ON (c.oid = d.objoid AND d.objsubid = 0  and d.classoid = 'pg_class'::regclass)  WHERE c.relnamespace = n.oid  AND n.nspname LIKE $1 AND c.relname LIKE $2 AND (false  OR ( c.relkind = 'r' AND n.nspname !~ '^pg_' AND n.nspname <> 'information_schema' )  OR ( c.relkind = 'v' AND n.nspname <> 'pg_catalog' AND n.nspname <> 'information_schema' )  OR ( c.relkind = 'm' )  OR ( c.relkind = 'p' AND n.nspname !~ '^pg_' AND n.nspname <> 'information_schema' ) )  ORDER BY "TABLE_TYPE","TABLE_SCHEM","TABLE_NAME" ",oids={1043,1043})
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-38] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null,$1=<('public')>,type=VARCHAR,$2=<('%')>,type=VARCHAR)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-38] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-38] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-38] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(10)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_CAT,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_SCHEM,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_NAME,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_TYPE,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl          Field(REMARKS,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl          Field(TYPE_CAT,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-39] TRACE o.p.core.v3.QueryExecutorImpl          Field(TYPE_SCHEM,TEXT,65535,T)

@@ -1,0 +1,25 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'cte' -> org.hibernate.query.sqm.mutation.internal.cte.CteMutationStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'global_temporary' -> org.hibernate.query.sqm.mutation.internal.temptable.GlobalTemporaryTableMutationStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'local_temporary' -> org.hibernate.query.sqm.mutation.internal.temptable.LocalTemporaryTableMutationStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'persistent' -> org.hibernate.query.sqm.mutation.internal.temptable.PersistentTableMutationStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'default' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'jpa' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'legacy-jpa' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'legacy-hbm' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'component-path' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitDatabaseObjectNamingStrategy: 'standard' -> org.hibernate.id.enhanced.StandardNamingStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitDatabaseObjectNamingStrategy: 'single' -> org.hibernate.id.enhanced.SingleNamingStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-02] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitDatabaseObjectNamingStrategy: 'legacy' -> org.hibernate.id.enhanced.LegacyNamingStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-03] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ColumnOrderingStrategy: 'default' -> org.hibernate.boot.model.relational.ColumnOrderingStrategyStandard
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-03] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ColumnOrderingStrategy: 'legacy' -> org.hibernate.boot.model.relational.ColumnOrderingStrategyLegacy
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-03] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for CacheKeysFactory: 'default' -> org.hibernate.cache.internal.DefaultCacheKeysFactory
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-03] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for CacheKeysFactory: 'simple' -> org.hibernate.cache.internal.SimpleCacheKeysFactory
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-03] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for FormatMapper: 'jsonb' -> org.hibernate.type.format.jakartajson.JsonBJsonFormatMapper
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-03] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After adding stats (total=2/10, idle=2/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-03] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (656bbda2-339b-40be-acd3-b6ae9f73cc38)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-03] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for FormatMapper: 'jackson' -> org.hibernate.type.format.jackson.JacksonJsonFormatMapper
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-03] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-03] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-04] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-04] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-04] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5

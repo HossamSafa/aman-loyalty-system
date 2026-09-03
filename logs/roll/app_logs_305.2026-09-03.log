@@ -1,0 +1,27 @@
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-33] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Before shutdown stats (total=10/10, idle=10/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-33] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7dfc05f8: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-33] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@69b41079: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@4fc96810: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@4ab25a9a: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@77450153: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@13ea3bb9: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@472d3490: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@100db171: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7daba0e4: (connection evicted)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@24ec60f0: (connection evicted)
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-34] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After  shutdown stats (total=0/10, idle=0/10, active=0, waiting=0)
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-34] INFO  com.zaxxer.hikari.HikariDataSource  HikariPool-1 - Shutdown completed.
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-12] DEBUG org.jboss.logging  Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+[34m[background-preinit][0;39m [2026-09-03  14-49-11-12] INFO  o.h.validator.internal.util.Version  HV000001: Hibernate Validator 9.0.1.Final
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-13] DEBUG o.h.v.i.x.config.ValidationXmlParser  Trying to load META-INF/validation.xml for XML based Validator configuration.
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-13] DEBUG o.h.v.i.x.c.ResourceLoaderHelper  Trying to load META-INF/validation.xml via TCCL
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-13] DEBUG o.h.v.i.x.c.ResourceLoaderHelper  Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-13] DEBUG o.h.v.i.x.config.ValidationXmlParser  No META-INF/validation.xml found. Using annotation based configuration only.
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-14] DEBUG o.h.v.i.e.r.TraversableResolvers  Found jakarta.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming Jakarta Persistence environment. Trying to instantiate Jakarta Persistence aware TraversableResolver
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-14] DEBUG o.h.v.i.e.r.TraversableResolvers  Instantiated Jakarta Persistence aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[39m[background-preinit][0;39m [2026-09-03  14-49-11-17] DEBUG o.h.v.m.ResourceBundleMessageInterpolator  Loaded expression factory via original TCCL
+[34m[restartedMain][0;39m [2026-09-03  14-49-11-19] INFO  c.a.acceptance.loyalty.Application  Starting Application using Java 21.0.12 with PID 27356 (C:\Users\Mostafa\Desktop\training\aman-loyalty-system\target\classes started by Mostafa in C:\Users\Mostafa\Desktop\training\aman-loyalty-system)
+[39m[restartedMain][0;39m [2026-09-03  14-49-11-19] DEBUG c.a.acceptance.loyalty.Application  Running with Spring Boot v4.0.7, Spring v7.0.8
+[34m[restartedMain][0;39m [2026-09-03  14-49-11-19] INFO  c.a.acceptance.loyalty.Application  The following 1 profile is active: "local"
+[34m[restartedMain][0;39m [2026-09-03  14-49-11-26] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor  Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[34m[restartedMain][0;39m [2026-09-03  14-49-11-26] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor  For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'

@@ -1,0 +1,42 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null,$1=<('public')>,type=VARCHAR,$2=<('%')>,type=VARCHAR)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(10)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_CAT,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_SCHEM,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_NAME,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_TYPE,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(REMARKS,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(TYPE_CAT,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(TYPE_SCHEM,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(TYPE_NAME,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(SELF_REFERENCING_COL_NAME,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl          Field(REF_GENERATION,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=33)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=30)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=40)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=37)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=37)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=41)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=32)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=43)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=32)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=34)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 10)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 4
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 5
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 4
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 5
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-65] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3

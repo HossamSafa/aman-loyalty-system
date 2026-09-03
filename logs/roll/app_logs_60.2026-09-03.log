@@ -1,0 +1,33 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.RuleVersion.lockDays
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.minimumRedemptionPoints]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [minimumRedemptionPoints]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.RuleVersion.minimumRedemptionPoints
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.program]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [program]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.model.LoyaltyProgram com.aman.acceptance.loyalty.model.RuleVersion.program
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: com.aman.acceptance.loyalty.model.LoyaltyProgram [ManyToOneType]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.redemptionRate]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  Starting attribute metadata determination [redemptionRate]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Member: private java.math.BigDecimal com.aman.acceptance.loyalty.model.RuleVersion.redemptionRate
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-78] TRACE org.hibernate.orm.core  	Type: big_decimal [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.roundingMode]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Starting attribute metadata determination [roundingMode]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.enums.RoundingMode com.aman.acceptance.loyalty.model.RuleVersion.roundingMode
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Type: basicType@20(com.aman.acceptance.loyalty.enums.RoundingMode,12) [BasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.status]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Starting attribute metadata determination [status]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.enums.RuleStatus com.aman.acceptance.loyalty.model.RuleVersion.status
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Type: basicType@21(com.aman.acceptance.loyalty.enums.RuleStatus,12) [BasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.RuleVersion.version]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Starting attribute metadata determination [version]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.RuleVersion.version
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE o.h.m.m.d.i.AbstractIdentifiableType  Interpreting domain-model identifier descriptor
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Completed entity [com.aman.acceptance.loyalty.model.RuleVersion]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Starting entity [com.aman.acceptance.loyalty.model.IdempotencyRecord]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Building identifier attribute [com.aman.acceptance.loyalty.model.IdempotencyRecord.id]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  Starting attribute metadata determination [id]
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Member: private java.lang.Long com.aman.acceptance.loyalty.model.IdempotencyRecord.id
+[39m[restartedMain][0;39m [2026-09-03  14-42-08-79] TRACE org.hibernate.orm.core  	Type: long [NamedBasicTypeImpl]

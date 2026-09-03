@@ -1,0 +1,43 @@
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-44] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-45] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-45] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-45] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-45] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-50] DEBUG org.hibernate.orm.jpa  HHH008541: PersistenceUnitInfo [
+	name: default
+	persistence provider classname: null
+	classloader: org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1b526163
+	excludeUnlistedClasses: true
+	JTA datasource: null
+	Non JTA datasource: HikariDataSource (HikariPool-1)
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/C:/Users/Mostafa/Desktop/training/aman-loyalty-system/target/classes/
+	Shared Cache Mode: UNSPECIFIED
+	Validation Mode: AUTO
+	Jar files URLs []
+	Managed classes names [
+		com.aman.acceptance.loyalty.model.AuditEvent
+		com.aman.acceptance.loyalty.model.Customer
+		com.aman.acceptance.loyalty.model.IdempotencyRecord
+		com.aman.acceptance.loyalty.model.LoyaltyAccount
+		com.aman.acceptance.loyalty.model.LoyaltyProgram
+		com.aman.acceptance.loyalty.model.LoyaltyTransaction
+		com.aman.acceptance.loyalty.model.PointsLot
+		com.aman.acceptance.loyalty.model.Redemption
+		com.aman.acceptance.loyalty.model.RedemptionAllocation
+		com.aman.acceptance.loyalty.model.RuleVersion]
+	Mapping files names []
+	Properties []
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-52] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for TransactionCoordinatorBuilder: 'jdbc' -> org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorBuilderImpl
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for TransactionCoordinatorBuilder: 'jta' -> org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorBuilderImpl
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for TransactionCoordinatorBuilder: 'org.hibernate.transaction.JDBCTransactionFactory' -> org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorBuilderImpl
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for TransactionCoordinatorBuilder: 'org.hibernate.transaction.JTATransactionFactory' -> org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorBuilderImpl
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for TransactionCoordinatorBuilder: 'org.hibernate.transaction.CMTTransactionFactory' -> org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorBuilderImpl
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableInsertStrategy: 'cte' -> org.hibernate.query.sqm.mutation.internal.cte.CteInsertStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableInsertStrategy: 'global_temporary' -> org.hibernate.query.sqm.mutation.internal.temptable.GlobalTemporaryTableInsertStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableInsertStrategy: 'local_temporary' -> org.hibernate.query.sqm.mutation.internal.temptable.LocalTemporaryTableInsertStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableInsertStrategy: 'persistent' -> org.hibernate.query.sqm.mutation.internal.temptable.PersistentTableInsertStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'cte' -> org.hibernate.query.sqm.mutation.internal.cte.CteMutationStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'global_temporary' -> org.hibernate.query.sqm.mutation.internal.temptable.GlobalTemporaryTableMutationStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-53] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'local_temporary' -> org.hibernate.query.sqm.mutation.internal.temptable.LocalTemporaryTableMutationStrategy
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-54] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for SqmMultiTableMutationStrategy: 'persistent' -> org.hibernate.query.sqm.mutation.internal.temptable.PersistentTableMutationStrategy

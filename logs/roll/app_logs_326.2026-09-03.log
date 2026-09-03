@@ -1,0 +1,27 @@
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SET)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.JoinColumns)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(application_name = PostgreSQL JDBC Driver)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.JoinTable)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] TRACE org.postgresql.jdbc.PgConnection      types using binary send = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] TRACE org.postgresql.jdbc.PgConnection      types using binary receive = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,DATE,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] TRACE org.postgresql.jdbc.PgConnection      integer date/time = true
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Lob)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.ManyToMany)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Established new connection (067a8143-b9f5-4210-a58c-73afef629e02)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-14-98] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7739e9b1
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.ManyToOne)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKey)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKeyClass)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKeyColumn)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKeyEnumerated)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKeyJoinColumns)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKeyJoinColumn)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKeyJoinColumns)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapKeyTemporal)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MappedSuperclass)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.MapsId)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.NamedAttributeNode)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.NamedEntityGraphs)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.NamedEntityGraph)
+[39m[restartedMain][0;39m [2026-09-03  14-49-14-98] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.NamedEntityGraphs)

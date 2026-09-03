@@ -1,0 +1,29 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-72] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$SQLSelect)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$SQLSelects)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.DialectOverride$Version)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.boot.internal.Abstract)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.boot.internal.AnyKeyType)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.boot.internal.CollectionClassification)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.boot.internal.Extends)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.boot.internal.Target)
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.boot.cfgxml.spi.CfgXmlAccessService
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.orm.boot  HHH160222: Injecting JPA temp ClassLoader [org.springframework.instrument.classloading.SimpleThrowawayClassLoader@720a13b4] into BootstrapContext; was [null]
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.orm.boot  HHH160224: Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@67553e32] into BootstrapContext; was [null]
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-73] TRACE org.hibernate.orm.boot  HHH160223: Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@4ee9ce3a] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@37494d6f]
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-74] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After adding stats (total=7/10, idle=7/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-74] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (3cf32b6e-7bf3-4fa8-819d-e4716b320574)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-75] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[restartedMain][0;39m [2026-09-03  14-42-06-77] TRACE org.hibernate.orm.jpa  HHH008537: Pushing class transformers for PU named 'default' on loading classloader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-80] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE SSLRefused
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-80] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> StartupPacket(user=postgres, database=loyalty_db, client_encoding=UTF8, DateStyle=ISO, TimeZone=Africa/Cairo)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-80] TRACE o.p.core.v3.ScramAuthenticator  channelBinding( PREFER )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-80] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASL( [SCRAM-SHA-256] )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-42-06-80] TRACE o.p.core.v3.ScramAuthenticator   Using SCRAM mechanism: SCRAM-SHA-256

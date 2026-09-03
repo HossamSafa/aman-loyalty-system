@@ -1,0 +1,63 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-78] DEBUG i.m.c.u.i.l.InternalLoggerFactory  Using SLF4J as the default logging framework
+[31m[restartedMain][0;39m [2026-09-03  14-42-13-78] WARN  o.s.c.events.SpringDocAppInitializer  SpringDoc /api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+[31m[restartedMain][0;39m [2026-09-03  14-42-13-78] WARN  o.s.c.events.SpringDocAppInitializer  SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-79] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-79] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @112339200
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-79] TRACE org.hibernate.orm.session  Opened Session [fdfc0cb8-a8a1-49a8-af36-01419c83bb90] at timestamp: 1788435733798
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] DEBUG org.hibernate.orm.core  HHH006583: Beginning transaction
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@392fd0d6, maxRows=0, fetchSize=0, flags=1,041
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE org.hibernate.orm.resource.jdbc  HHH10003001: Preparing to begin transaction via JDBC Connection.setAutoCommit(false)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] DEBUG org.postgresql.jdbc.PgConnection    setAutoCommit = false
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE org.hibernate.orm.resource.jdbc  HHH10003002: Transaction begun via JDBC Connection.setAutoCommit(false)
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE org.hibernate.orm.jdbc  HHH100033: Notifying resource-local transaction observers after begin
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-80] TRACE org.hibernate.orm.jdbc  HHH100005: Transaction after begin in JdbcCoordinator @112339200
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-84] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveFrom <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-84] TRACE org.hibernate.orm.query.hql  HQL: SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveFrom <= :time
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-84] TRACE org.hibernate.orm.query.sqm.ast  SqmStatement Tree:
+    -> [select]
+      -> [query-spec]
+        -> [select]
+          -> [selection]
+            -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+            <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [selection]
+        <- [select]
+        -> [from]
+          -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+        <- [from]
+        -> [where]
+          -> [and]
+            -> [EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).status'
+                :status
+            <- [EQUAL]
+            -> [LESS_THAN_OR_EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveFrom'
+                :time
+            <- [LESS_THAN_OR_EQUAL]
+          <- [and]
+        <- [where]
+      <- [query-spec]
+    <- [select]
+
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-85] TRACE org.hibernate.orm.query.plan.cache  Resolving cached query plan for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveFrom <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-42-13-90] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.RuleVersion(r)]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).earningRate]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveFrom]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveTo]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).expiryDays]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).lockDays]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).minimumRedemptionPoints]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.RuleVersion(r).program]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).redemptionRate]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).roundingMode]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).status]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion(r).version]
+

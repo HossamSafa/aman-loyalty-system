@@ -1,0 +1,29 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=73)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=61)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=69)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=51)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=51)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=69)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=55)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=72)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=71)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=78)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=67)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=68)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=74)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=85)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=68)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=83)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=54)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=87)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-19] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=70)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=76)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=73)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 24)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE org.postgresql.jdbc.PgConnection    getShort columnIndex: 7
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@48f10352, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  14-42-09-20] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="SELECT current_database() AS "TABLE_CAT", n.nspname AS "TABLE_SCHEM", c.relname AS "TABLE_NAME",  CASE n.nspname ~ '^pg_' OR n.nspname = 'information_schema'  WHEN true THEN CASE  WHEN n.nspname = 'pg_catalog' OR n.nspname = 'information_schema' THEN CASE c.relkind   WHEN 'r' THEN 'SYSTEM TABLE'   WHEN 'v' THEN 'SYSTEM VIEW'   WHEN 'i' THEN 'SYSTEM INDEX'   ELSE NULL   END  WHEN n.nspname = 'pg_toast' THEN CASE c.relkind   WHEN 'r' THEN 'SYSTEM TOAST TABLE'   WHEN 'i' THEN 'SYSTEM TOAST INDEX'   ELSE NULL   END  ELSE CASE c.relkind   WHEN 'r' THEN 'TEMPORARY TABLE'   WHEN 'p' THEN 'TEMPORARY TABLE'   WHEN 'i' THEN 'TEMPORARY INDEX'   WHEN 'S' THEN 'TEMPORARY SEQUENCE'   WHEN 'v' THEN 'TEMPORARY VIEW'   ELSE NULL   END  END  WHEN false THEN CASE c.relkind  WHEN 'r' THEN 'TABLE'  WHEN 'p' THEN 'PARTITIONED TABLE'  WHEN 'i' THEN 'INDEX'  WHEN 'P' then 'PARTITIONED INDEX'  WHEN 'S' THEN 'SEQUENCE'  WHEN 'v' THEN 'VIEW'  WHEN 'c' THEN 'TYPE'  WHEN 'f' THEN 'FOREIGN TABLE'  WHEN 'm' THEN 'MATERIALIZED VIEW'  ELSE NULL  END  ELSE NULL  END  AS "TABLE_TYPE", d.description AS "REMARKS",  '' as "TYPE_CAT", '' as "TYPE_SCHEM", '' as "TYPE_NAME", '' AS "SELF_REFERENCING_COL_NAME", '' AS "REF_GENERATION"  FROM pg_catalog.pg_namespace n, pg_catalog.pg_class c  LEFT JOIN pg_catalog.pg_description d ON (c.oid = d.objoid AND d.objsubid = 0  and d.classoid = 'pg_class'::regclass)  WHERE c.relnamespace = n.oid  AND n.nspname LIKE $1 AND c.relname LIKE $2 AND (false  OR ( c.relkind = 'r' AND n.nspname !~ '^pg_' AND n.nspname <> 'information_schema' )  OR ( c.relkind = 'v' AND n.nspname <> 'pg_catalog' AND n.nspname <> 'information_schema' )  OR ( c.relkind = 'm' )  OR ( c.relkind = 'p' AND n.nspname !~ '^pg_' AND n.nspname <> 'information_schema' ) )  ORDER BY "TABLE_TYPE","TABLE_SCHEM","TABLE_NAME" ",oids={1043,1043})

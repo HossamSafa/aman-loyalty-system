@@ -1,5 +1,6 @@
 package com.aman.acceptance.loyalty.service;
 
+import com.aman.acceptance.loyalty.enums.CurrencyCode;
 import com.aman.acceptance.loyalty.enums.LotStatus;
 import com.aman.acceptance.loyalty.enums.TransactionType;
 import com.aman.acceptance.loyalty.exception.AccountException;
@@ -30,6 +31,7 @@ public class LoyaltyEarningService {
     private final LoyaltyAccountRepository loyaltyAccountRepository;
     private final LoyaltyTransactionRepository loyaltyTransactionRepository;
     private final PointsLotRepository pointsLotRepository;
+    private final AccountStatusGuard accountStatusGuard;
 
     @Transactional
     public EarningResponse earnPoints(
@@ -61,7 +63,9 @@ public class LoyaltyEarningService {
 
                         .orElseThrow(() -> new AccountException("Loyalty account not found"));
 
-        final long earnedPoints = calculatePoints(earningRequest.getAmount().getValue());
+        accountStatusGuard.assertActive(account);
+
+       final long earnedPoints = calculatePoints(earningRequest.getAmount().getValue());
 
         final OffsetDateTime transactionTime = earningRequest.getTransactionTime();
 
@@ -72,19 +76,15 @@ public class LoyaltyEarningService {
         final LoyaltyTransaction transaction = new LoyaltyTransaction();
 
         transaction.setAccount(account);
-
         transaction.setSourceTransactionId(earningRequest.getSourceTransactionId());
-
+        transaction.setOriginalSourceTransactionId(earningRequest.getSourceTransactionId());
         transaction.setTransactionTime(transactionTime.toLocalDateTime());
-
         transaction.setStatus(TransactionStatus.COMMITTED);
-
         transaction.setType(TransactionType.EARN);
-
         transaction.setPoints((int) earnedPoints);
-
+        transaction.setMoneyAmount(earningRequest.getAmount().getValue());
+        transaction.setCurrency(CurrencyCode.EGP);
         transaction.setIdempotencyKey(idempotencyKey);
-
         transaction.setRuleVersion(4);
 
         loyaltyTransactionRepository.save(transaction);

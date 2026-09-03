@@ -1,0 +1,59 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-16-97] DEBUG org.hibernate.orm.core  HHH000513: Unable to create the ReflectionOptimizer for [com.aman.acceptance.loyalty.model.PointsLot]: private accessor [account]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-00] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.mutation.spi.MutationExecutorService
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-19] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.LoyaltyAccount]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyAccount.availablePoints]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyAccount.createdAt]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.LoyaltyAccount.customer]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyAccount.lockedPoints]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.LoyaltyAccount.program]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyAccount.reservedPoints]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyAccount.status]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyAccount.updatedAt]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyAccount.version]
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-19] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (la1: com.aman.acceptance.loyalty.model.LoyaltyAccount) {
+          primaryTableReference: loyalty_accounts as la1_0
+          TableGroupJoins {
+            left join LazyTableGroup (c1: com.aman.acceptance.loyalty.model.LoyaltyAccount.customer) {
+            }
+            left join LazyTableGroup (p1: com.aman.acceptance.loyalty.model.LoyaltyAccount.program) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.LoyaltyAccount
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select version as version_ from loyalty_accounts where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into loyalty_accounts (available_points,created_at,customer_id,locked_points,program_id,reserved_points,status,updated_at,version) values (?,?,?,?,?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update loyalty_accounts set available_points=?,customer_id=?,locked_points=?,program_id=?,reserved_points=?,status=?,updated_at=?,version=? where id=? and version=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from loyalty_accounts where id=? and version=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.AuditEvent]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.action]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.actorId]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.afterJson]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.beforeJson]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.correlationId]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.entityId]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.AuditEvent.entityType]
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (ae1: com.aman.acceptance.loyalty.model.AuditEvent) {
+          primaryTableReference: audit_events as ae1_0
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.AuditEvent
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from audit_events where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into audit_events (action,actor_id,after_json,before_json,correlation_id,created_at,entity_id,entity_type) values (?,?,?,?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update audit_events set action=?,actor_id=?,after_json=?,before_json=?,correlation_id=?,entity_id=?,entity_type=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from audit_events where id=?

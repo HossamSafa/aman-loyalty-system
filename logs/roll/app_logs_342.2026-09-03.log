@@ -1,0 +1,32 @@
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-30] TRACE org.postgresql.jdbc.PgConnection      integer date/time = true
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-31] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Established new connection (b5e9c71b-b03a-47bf-ae46-291bab2ebec1)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-31] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7bf1b9da
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After adding stats (total=8/10, idle=8/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (cf8f61df-5f3b-4d17-a791-42b10c67082c)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-35] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE SSLRefused
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> StartupPacket(user=postgres, database=loyalty_db, client_encoding=UTF8, DateStyle=ISO, TimeZone=Africa/Cairo)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ScramAuthenticator  channelBinding( PREFER )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASL( [SCRAM-SHA-256] )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ScramAuthenticator   Using SCRAM mechanism: SCRAM-SHA-256
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLInitialResponse( n,,n=*,r=)5q@V`UWXqEHb'*C1}iK#sp8 )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLContinue( r=)5q@V`UWXqEHb'*C1}iK#sp8LCqPNVB8+VOVLUGc5Je6tbDi,s=CztWnO8HyLgidstIEtJvXw==,i=4096 )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-41] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLResponse( c=biws,r=)5q@V`UWXqEHb'*C1}iK#sp8LCqPNVB8+VOVLUGc5Je6tbDi,p=9MZYrgWxgkW2kAq9QVz9Z8v33WpjN5l17bPR0UI6Gik= )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLFinal( v=iIPwTeOEKlUANGnf0L9RIJ2xgF1vybx1xYFJAZ4FWhc= )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE AuthenticationOk
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(in_hot_standby = off)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(integer_datetimes = on)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(TimeZone = Africa/Cairo)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(IntervalStyle = postgres)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(search_path = "$user", public)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(is_superuser = on)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(application_name = )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  14-49-15-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(default_transaction_read_only = off)

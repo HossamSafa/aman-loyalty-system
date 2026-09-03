@@ -1,0 +1,39 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] DEBUG org.hibernate.mapping.Table  No alter strings for table: loyalty_programs
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] DEBUG org.hibernate.mapping.Table  No alter strings for table: loyalty_transactions
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] DEBUG org.hibernate.mapping.Table  No alter strings for table: points_lots
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] DEBUG org.hibernate.mapping.Table  No alter strings for table: redemption_allocations
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] DEBUG org.hibernate.mapping.Table  No alter strings for table: redemptions
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] DEBUG org.hibernate.mapping.Table  No alter strings for table: rule_versions
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] TRACE o.h.t.s.UniqueConstraintSchemaUpdateStrategy  Interpreting UniqueConstraintSchemaUpdateStrategy from setting: null
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@7ee11965, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="select	current_database() as "TABLE_CAT",	n.nspname as "TABLE_SCHEM",	ct.relname as "TABLE_NAME",	not i.indisunique as "NON_UNIQUE",	null as "INDEX_QUALIFIER",	ci.relname as "INDEX_NAME",	case i.indisclustered		when true then 1		else			case am.amname				when 'hash' then 2				else 3			end	end as "TYPE",	ic.n as "ORDINAL_POSITION",	ci.reltuples as "CARDINALITY",	ci.relpages as "PAGES",	pg_catalog.pg_get_expr(i.indpred, i.indrelid) as "FILTER_CONDITION",	trim(both '"' from pg_catalog.pg_get_indexdef(ci.oid, ic.n, false)) as "COLUMN_NAME",	case am.amname		when 'btree' then			case i.indoption[ic.n - 1] & 1::smallint				when 1 then 'D'				else 'A'			end	end as "ASC_OR_DESC"
+from pg_catalog.pg_class ct
+join pg_catalog.pg_namespace n on (ct.relnamespace = n.oid)
+join pg_catalog.pg_index i on (ct.oid = i.indrelid)
+join pg_catalog.pg_class ci on (ci.oid = i.indexrelid)
+join pg_catalog.pg_am am on (ci.relam = am.oid)
+join information_schema._pg_expandarray(i.indkey) ic on 1=1
+ where n.nspname = $1",oids={1043})
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null,$1=<('public')>,type=VARCHAR)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-63] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(13)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_CAT,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_SCHEM,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(TABLE_NAME,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(NON_UNIQUE,BOOL,1,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(INDEX_QUALIFIER,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(INDEX_NAME,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(TYPE,INT4,4,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(ORDINAL_POSITION,INT4,4,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(CARDINALITY,FLOAT4,4,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(PAGES,INT4,4,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(FILTER_CONDITION,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(COLUMN_NAME,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl          Field(ASC_OR_DESC,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=47)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=67)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-64] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=61)

@@ -1,0 +1,36 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-11-83] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @1577216583
+[39m[restartedMain][0;39m [2026-09-03  14-42-11-83] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @1577216583
+[31m[restartedMain][0;39m [2026-09-03  14-42-12-26] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration  spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[34m[restartedMain][0;39m [2026-09-03  14-42-12-51] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer  Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-77] DEBUG o.h.v.m.ResourceBundleMessageInterpolator  Loaded expression factory via original TCCL
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.e.AbstractConfigurationImpl  Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.e.AbstractConfigurationImpl  Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.x.config.ValidationXmlParser  Trying to load META-INF/validation.xml for XML based Validator configuration.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.x.c.ResourceLoaderHelper  Trying to load META-INF/validation.xml via user class loader
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.x.c.ResourceLoaderHelper  Trying to load META-INF/validation.xml via TCCL
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.x.c.ResourceLoaderHelper  Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.x.config.ValidationXmlParser  No META-INF/validation.xml found. Using annotation based configuration only.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.e.r.TraversableResolvers  Found jakarta.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming Jakarta Persistence environment. Trying to instantiate Jakarta Persistence aware TraversableResolver
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.e.r.TraversableResolvers  Instantiated Jakarta Persistence aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-78] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper  HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-79] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper  HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-79] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper  HV000234: Using org.hibernate.validator.internal.engine.resolver.JPATraversableResolver as ValidatorFactory-scoped traversable resolver.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-79] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper  HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-79] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper  HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-79] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper  HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-82] DEBUG o.apache.catalina.webresources.Cache  Increased cache size by [521] for item [org.apache.catalina.webresources.CachedResource@31c6191f] at [/index.html] making total cache size [1052]
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-93] DEBUG _.s.w.s.HandlerMapping.Mappings  
+	c.a.a.l.c.AdminAccountController:
+	{POST [/admin/accounts/{accountId}/freeze]}: freeze(Long,FreezeAccountRequest)
+	{POST [/admin/accounts/{accountId}/adjustments]}: adjust(Long,AdjustmentRequest)
+	{POST [/admin/accounts/{accountId}/unfreeze]}: unfreeze(Long,UnfreezeAccountRequest)
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-95] DEBUG _.s.w.s.HandlerMapping.Mappings  
+	c.a.a.l.c.AdminCustomerController:
+	{GET [/admin/customers]}: list(String,Pageable)
+[39m[restartedMain][0;39m [2026-09-03  14-42-12-96] DEBUG _.s.w.s.HandlerMapping.Mappings  
+	c.a.a.l.c.AdminDashboardController:
+	{GET [/admin/points-flow]}: getPointsFlow()
+	{GET [/admin/otp-funnel]}: getOtpFunnel()
+	{GET [/admin/ledger]}: getGlobalLedger(int,int)
+	{GET [/admin/alerts]}: getRecentAlerts(int)
+	{GET [/admin/balance-composition]}: getBalanceComposition()

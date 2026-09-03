@@ -1,0 +1,28 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-17] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[]]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-17] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[]]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-18] DEBUG o.a.c.c.C.[Tomcat].[localhost].[/]  Starting filters
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-18] DEBUG o.a.c.c.C.[Tomcat].[localhost].[/]   Starting filter 'requestContextFilter'
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.a.c.c.C.[Tomcat].[localhost].[/]   Starting filter 'Tomcat WebSocket (JSR356) Filter'
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.a.c.c.C.[Tomcat].[localhost].[/]   Starting filter 'characterEncodingFilter'
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.a.c.c.C.[Tomcat].[localhost].[/]   Starting filter 'springSecurityFilterChain'
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.a.c.c.C.[Tomcat].[localhost].[/]   Starting filter 'formContentFilter'
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.a.catalina.core.StandardContext  Starting completed
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [ErrorReportValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-19] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [INITIALIZED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardHostValve[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat].StandardHost[localhost]]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngine[Tomcat].StandardHost[localhost]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-20] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngine[Tomcat].StandardHost[localhost]] to [STARTED]

@@ -1,0 +1,60 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-85] DEBUG o.a.c.c.C.[Tomcat].[localhost].[/]  Sending application start events
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[]]] to [INITIALIZING]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[]]] to [INITIALIZED]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardManager[StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[]]] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.springframework.boot.tomcat.LazySessionIdGenerator@2fcda48c] to [INITIALIZING]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.springframework.boot.tomcat.LazySessionIdGenerator@2fcda48c] to [INITIALIZED]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.springframework.boot.tomcat.LazySessionIdGenerator@2fcda48c] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.springframework.boot.tomcat.LazySessionIdGenerator@2fcda48c] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.springframework.boot.tomcat.LazySessionIdGenerator@2fcda48c] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.a.catalina.session.StandardManager  Start: Loading persisted sessions
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.a.catalina.session.StandardManager  Loading persisted sessions from [C:\Users\Mostafa\AppData\Local\Temp\F99FAE274C00C10F98BD2EBFCF43DB9DAB926083\servlet-sessions\SESSIONS.ser]
+[39m[restartedMain][0;39m [2026-09-03  14-49-13-86] DEBUG o.a.catalina.session.StandardManager  Persisted data file [C:\Users\Mostafa\AppData\Local\Temp\F99FAE274C00C10F98BD2EBFCF43DB9DAB926083\servlet-sessions\SESSIONS.ser] was not found
+java.io.FileNotFoundException: C:\Users\Mostafa\AppData\Local\Temp\F99FAE274C00C10F98BD2EBFCF43DB9DAB926083\servlet-sessions\SESSIONS.ser (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:123)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:255)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4447)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1162)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1158)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:714)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:780)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1162)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1158)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:714)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:201)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:410)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:864)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:435)
+	at org.springframework.boot.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:131)
+	at org.springframework.boot.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:110)
+	at org.springframework.boot.tomcat.servlet.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:408)
+	at org.springframework.boot.tomcat.servlet.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:166)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:190)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:164)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:615)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.aman.acceptance.loyalty.Application.main(Application.java:12)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)

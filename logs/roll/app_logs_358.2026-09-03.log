@@ -1,0 +1,65 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-21] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (ir1: com.aman.acceptance.loyalty.model.IdempotencyRecord) {
+          primaryTableReference: idempotency_records as ir1_0
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.IdempotencyRecord
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from idempotency_records where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into idempotency_records (client_id,created_at,endpoint,idempotency_key,response_body) values (?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update idempotency_records set client_id=?,endpoint=?,idempotency_key=?,response_body=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from idempotency_records where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.Redemption]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.Redemption.account]
+ |  +-DelayedCollectionFetch [com.aman.acceptance.loyalty.model.Redemption.allocations]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.authorizationCode]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.cancelReason]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.cancelledAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.discountAmount]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.otpAttemptsRemaining]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.otpExpiresAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.otpHash]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.purchaseTransactionId]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.requestedPoints]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.reservationExpiresAt]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.Redemption.status]
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (r1: com.aman.acceptance.loyalty.model.Redemption) {
+          primaryTableReference: redemptions as r1_0
+          TableGroupJoins {
+            left join LazyTableGroup (a1: com.aman.acceptance.loyalty.model.Redemption.account) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.Redemption
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from redemptions where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into redemptions (account_id,authorization_code,cancel_reason,cancelled_at,created_at,discount_amount,otp_attempts_remaining,otp_expires_at,otp_hash,purchase_transaction_id,requested_points,reservation_expires_at,status) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update redemptions set account_id=?,authorization_code=?,cancel_reason=?,cancelled_at=?,discount_amount=?,otp_attempts_remaining=?,otp_expires_at=?,otp_hash=?,purchase_transaction_id=?,requested_points=?,reservation_expires_at=?,status=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from redemptions where id=?
+[39m[restartedMain][0;39m [2026-09-03  14-49-17-22] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.LoyaltyTransaction]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.LoyaltyTransaction.account]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.currency]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.idempotencyKey]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.moneyAmount]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.originalSourceTransactionId]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.points]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.refundType]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.ruleVersion]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.sourceTransactionId]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.status]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.transactionTime]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyTransaction.type]
+

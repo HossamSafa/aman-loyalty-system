@@ -1,0 +1,33 @@
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-43-58] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@39d4989a, maxRows=0, fetchSize=0, flags=1,041
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-43-58] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-43-58] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-43-58] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-43-59] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-43-59] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - keepalive: connection org.postgresql.jdbc.PgConnection@7daba0e4 is alive
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  14-47-44-27] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436064277; nextExpiration=1788436064268; keyCount=0; hasEvents=false; eval=false
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-44-58] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@19c96e79, maxRows=0, fetchSize=0, flags=1,041
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-44-58] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-44-58] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-44-58] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-44-58] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  14-47-44-58] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - keepalive: connection org.postgresql.jdbc.PgConnection@4ab25a9a is alive
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  14-47-45-28] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436065285; nextExpiration=1788436065277; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  14-47-46-29] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436066297; nextExpiration=1788436066285; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  14-47-47-30] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436067307; nextExpiration=1788436067297; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  14-47-48-31] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436068319; nextExpiration=1788436068307; keyCount=0; hasEvents=false; eval=false
+[39m[SIGINT handler][0;39m [2026-09-03  14-47-49-30] DEBUG java.lang.Runtime  Runtime.exit() called with status: 130
+java.lang.Throwable: Runtime.exit(130)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179)
+	at java.base/java.lang.Shutdown.exit(Shutdown.java:160)
+	at java.base/java.lang.Terminator$1.handle(Terminator.java:51)
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-31] INFO  o.s.boot.tomcat.GracefulShutdown  Commencing graceful shutdown. Waiting for active requests to complete
+[34m[tomcat-shutdown][0;39m [2026-09-03  14-47-49-32] INFO  o.s.boot.tomcat.GracefulShutdown  Graceful shutdown complete
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-32] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-32] DEBUG org.hibernate.orm.factory  HHH90020005: Closing factory [4b702a66-5357-435f-99aa-32dbcb8fa7e0]
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-32] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-32] TRACE org.hibernate.orm.query.plan.cache  Destroying query interpretation cache
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-32] TRACE org.hibernate.orm.service  Automatically destroying ServiceRegistry after deregistration of every child ServiceRegistry
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-33] TRACE org.hibernate.orm.service  HHH010452: Automatically destroying bootstrap registry after deregistration of every child ServiceRegistry
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  14-47-49-33] INFO  com.zaxxer.hikari.HikariDataSource  HikariPool-1 - Shutdown initiated...

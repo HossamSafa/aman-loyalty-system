@@ -1,0 +1,38 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-45] DEBUG com.zaxxer.hikari.HikariConfig  dataSource......................none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  dataSourceClassName.............none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  dataSourceJNDI..................none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  dataSourceProperties............{password=<masked>}
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  driverClassName................."org.postgresql.Driver"
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  exceptionOverride...............none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  exceptionOverrideClassName......none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  healthCheckProperties...........{}
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  healthCheckRegistry.............none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  idleTimeout.....................600000
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  initializationFailTimeout.......1
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  isolateInternalQueries..........false
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  jdbcUrl.........................jdbc:postgresql://localhost:5432/loyalty_db
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  keepaliveTime...................120000
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  leakDetectionThreshold..........0
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  maxLifetime.....................1800000
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  maximumPoolSize.................10
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  metricRegistry..................none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  metricsTrackerFactory...........none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  minimumIdle.....................10
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  password........................<masked>
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  poolName........................"HikariPool-1"
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  readOnly........................false
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-46] DEBUG com.zaxxer.hikari.HikariConfig  registerMbeans..................false
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-47] DEBUG com.zaxxer.hikari.HikariConfig  scheduledExecutor...............none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-47] DEBUG com.zaxxer.hikari.HikariConfig  schema..........................none
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-47] DEBUG com.zaxxer.hikari.HikariConfig  threadFactory...................internal
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-47] DEBUG com.zaxxer.hikari.HikariConfig  transactionIsolation............default
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-47] DEBUG com.zaxxer.hikari.HikariConfig  username........................"postgres"
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-47] DEBUG com.zaxxer.hikari.HikariConfig  validationTimeout...............5000
+[34m[restartedMain][0;39m [2026-09-03  14-42-05-47] INFO  com.zaxxer.hikari.HikariDataSource  HikariPool-1 - Starting...
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-49] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (4532adaa-4e3b-4f5a-9212-59cce3df6c3d)
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-49] DEBUG org.postgresql.Driver  Loading driver configuration via classloader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-49] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-51] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-51] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-51] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[restartedMain][0;39m [2026-09-03  14-42-05-51] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5

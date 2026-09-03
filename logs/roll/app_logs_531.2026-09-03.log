@@ -1,0 +1,80 @@
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-15] TRACE org.hibernate.orm.session  Closing session [ef8938ff-a47c-4bee-a744-031276f8564a]
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-15] DEBUG org.hibernate.session.metrics  HHH000401: Logging session metrics:
+	0 ns acquiring 0 JDBC connections
+	0 ns releasing 0 JDBC connections
+	0 ns preparing 0 JDBC statements
+	0 ns executing 0 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-15] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @478552299
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-15] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-15] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @836983881
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-15] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @836983881
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-20] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-20] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @630069343
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-20] TRACE org.hibernate.orm.session  Opened Session [5c5c9dba-b515-4043-9c66-eee9629310c0] at timestamp: 1788436160204
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-20] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM RuleVersion r WHERE r.program.id = :programId AND r.effectiveFrom <= :time AND (r.effectiveTo IS NULL OR r.effectiveTo > :time) ORDER BY r.version DESC]
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-20] TRACE org.hibernate.orm.query.hql  HQL: SELECT r FROM RuleVersion r WHERE r.program.id = :programId AND r.effectiveFrom <= :time AND (r.effectiveTo IS NULL OR r.effectiveTo > :time) ORDER BY r.version DESC
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-22] TRACE org.hibernate.orm.query.sqm.ast  SqmStatement Tree:
+    -> [select]
+      -> [query-spec]
+        -> [select]
+          -> [selection]
+            -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+            <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [selection]
+        <- [select]
+        -> [from]
+          -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+        <- [from]
+        -> [where]
+          -> [and]
+            -> [EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).program.id'
+                :programId
+            <- [EQUAL]
+            -> [LESS_THAN_OR_EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveFrom'
+                :time
+            <- [LESS_THAN_OR_EQUAL]
+            -> [grouped]
+                -> [or]
+                  -> [is-null]
+                      -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveTo'
+                  <- [is-null]
+                  -> [GREATER_THAN]
+                      -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveTo'
+                      :time
+                  <- [GREATER_THAN]
+                <- [or]
+            <- [grouped]
+          <- [and]
+        <- [where]
+      <- [query-spec]
+    <- [select]
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-22] TRACE org.hibernate.orm.session  Closing session [5c5c9dba-b515-4043-9c66-eee9629310c0]
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-22] DEBUG org.hibernate.session.metrics  HHH000401: Logging session metrics:
+	0 ns acquiring 0 JDBC connections
+	0 ns releasing 0 JDBC connections
+	0 ns preparing 0 JDBC statements
+	0 ns executing 0 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-22] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @630069343
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-22] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-22] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @1317116121
+[39m[restartedMain][0;39m [2026-09-03  14-49-20-22] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @1317116121

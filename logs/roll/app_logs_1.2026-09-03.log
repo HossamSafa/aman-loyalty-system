@@ -1,0 +1,36 @@
+[39m[restartedMain][0;39m [2026-09-03  14-42-03-49] TRACE o.s.c.c.MultipleOpenApiSupportCondition  Condition MultipleOpenApiSupportCondition on org.springdoc.webmvc.core.configuration.MultipleOpenApiSupportConfiguration did not match due to AnyNestedCondition 0 matched 2 did not; NestedCondition on MultipleOpenApiSupportCondition.OnActuatorDifferentPort @ConditionalOnProperty (springdoc.show-actuator) found different value in property 'springdoc.show-actuator'; NestedCondition on MultipleOpenApiSupportCondition.OnMultipleOpenApiSupportCondition AnyNestedCondition 0 matched 3 did not; NestedCondition on MultipleOpenApiGroupsCondition.OnListGroupedOpenApiBean @ConditionalOnBean (types: org.springdoc.core.models.GroupedOpenApi; SearchStrategy: all) did not find any beans of type org.springdoc.core.models.GroupedOpenApi; NestedCondition on MultipleOpenApiGroupsCondition.OnGroupConfigProperty @ConditionalOnProperty (springdoc.group-configs[0].group) did not find property 'springdoc.group-configs[0].group'; NestedCondition on MultipleOpenApiGroupsCondition.OnGroupedOpenApiBean @ConditionalOnBean (types: org.springdoc.core.models.GroupedOpenApi; SearchStrategy: all) did not find any beans of type org.springdoc.core.models.GroupedOpenApi
+[34m[restartedMain][0;39m [2026-09-03  14-42-03-62] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[34m[restartedMain][0;39m [2026-09-03  14-42-03-75] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 111 ms. Found 9 JPA repository interfaces.
+[39m[restartedMain][0;39m [2026-09-03  14-42-04-55] DEBUG o.a.tomcat.util.compat.Jre22Compat  Class not found so assuming code is running on a pre-Java 22 JVM
+java.lang.ClassNotFoundException: java.text.ListFormat
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:423)
+	at java.base/java.lang.Class.forName(Class.java:414)
+	at org.apache.tomcat.util.compat.Jre22Compat.<clinit>(Jre22Compat.java:37)
+	at org.apache.tomcat.util.compat.JreCompat.<clinit>(JreCompat.java:74)
+	at org.apache.catalina.startup.Tomcat.<clinit>(Tomcat.java:1195)
+	at org.springframework.boot.tomcat.TomcatWebServerFactory.createTomcat(TomcatWebServerFactory.java:374)
+	at org.springframework.boot.tomcat.servlet.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:164)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:190)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:164)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:615)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.aman.acceptance.loyalty.Application.main(Application.java:12)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+[39m[restartedMain][0;39m [2026-09-03  14-42-04-63] DEBUG o.a.tomcat.util.IntrospectionUtils  IntrospectionUtils: setProperty(class org.apache.coyote.http11.Http11NioProtocol port=8088)
+[39m[restartedMain][0;39m [2026-09-03  14-42-04-65] DEBUG o.apache.catalina.core.ContainerBase  Add container child [StandardHost[localhost]] to container [StandardEngine[Tomcat]]
+[39m[restartedMain][0;39m [2026-09-03  14-42-04-68] DEBUG o.apache.catalina.core.ContainerBase  Add container child [TomcatEmbeddedContext[]] to container [StandardEngine[Tomcat].StandardHost[localhost]]
+[34m[restartedMain][0;39m [2026-09-03  14-42-04-72] INFO  o.s.boot.tomcat.TomcatWebServer  Tomcat initialized with port 8088 (http)
+[39m[restartedMain][0;39m [2026-09-03  14-42-04-72] DEBUG o.apache.tomcat.util.net.NioEndpoint  [bindOnInit] is [null]
+[39m[restartedMain][0;39m [2026-09-03  14-42-04-72] DEBUG o.a.tomcat.util.IntrospectionUtils  IntrospectionUtils: setProperty(class org.apache.coyote.http11.Http11NioProtocol bindOnInit=false)
+[39m[restartedMain][0;39m [2026-09-03  14-42-04-72] DEBUG o.apache.tomcat.util.net.NioEndpoint  Set [bindOnInit] to [false]
