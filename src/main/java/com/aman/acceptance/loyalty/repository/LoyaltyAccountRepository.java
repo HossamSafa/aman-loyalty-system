@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -37,5 +38,28 @@ public interface LoyaltyAccountRepository extends JpaRepository<LoyaltyAccount, 
 
     @EntityGraph(attributePaths = {"program", "customer"})
     Page<LoyaltyAccount> findAll(Pageable pageable);
+
+    @Query("""
+    SELECT COUNT(a)
+    FROM LoyaltyAccount a
+    WHERE a.program.id = :programId
+      AND a.status = com.aman.acceptance.loyalty.enums.AccountStatus.ACTIVE
+    """)
+    Long countActiveCustomers(
+            @Param("programId") Long programId
+    );
+
+    @Query("""
+    SELECT COUNT(a)
+    FROM LoyaltyAccount a
+    WHERE a.program.id = :programId
+      AND a.createdAt >= :from
+      AND a.createdAt <= :to
+    """)
+    Long countNewCustomers(
+            @Param("programId") Long programId,
+            @Param("from") LocalDateTime from,
+            @Param("to") LocalDateTime to
+    );
 
 }
