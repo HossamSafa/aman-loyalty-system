@@ -1,0 +1,52 @@
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.resource.registry  HHH10002506: Closing prepared statement [HikariProxyPreparedStatement@1749668663 wrapping select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=('OTP_PENDING') and r1_0.otp_expires_at<('2026-09-03 15:10:22.835873+03')]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.jdbc  HHH100004: Statement execution complete (connection release mode ON_CLOSE) in JdbcCoordinator @1166505766
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.session  Closing session [7e8feffe-76c6-4240-aeb0-317720b9b0a5]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] DEBUG org.hibernate.session.metrics  HHH000401: Logging session metrics:
+	2038700 ns acquiring 1 JDBC connections
+	0 ns releasing 0 JDBC connections
+	29100 ns preparing 1 JDBC statements
+	965100 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @1166505766
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @578733974
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @578733974
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @1044639650
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.session  Opened Session [a9fa68f8-190f-46e3-a2e3-089713929006] at timestamp: 1788437422849
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM Redemption r WHERE r.status = :status AND r.reservationExpiresAt < :time]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-84] TRACE org.hibernate.orm.query.plan.cache  Resolving cached query plan for [SELECT r FROM Redemption r WHERE r.status = :status AND r.reservationExpiresAt < :time]
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-10-22-85] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437422850; nextExpiration=1788437422836; keyCount=0; hasEvents=false; eval=false
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-85] TRACE org.hibernate.orm.sql.exec  HHH90004016: Skipping reading query result cache data (query cache disabled, cache mode NORMAL)
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-85] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=? and r1_0.reservation_expires_at<?
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-85] DEBUG org.hibernate.SQL  
+    select
+        r1_0.id,
+        r1_0.account_id,
+        r1_0.authorization_code,
+        r1_0.cancel_reason,
+        r1_0.cancelled_at,
+        r1_0.created_at,
+        r1_0.discount_amount,
+        r1_0.otp_attempts_remaining,
+        r1_0.otp_expires_at,
+        r1_0.otp_hash,
+        r1_0.purchase_transaction_id,
+        r1_0.requested_points,
+        r1_0.reservation_expires_at,
+        r1_0.status 
+    from
+        redemptions r1_0 
+    where
+        r1_0.status=? 
+        and r1_0.reservation_expires_at<?
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-85] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@1325720335 wrapping select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=? and r1_0.reservation_expires_at<?]

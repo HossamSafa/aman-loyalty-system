@@ -1,0 +1,32 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-03] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [INITIALIZING]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [INITIALIZED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [INITIALIZING]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [INITIALIZED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngineValve[StandardEngine[Tomcat]]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardPipeline[StandardEngine[Tomcat]]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-04] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngine[Tomcat]] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-05] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardEngine[Tomcat]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-05] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.apache.catalina.mapper.MapperListener@1aac90e5] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-05] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.apache.catalina.mapper.MapperListener@1aac90e5] to [STARTING]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-05] DEBUG org.apache.catalina.mapper.Mapper  Registered host [localhost]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-06] DEBUG o.a.catalina.mapper.MapperListener  Register Wrapper [dispatcherServlet] in Context [] for service [StandardService[Tomcat]]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-06] DEBUG o.a.catalina.mapper.MapperListener  Register Context [] for service [StandardService[Tomcat]]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-06] DEBUG o.a.catalina.mapper.MapperListener  Register host [localhost] at domain [null] for service [StandardService[Tomcat]]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-06] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [org.apache.catalina.mapper.MapperListener@1aac90e5] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-06] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardService[Tomcat]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-06] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [StandardServer[-1]] to [STARTED]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-12] DEBUG com.zaxxer.hikari.util.UtilityElf  Class org.postgresql.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1b526163
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-15] DEBUG com.zaxxer.hikari.HikariConfig  HikariPool-1 - configuration:
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-15] DEBUG com.zaxxer.hikari.HikariConfig  allowPoolSuspension.............false
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-15] DEBUG com.zaxxer.hikari.HikariConfig  autoCommit......................true
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-15] DEBUG com.zaxxer.hikari.HikariConfig  catalog.........................none
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-15] DEBUG com.zaxxer.hikari.HikariConfig  connectionInitSql...............none
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-15] DEBUG com.zaxxer.hikari.HikariConfig  connectionTestQuery.............none
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-16] DEBUG com.zaxxer.hikari.HikariConfig  connectionTimeout...............30000
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-16] DEBUG com.zaxxer.hikari.HikariConfig  credentials.....................com.zaxxer.hikari.util.Credentials@7682b9b7
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-16] DEBUG com.zaxxer.hikari.HikariConfig  credentialsProvider.............none
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-16] DEBUG com.zaxxer.hikari.HikariConfig  credentialsProviderClassName....none

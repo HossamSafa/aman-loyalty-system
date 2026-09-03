@@ -1,0 +1,27 @@
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-09-07] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437349078; nextExpiration=1788437349066; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-10-08] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437350086; nextExpiration=1788437350078; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-11-09] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437351098; nextExpiration=1788437351086; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-12-11] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437352115; nextExpiration=1788437352098; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-13-13] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437353130; nextExpiration=1788437353115; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-14-14] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437354141; nextExpiration=1788437354130; keyCount=0; hasEvents=false; eval=false
+[39m[Catalina-utility-2][0;39m [2026-09-03  15-09-14-87] DEBUG o.a.catalina.session.ManagerBase  Start expire sessions StandardManager at 1788437354870 sessioncount 0
+[39m[Catalina-utility-2][0;39m [2026-09-03  15-09-14-87] DEBUG o.a.catalina.session.ManagerBase  End expire sessions StandardManager processingTime 0 expired sessions: 0
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-14-90] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-14-90] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-15-15] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437355150; nextExpiration=1788437355141; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-16-16] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437356162; nextExpiration=1788437356150; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-17-17] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437357173; nextExpiration=1788437357162; keyCount=0; hasEvents=false; eval=false
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-17-95] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1ac226dd, maxRows=0, fetchSize=0, flags=1,041
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-17-95] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-17-95] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-17-95] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-17-95] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-17-95] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - keepalive: connection org.postgresql.jdbc.PgConnection@7b91b602 is alive
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-18-18] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437358181; nextExpiration=1788437358173; keyCount=0; hasEvents=false; eval=false
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-18-61] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@539e685d, maxRows=0, fetchSize=0, flags=1,041
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-18-61] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-18-61] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-18-61] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-18-61] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-09-18-61] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - keepalive: connection org.postgresql.jdbc.PgConnection@3b12bd6f is alive
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-09-19-19] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437359193; nextExpiration=1788437359181; keyCount=0; hasEvents=false; eval=false

@@ -1,0 +1,27 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-76] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'default' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-76] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'jpa' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-76] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'legacy-jpa' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-76] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'legacy-hbm' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-76] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitNamingStrategy: 'component-path' -> org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitDatabaseObjectNamingStrategy: 'standard' -> org.hibernate.id.enhanced.StandardNamingStrategy
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitDatabaseObjectNamingStrategy: 'single' -> org.hibernate.id.enhanced.SingleNamingStrategy
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ImplicitDatabaseObjectNamingStrategy: 'legacy' -> org.hibernate.id.enhanced.LegacyNamingStrategy
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ColumnOrderingStrategy: 'default' -> org.hibernate.boot.model.relational.ColumnOrderingStrategyStandard
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for ColumnOrderingStrategy: 'legacy' -> org.hibernate.boot.model.relational.ColumnOrderingStrategyLegacy
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for CacheKeysFactory: 'default' -> org.hibernate.cache.internal.DefaultCacheKeysFactory
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for CacheKeysFactory: 'simple' -> org.hibernate.cache.internal.SimpleCacheKeysFactory
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for FormatMapper: 'jsonb' -> org.hibernate.type.format.jakartajson.JsonBJsonFormatMapper
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for FormatMapper: 'jackson' -> org.hibernate.type.format.jackson.JacksonJsonFormatMapper
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for FormatMapper: 'jackson-xml' -> org.hibernate.type.format.jackson.JacksonXmlFormatMapper
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-77] TRACE org.hibernate.orm.boot  HHH160227: Strategy selector for FormatMapper: 'jaxb' -> org.hibernate.type.format.jaxb.JaxbXmlFormatMapper
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-78] DEBUG org.hibernate.orm.service  HHH010455: Adding integrator: org.hibernate.boot.beanvalidation.BeanValidationIntegrator
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-78] DEBUG org.hibernate.orm.service  HHH010455: Adding integrator: org.hibernate.cache.internal.CollectionCacheInvalidator
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-81] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE SSLRefused
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-81] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> StartupPacket(user=postgres, database=loyalty_db, client_encoding=UTF8, DateStyle=ISO, TimeZone=Africa/Cairo)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-81] TRACE o.p.core.v3.ScramAuthenticator  channelBinding( PREFER )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-81] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASL( [SCRAM-SHA-256] )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-81] TRACE o.p.core.v3.ScramAuthenticator   Using SCRAM mechanism: SCRAM-SHA-256
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-81] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLInitialResponse( n,,n=*,r=N?jCE3sz")nhhfbe3X`c*xL1 )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-81] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLContinue( r=N?jCE3sz")nhhfbe3X`c*xL1j0Ur79nZPaS41XsSSkqXbic/,s=CztWnO8HyLgidstIEtJvXw==,i=4096 )
+[34m[restartedMain][0;39m [2026-09-03  15-14-29-82] INFO  org.hibernate.orm.core  HHH000001: Hibernate ORM core version 7.2.19.Final
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-82] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLResponse( c=biws,r=N?jCE3sz")nhhfbe3X`c*xL1j0Ur79nZPaS41XsSSkqXbic/,p=rw0C011FtQIjDUeqDJgUPXOsxs1m+hlmTVxloo8+O7I= )

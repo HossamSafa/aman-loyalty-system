@@ -1,0 +1,54 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-37-50] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [Connector["http-nio-8088"]] to [STARTING_PREP]
+[39m[restartedMain][0;39m [2026-09-03  15-14-37-50] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [Connector["http-nio-8088"]] to [STARTING]
+[34m[restartedMain][0;39m [2026-09-03  15-14-37-51] INFO  o.a.coyote.http11.Http11NioProtocol  Starting ProtocolHandler ["http-nio-8088"]
+[39m[restartedMain][0;39m [2026-09-03  15-14-37-53] DEBUG o.apache.catalina.util.LifecycleBase  Setting state for [Connector["http-nio-8088"]] to [STARTED]
+[39m[http-nio-8088-Acceptor][0;39m [2026-09-03  15-14-37-54] DEBUG o.a.tomcat.util.threads.LimitLatch  Counting up[http-nio-8088-Acceptor] latch=0
+[34m[restartedMain][0;39m [2026-09-03  15-14-37-54] INFO  o.s.boot.tomcat.TomcatWebServer  Tomcat started on port 8088 (http) with context path '/'
+[34m[restartedMain][0;39m [2026-09-03  15-14-37-56] INFO  c.a.acceptance.loyalty.Application  Started Application in 12.042 seconds (process running for 13.004)
+[31m[restartedMain][0;39m [2026-09-03  15-14-37-56] WARN  o.s.c.events.SpringDocAppInitializer  SpringDoc /api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+[31m[restartedMain][0;39m [2026-09-03  15-14-37-56] WARN  o.s.c.events.SpringDocAppInitializer  SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] DEBUG i.m.c.u.i.l.InternalLoggerFactory  Using SLF4J as the default logging framework
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @1869456999
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] TRACE org.hibernate.orm.session  Opened Session [3a87e19b-8599-4a71-8f85-b520b13b084d] at timestamp: 1788437677576
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] DEBUG org.hibernate.orm.core  HHH006583: Beginning transaction
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@7b072f3b, maxRows=0, fetchSize=0, flags=1,041
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-57] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-58] TRACE org.hibernate.orm.resource.jdbc  HHH10003001: Preparing to begin transaction via JDBC Connection.setAutoCommit(false)
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-58] DEBUG org.postgresql.jdbc.PgConnection    setAutoCommit = false
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-58] TRACE org.hibernate.orm.resource.jdbc  HHH10003002: Transaction begun via JDBC Connection.setAutoCommit(false)
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-58] TRACE org.hibernate.orm.jdbc  HHH100033: Notifying resource-local transaction observers after begin
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-58] TRACE org.hibernate.orm.jdbc  HHH100005: Transaction after begin in JdbcCoordinator @1869456999
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-61] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveFrom <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-61] TRACE org.hibernate.orm.query.hql  HQL: SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveFrom <= :time
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-61] TRACE org.hibernate.orm.query.sqm.ast  SqmStatement Tree:
+    -> [select]
+      -> [query-spec]
+        -> [select]
+          -> [selection]
+            -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+            <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [selection]
+        <- [select]
+        -> [from]
+          -> [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+          <- [root] - 'com.aman.acceptance.loyalty.model.RuleVersion(r)'
+        <- [from]
+        -> [where]
+          -> [and]
+            -> [EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).status'
+                :status
+            <- [EQUAL]
+            -> [LESS_THAN_OR_EQUAL]
+                -> [basic-path] - 'com.aman.acceptance.loyalty.model.RuleVersion(r).effectiveFrom'
+                :time
+            <- [LESS_THAN_OR_EQUAL]
+          <- [and]
+        <- [where]
+      <- [query-spec]
+    <- [select]
+

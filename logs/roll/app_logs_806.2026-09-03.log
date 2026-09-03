@@ -1,0 +1,27 @@
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BackendKeyData(pid=17,836,ckey=[B@2979f865)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.core.SetupQueryRunner$SimpleResultHandler@6844f25e, maxRows=0, fetchSize=0, flags=1,047
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="SET application_name = 'PostgreSQL JDBC Driver'")
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SET)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(application_name = PostgreSQL JDBC Driver)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE org.postgresql.jdbc.PgConnection      types using binary send = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE org.postgresql.jdbc.PgConnection      types using binary receive = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,DATE,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] TRACE org.postgresql.jdbc.PgConnection      integer date/time = true
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Established new connection (b9460aa6-661d-48db-8b77-2302855337bd)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-13-09-15] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f3ad4b6
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-13-09-53] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437589531; nextExpiration=1788437589517; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-13-10-54] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437590545; nextExpiration=1788437590531; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-13-11-54] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437591548; nextExpiration=1788437591545; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-13-12-56] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437592561; nextExpiration=1788437592548; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-13-13-57] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437593575; nextExpiration=1788437593561; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-13-14-59] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437594590; nextExpiration=1788437594575; keyCount=0; hasEvents=false; eval=false
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-13-14-96] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-13-14-96] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+[39m[Catalina-utility-1][0;39m [2026-09-03  15-13-15-02] DEBUG o.a.catalina.session.ManagerBase  Start expire sessions StandardManager at 1788437595025 sessioncount 0
+[39m[Catalina-utility-1][0;39m [2026-09-03  15-13-15-02] DEBUG o.a.catalina.session.ManagerBase  End expire sessions StandardManager processingTime 0 expired sessions: 0
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-13-15-15] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@3dcce66a, maxRows=0, fetchSize=0, flags=1,041
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-13-15-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-13-15-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-13-15-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-13-15-15] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 

@@ -1,0 +1,32 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-85] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.config.spi.ConfigurationService
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After adding stats (total=2/10, idle=2/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (1888084a-2116-46d7-99fd-283d88e75ac0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-86] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-87] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-87] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.resource.beans.spi.ManagedBeanRegistry
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-89] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.cache.spi.RegionFactory
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-90] DEBUG org.hibernate.orm.cache  HHH90001031: Cannot default RegionFactory since no RegionFactory strategies were registered
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-90] DEBUG org.hibernate.orm.cache  HHH90001029: Second-level cache disabled
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-92] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE SSLRefused
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-92] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> StartupPacket(user=postgres, database=loyalty_db, client_encoding=UTF8, DateStyle=ISO, TimeZone=Africa/Cairo)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-93] TRACE o.p.core.v3.ScramAuthenticator  channelBinding( PREFER )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-93] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASL( [SCRAM-SHA-256] )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-93] TRACE o.p.core.v3.ScramAuthenticator   Using SCRAM mechanism: SCRAM-SHA-256
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-93] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLInitialResponse( n,,n=*,r=}jQ;!6qDWi{yo*nD&-\jT#R9 )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-93] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLContinue( r=}jQ;!6qDWi{yo*nD&-\jT#R9KC/1xjfW7CWSvwUbaO5wxmPI,s=CztWnO8HyLgidstIEtJvXw==,i=4096 )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-94] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLResponse( c=biws,r=}jQ;!6qDWi{yo*nD&-\jT#R9KC/1xjfW7CWSvwUbaO5wxmPI,p=ZbxxUKgpME5YUHx0MKIuWXM4PDtSA2ozjqaZFy2znXo= )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-95] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLFinal( v=9nN3sCUGsGmiN/qIba8AjbnPFxSR8aPdJi0/rXBFk1k= )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-95] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE AuthenticationOk
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-95] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(in_hot_standby = off)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-95] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(integer_datetimes = on)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-95] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(TimeZone = Africa/Cairo)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-95] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(IntervalStyle = postgres)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-95] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(search_path = "$user", public)

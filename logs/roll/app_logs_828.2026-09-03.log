@@ -1,0 +1,35 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-23] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-26] TRACE org.postgresql.core.Encoding  Creating new Encoding UTF-8 with fastASCIINumbers true
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-26] TRACE org.postgresql.core.Encoding  Creating new Encoding UTF-8 with fastASCIINumbers true
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-27] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-28] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-28] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-32] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE SSLRefused
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-32] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> StartupPacket(user=postgres, database=loyalty_db, client_encoding=UTF8, DateStyle=ISO, TimeZone=Africa/Cairo)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-33] TRACE o.p.core.v3.ScramAuthenticator  channelBinding( PREFER )
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-33] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASL( [SCRAM-SHA-256] )
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-35] TRACE o.p.core.v3.ScramAuthenticator   Using SCRAM mechanism: SCRAM-SHA-256
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-37] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLInitialResponse( n,,n=*,r==/h8-aAAa{pJ-^i>hQS}(R.8 )
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-37] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLContinue( r==/h8-aAAa{pJ-^i>hQS}(R.8Ogdla52SP3rPYBf6N7oyprK9,s=CztWnO8HyLgidstIEtJvXw==,i=4096 )
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-41] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLResponse( c=biws,r==/h8-aAAa{pJ-^i>hQS}(R.8Ogdla52SP3rPYBf6N7oyprK9,p=IFhHpPxxqmh3GXsqmRlZmu4V0zIQNxWVDaBvAYSdIE0= )
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-42] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLFinal( v=Qsz/zClyBmnwNcp0BkBqfs9zRp93+kYsAEOo03i7aAs= )
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-42] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE AuthenticationOk
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-46] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(in_hot_standby = off)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(integer_datetimes = on)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(TimeZone = Africa/Cairo)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(IntervalStyle = postgres)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(search_path = "$user", public)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(is_superuser = on)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(application_name = )
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(default_transaction_read_only = off)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(scram_iterations = 4096)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(DateStyle = ISO, MDY)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(standard_conforming_strings = on)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(session_authorization = postgres)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(client_encoding = UTF8)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(server_version = 18.6)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(server_encoding = UTF8)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BackendKeyData(pid=28,552,ckey=[B@70cf1041)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-47] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-48] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.core.SetupQueryRunner$SimpleResultHandler@7be29cca, maxRows=0, fetchSize=0, flags=1,047
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-48] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="SET application_name = 'PostgreSQL JDBC Driver'")

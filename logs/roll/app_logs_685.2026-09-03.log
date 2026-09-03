@@ -1,0 +1,30 @@
+[39m[Catalina-utility-2][0;39m [2026-09-03  15-02-14-57] DEBUG o.a.catalina.session.ManagerBase  Start expire sessions StandardManager at 1788436934577 sessioncount 0
+[39m[Catalina-utility-2][0;39m [2026-09-03  15-02-14-57] DEBUG o.a.catalina.session.ManagerBase  End expire sessions StandardManager processingTime 1 expired sessions: 0
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-14-76] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-14-76] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-14-90] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436934903; nextExpiration=1788436934891; keyCount=0; hasEvents=false; eval=false
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-15-18] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@161466c6, maxRows=0, fetchSize=0, flags=1,041
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-15-18] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-15-18] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-15-18] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-15-18] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-02-15-18] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - keepalive: connection org.postgresql.jdbc.PgConnection@5ec46e8c is alive
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-15-90] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436935903; nextExpiration=1788436935903; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-16-91] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436936914; nextExpiration=1788436936903; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-17-92] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436937926; nextExpiration=1788436937914; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-18-93] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436938939; nextExpiration=1788436938926; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-19-95] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436939950; nextExpiration=1788436939939; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-20-95] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436940957; nextExpiration=1788436940950; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-02-21-97] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436941971; nextExpiration=1788436941957; keyCount=0; hasEvents=false; eval=false
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @1698975944
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE org.hibernate.orm.session  Opened Session [ec8a46bf-1a6a-402b-93f2-fc07b30c77f8] at timestamp: 1788436942082
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] DEBUG org.hibernate.orm.core  HHH006583: Beginning transaction
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@2fd32bc1, maxRows=0, fetchSize=0, flags=1,041
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE org.hibernate.orm.resource.jdbc  HHH10003001: Preparing to begin transaction via JDBC Connection.setAutoCommit(false)
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] DEBUG org.postgresql.jdbc.PgConnection    setAutoCommit = false
+[39m[scheduling-1][0;39m [2026-09-03  15-02-22-08] TRACE org.hibernate.orm.resource.jdbc  HHH10003002: Transaction begun via JDBC Connection.setAutoCommit(false)

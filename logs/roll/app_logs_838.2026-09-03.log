@@ -1,0 +1,29 @@
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-23] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-24] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-24] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-24] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Access)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.AssociationOverrides)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-24] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-24] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.AssociationOverride)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-24] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.AssociationOverrides)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.AttributeOverrides)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.AttributeOverride)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.AttributeOverrides)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Basic)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Cacheable)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.CheckConstraint)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.CollectionTable)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Column)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.ColumnResult)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.ConstructorResult)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Converts)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Convert)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Converts)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Converter)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.DiscriminatorColumn)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.DiscriminatorValue)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.ElementCollection)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-24] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(jakarta.persistence.Embeddable)

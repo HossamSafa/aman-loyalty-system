@@ -1,0 +1,29 @@
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-12-45-27] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437565272; nextExpiration=1788437565258; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-12-46-28] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437566285; nextExpiration=1788437566272; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-12-47-29] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437567298; nextExpiration=1788437567285; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-12-48-31] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437568314; nextExpiration=1788437568298; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-12-49-32] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437569323; nextExpiration=1788437569314; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-12-50-33] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437570334; nextExpiration=1788437570323; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-12-51-34] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437571349; nextExpiration=1788437571334; keyCount=0; hasEvents=false; eval=false
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  15-12-51-92] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7bf1b9da: (connection has passed maxLifetime)
+[39m[HikariPool-1:connection-closer][0;39m [2026-09-03  15-12-51-92] TRACE o.postgresql.core.QueryExecutorBase   FE=> Terminate
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-92] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (8c468638-730c-4d5c-a623-0083a4fdfbc6)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-92] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-92] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-92] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-92] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-92] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-92] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-93] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-93] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-93] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE SSLRefused
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> StartupPacket(user=postgres, database=loyalty_db, client_encoding=UTF8, DateStyle=ISO, TimeZone=Africa/Cairo)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ScramAuthenticator  channelBinding( PREFER )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASL( [SCRAM-SHA-256] )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ScramAuthenticator   Using SCRAM mechanism: SCRAM-SHA-256
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLInitialResponse( n,,n=*,r=Dz|:4!pl]x.Zm!Y;1xAg(f}o )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLContinue( r=Dz|:4!pl]x.Zm!Y;1xAg(f}okSu0PBheH3d3vS03B2hcfH03,s=CztWnO8HyLgidstIEtJvXw==,i=4096 )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-97] TRACE o.p.core.v3.ScramAuthenticator   FE=> SASLResponse( c=biws,r=Dz|:4!pl]x.Zm!Y;1xAg(f}okSu0PBheH3d3vS03B2hcfH03,p=49PRUH8cxuweWHs0CDt4EuuMdyQhpzSKGQgotut0GcM= )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-98] TRACE o.p.core.v3.ScramAuthenticator   <=BE AuthenticationSASLFinal( v=QUPCQA+HlzBwmZ+S/dGqqZjeMP4L5TFcu0FNX0r5J2Y= )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-12-51-98] TRACE o.p.core.v3.ConnectionFactoryImpl   <=BE AuthenticationOk

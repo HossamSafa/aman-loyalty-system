@@ -1,0 +1,32 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.enums.CurrencyCode com.aman.acceptance.loyalty.model.LoyaltyTransaction.currency
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: basicType@12(com.aman.acceptance.loyalty.enums.CurrencyCode,12) [BasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.idempotencyKey]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Starting attribute metadata determination [idempotencyKey]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.LoyaltyTransaction.idempotencyKey
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.moneyAmount]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Starting attribute metadata determination [moneyAmount]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private java.math.BigDecimal com.aman.acceptance.loyalty.model.LoyaltyTransaction.moneyAmount
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: big_decimal [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.originalSourceTransactionId]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Starting attribute metadata determination [originalSourceTransactionId]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.LoyaltyTransaction.originalSourceTransactionId
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.points]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Starting attribute metadata determination [points]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.LoyaltyTransaction.points
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.refundType]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Starting attribute metadata determination [refundType]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.enums.RefundType com.aman.acceptance.loyalty.model.LoyaltyTransaction.refundType
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: basicType@14(com.aman.acceptance.loyalty.enums.RefundType,12) [BasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.ruleVersion]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Starting attribute metadata determination [ruleVersion]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.LoyaltyTransaction.ruleVersion
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.sourceTransactionId]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Starting attribute metadata determination [sourceTransactionId]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.LoyaltyTransaction.sourceTransactionId
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-56] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyTransaction.status]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [status]

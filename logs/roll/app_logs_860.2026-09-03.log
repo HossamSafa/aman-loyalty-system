@@ -1,0 +1,39 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=10)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@267deea6, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="SELECT setting FROM pg_catalog.pg_settings WHERE name='default_transaction_isolation'",oids={})
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl          Field(setting,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=14)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@335971c0, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="SHOW TRANSACTION ISOLATION LEVEL",oids={})
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl          Field(transaction_isolation,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=14)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SHOW)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-17] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-18] DEBUG org.hibernate.orm.jdbc.lob  HHH10010004: Disabling contextual LOB creation as Dialect reported it is not supported
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-18] DEBUG org.hibernate.orm.jdbc  HHH100122: Using default JDBC fetch size: 0
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-18] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @1429619775
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-18] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-18] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @1315703438
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-18] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @1315703438
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-18] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider

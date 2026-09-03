@@ -1,0 +1,30 @@
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(application_name = )
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(default_transaction_read_only = off)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(scram_iterations = 4096)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(DateStyle = ISO, MDY)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(standard_conforming_strings = on)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(session_authorization = postgres)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(client_encoding = UTF8)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(server_version = 18.6)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(server_encoding = UTF8)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BackendKeyData(pid=36,332,ckey=[B@c93e23e)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.core.SetupQueryRunner$SimpleResultHandler@7d2c391b, maxRows=0, fetchSize=0, flags=1,047
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="SET application_name = 'PostgreSQL JDBC Driver'")
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SET)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(application_name = PostgreSQL JDBC Driver)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE org.postgresql.jdbc.PgConnection      types using binary send = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE org.postgresql.jdbc.PgConnection      types using binary receive = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,DATE,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] TRACE org.postgresql.jdbc.PgConnection      integer date/time = true
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Established new connection (d7017086-aed6-464f-9944-11eb97b45492)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-73] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41c63c9
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - After adding stats (total=9/10, idle=9/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (c8ccdfb1-854a-4f90-851a-9f880ddc053f)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG org.postgresql.jdbc.PgConnection    setPrepareThreshold = 5
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-77] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-78] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536

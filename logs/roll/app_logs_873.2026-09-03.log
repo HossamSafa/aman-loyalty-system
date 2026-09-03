@@ -1,0 +1,61 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update customers set mobile_encrypted=?,mobile_hash=?,name=?,status=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from customers where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.PointsLot]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.PointsLot.account]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.PointsLot.createdAt]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.PointsLot.earningTransaction]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.PointsLot.expiresAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.PointsLot.originalPoints]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.PointsLot.remainingPoints]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.PointsLot.status]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.PointsLot.unlockAt]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.PointsLot.version]
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (pl1: com.aman.acceptance.loyalty.model.PointsLot) {
+          primaryTableReference: points_lots as pl1_0
+          TableGroupJoins {
+            left join LazyTableGroup (a1: com.aman.acceptance.loyalty.model.PointsLot.account) {
+            }
+            left join LazyTableGroup (et1: com.aman.acceptance.loyalty.model.PointsLot.earningTransaction) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.PointsLot
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select version as version_ from points_lots where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into points_lots (account_id,created_at,earning_transaction_id,expires_at,original_points,remaining_points,status,unlock_at,version) values (?,?,?,?,?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update points_lots set account_id=?,earning_transaction_id=?,expires_at=?,original_points=?,remaining_points=?,status=?,unlock_at=?,version=? where id=? and version=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-50] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from points_lots where id=? and version=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-51] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-CollectionDomainResult [com.aman.acceptance.loyalty.model.Redemption.allocations]
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-51] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        OneToManyTableGroup (a1: com.aman.acceptance.loyalty.model.Redemption.allocations) {
+          primaryTableReference: redemption_allocations as a1_0
+          TableGroupJoins {
+            left join LazyTableGroup (l1: com.aman.acceptance.loyalty.model.Redemption.allocations.{element}.lot) {
+            }
+            left join LazyTableGroup (r1: com.aman.acceptance.loyalty.model.Redemption.allocations.{element}.redemption) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-51] TRACE org.hibernate.orm.jdbc.mutation  HHH90005107: Static SQL for collection: com.aman.acceptance.loyalty.model.Redemption.allocations
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  Wrapping up metadata context...
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  Starting entity [com.aman.acceptance.loyalty.model.LoyaltyAccount]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  Building identifier attribute [com.aman.acceptance.loyalty.model.LoyaltyAccount.id]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  Starting attribute metadata determination [id]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  	Member: private java.lang.Long com.aman.acceptance.loyalty.model.LoyaltyAccount.id
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  	Type: long [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  Building version attribute [com.aman.acceptance.loyalty.model.LoyaltyAccount.version]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-53] TRACE org.hibernate.orm.core  Starting attribute metadata determination [version]

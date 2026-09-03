@@ -1,0 +1,40 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 8
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 4
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 5
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 6
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 7
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 12
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 8
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 4
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 5
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 6
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 7
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 12
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 8
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 4
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 5
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 6
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 7
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 12
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 2
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 3
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 8
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 4
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] DEBUG org.hibernate.orm.factoryRegistry  HHH020384: Registering SessionFactory [0216fd4d-0670-43a7-8564-4364cb1a1088] (default)
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.hibernate.orm.factoryRegistry  HHH020385: Not binding SessionFactory to JNDI, no JNDI name configured
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-15] TRACE org.hibernate.orm.factory  Instantiated factory: 0216fd4d-0670-43a7-8564-4364cb1a1088
+[34m[restartedMain][0;39m [2026-09-03  15-14-33-15] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+[34m[restartedMain][0;39m [2026-09-03  15-14-33-41] INFO  o.s.d.j.r.q.QueryEnhancerFactories  Hibernate is in classpath; If applicable, HQL parser will be used.
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-65] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-68] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.stat.spi.StatisticsImplementor
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-69] TRACE org.hibernate.statistics  HHH000460: Statistics initialized
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-69] TRACE org.hibernate.statistics  HHH000462: Statistics collection disabled
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-69] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @1544494071
+[39m[restartedMain][0;39m [2026-09-03  15-14-33-71] TRACE org.hibernate.orm.session  Opened Session [155c3bde-6e7e-4e0b-b5f0-779bbe116dc3] at timestamp: 1788437673712

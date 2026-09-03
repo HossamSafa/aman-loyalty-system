@@ -1,0 +1,35 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160141: Binding column: status
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.RedemptionAllocation
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160155: Import: RedemptionAllocation -> com.aman.acceptance.loyalty.model.RedemptionAllocation
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.RedemptionAllocation -> com.aman.acceptance.loyalty.model.RedemptionAllocation
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160141: Binding column: lot_id
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160141: Binding column: points
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160141: Binding column: redemption_id
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160141: Binding column: restored_points
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.RuleVersion
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160155: Import: RuleVersion -> com.aman.acceptance.loyalty.model.RuleVersion
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.RuleVersion -> com.aman.acceptance.loyalty.model.RuleVersion
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-48] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: created_at
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: earning_rate
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: effective_from
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: effective_to
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: expiry_days
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: lock_days
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: minimum_redemption_points
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: program_id
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: redemption_rate
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: rounding_mode
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: status
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-49] TRACE org.hibernate.orm.boot  HHH160141: Binding column: version
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-50] TRACE org.hibernate.orm.boot  HHH160148: Second pass for collection: com.aman.acceptance.loyalty.model.Redemption.allocations
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-50] TRACE org.hibernate.orm.boot  HHH160150: Binding one-to-many association through foreign key: com.aman.acceptance.loyalty.model.Redemption.allocations
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-50] TRACE org.hibernate.orm.boot  HHH160177: Mapped collection key: redemption_id, one-to-many: com.aman.acceptance.loyalty.model.RedemptionAllocation
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-52] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.boot.spi.SessionFactoryBuilderService
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-53] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-54] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.bytecode.spi.BytecodeProvider
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-55] TRACE org.hibernate.orm.factoryRegistry  Initializing SessionFactoryRegistry @272225578
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-56] TRACE org.hibernate.orm.factory  Building session factory
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-56] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.service.spi.SessionFactoryServiceRegistryFactory
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-56] TRACE org.hibernate.orm.boot  HHH160236: No temp ClassLoader provided; using live ClassLoader to load potentially unsafe class: com.aman.acceptance.loyalty.model.LoyaltyAccount

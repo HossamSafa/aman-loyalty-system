@@ -1,0 +1,58 @@
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.synchronization  HHH90008002: Notifying Synchronizations (after completion with status 3)
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.jdbc  HHH100007: Transaction after successful completion in JdbcCoordinator @2117322214
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.session  After transaction completion processing (successful=true, delayed=false)
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.session  After transaction completion processing (successful=true, delayed=false)
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.session  Closing session [99d89686-ad65-46bd-a988-61dd548f60c9]
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] DEBUG org.hibernate.session.metrics  HHH000401: Logging session metrics:
+	560900 ns acquiring 1 JDBC connections
+	0 ns releasing 0 JDBC connections
+	54800 ns preparing 2 JDBC statements
+	3187100 ns executing 2 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	5700 ns executing 1 flushes (flushing a total of 0 entities and 0 collections)
+	13700 ns executing 2 pre-partial-flushes
+	7100 ns executing 2 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @2117322214
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @914723469
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @914723469
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-09] TRACE i.m.o.SimpleObservation$SimpleScope  NoOp observation used with SimpleScope
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-04-22-12] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437062125; nextExpiration=1788437062111; keyCount=0; hasEvents=false; eval=false
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @1750458405
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE org.hibernate.orm.session  Opened Session [0a2d1986-709f-4132-93cc-f5bb4b4d5e3f] at timestamp: 1788437062658
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM Redemption r WHERE r.status = :status AND r.otpExpiresAt < :time]
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE org.hibernate.orm.query.plan.cache  Resolving cached query plan for [SELECT r FROM Redemption r WHERE r.status = :status AND r.otpExpiresAt < :time]
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@3a0ac058, maxRows=0, fetchSize=0, flags=1,041
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-65] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-66] TRACE org.hibernate.orm.sql.exec  HHH90004016: Skipping reading query result cache data (query cache disabled, cache mode NORMAL)
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-66] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=? and r1_0.otp_expires_at<?
+[39m[scheduling-1][0;39m [2026-09-03  15-04-22-66] DEBUG org.hibernate.SQL  
+    select
+        r1_0.id,
+        r1_0.account_id,
+        r1_0.authorization_code,
+        r1_0.cancel_reason,
+        r1_0.cancelled_at,
+        r1_0.created_at,
+        r1_0.discount_amount,
+        r1_0.otp_attempts_remaining,
+        r1_0.otp_expires_at,
+        r1_0.otp_hash,
+        r1_0.purchase_transaction_id,
+        r1_0.requested_points,
+        r1_0.reservation_expires_at,
+        r1_0.status 
+    from
+        redemptions r1_0 
+    where
+        r1_0.status=? 
+        and r1_0.otp_expires_at<?

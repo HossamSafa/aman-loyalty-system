@@ -1,0 +1,35 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: long [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.AuditEvent.entityType]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [entityType]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.AuditEvent.entityType
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE o.h.m.m.d.i.AbstractIdentifiableType  Interpreting domain-model identifier descriptor
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Completed entity [com.aman.acceptance.loyalty.model.AuditEvent]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting entity [com.aman.acceptance.loyalty.model.LoyaltyProgram]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building identifier attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.id]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [id]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.lang.Long com.aman.acceptance.loyalty.model.LoyaltyProgram.id
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: long [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.createdAt]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [createdAt]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.LoyaltyProgram.createdAt
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.currency]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [currency]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.LoyaltyProgram.currency
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.expiryDays]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [expiryDays]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.LoyaltyProgram.expiryDays
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.lockDays]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [lockDays]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.LoyaltyProgram.lockDays
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.merchantId]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [merchantId]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.LoyaltyProgram.merchantId
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Type: string [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.LoyaltyProgram.name]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  Starting attribute metadata determination [name]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-54] TRACE org.hibernate.orm.core  	Member: private java.lang.String com.aman.acceptance.loyalty.model.LoyaltyProgram.name

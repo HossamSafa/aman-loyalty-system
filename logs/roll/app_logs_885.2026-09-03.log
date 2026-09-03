@@ -1,0 +1,33 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building version attribute [com.aman.acceptance.loyalty.model.PointsLot.version]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [version]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private java.lang.Long com.aman.acceptance.loyalty.model.PointsLot.version
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: long [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.account]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [account]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.model.LoyaltyAccount com.aman.acceptance.loyalty.model.PointsLot.account
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: com.aman.acceptance.loyalty.model.LoyaltyAccount [ManyToOneType]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.createdAt]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [createdAt]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.PointsLot.createdAt
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.earningTransaction]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [earningTransaction]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.model.LoyaltyTransaction com.aman.acceptance.loyalty.model.PointsLot.earningTransaction
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: com.aman.acceptance.loyalty.model.LoyaltyTransaction [ManyToOneType]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.expiresAt]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [expiresAt]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private java.time.LocalDateTime com.aman.acceptance.loyalty.model.PointsLot.expiresAt
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: LocalDateTime [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.originalPoints]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [originalPoints]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.PointsLot.originalPoints
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.remainingPoints]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [remainingPoints]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private java.lang.Integer com.aman.acceptance.loyalty.model.PointsLot.remainingPoints
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: integer [NamedBasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.status]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Starting attribute metadata determination [status]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Member: private com.aman.acceptance.loyalty.enums.LotStatus com.aman.acceptance.loyalty.model.PointsLot.status
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  	Type: basicType@17(com.aman.acceptance.loyalty.enums.LotStatus,12) [BasicTypeImpl]
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-57] TRACE org.hibernate.orm.core  Building attribute [com.aman.acceptance.loyalty.model.PointsLot.unlockAt]

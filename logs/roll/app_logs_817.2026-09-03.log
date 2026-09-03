@@ -1,0 +1,30 @@
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-05-06] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437645069; nextExpiration=1788437645066; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-06-08] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437646083; nextExpiration=1788437646069; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-07-09] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437647098; nextExpiration=1788437647083; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-08-10] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437648109; nextExpiration=1788437648098; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-09-11] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437649118; nextExpiration=1788437649109; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-10-13] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437650130; nextExpiration=1788437650118; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-11-14] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437651143; nextExpiration=1788437651130; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-12-15] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437652156; nextExpiration=1788437652143; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-13-15] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437653157; nextExpiration=1788437653156; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-14-17] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437654171; nextExpiration=1788437654157; keyCount=0; hasEvents=false; eval=false
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-14-14-98] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-14-14-98] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+[39m[Catalina-utility-2][0;39m [2026-09-03  15-14-15-06] DEBUG o.a.catalina.session.ManagerBase  Start expire sessions StandardManager at 1788437655063 sessioncount 0
+[39m[Catalina-utility-2][0;39m [2026-09-03  15-14-15-06] DEBUG o.a.catalina.session.ManagerBase  End expire sessions StandardManager processingTime 0 expired sessions: 0
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-15-17] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437655173; nextExpiration=1788437655171; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-16-18] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437656186; nextExpiration=1788437656173; keyCount=0; hasEvents=false; eval=false
+[39m[SIGINT handler][0;39m [2026-09-03  15-14-16-66] DEBUG java.lang.Runtime  Runtime.exit() called with status: 130
+java.lang.Throwable: Runtime.exit(130)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179)
+	at java.base/java.lang.Shutdown.exit(Shutdown.java:160)
+	at java.base/java.lang.Terminator$1.handle(Terminator.java:51)
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-16-67] INFO  o.s.boot.tomcat.GracefulShutdown  Commencing graceful shutdown. Waiting for active requests to complete
+[34m[tomcat-shutdown][0;39m [2026-09-03  15-14-16-67] INFO  o.s.boot.tomcat.GracefulShutdown  Graceful shutdown complete
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-16-68] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-16-68] DEBUG org.hibernate.orm.factory  HHH90020005: Closing factory [076b2cb1-cc35-4227-8776-8c2c78c453ef]
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-16-68] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-16-68] TRACE org.hibernate.orm.query.plan.cache  Destroying query interpretation cache
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-16-68] TRACE org.hibernate.orm.service  Automatically destroying ServiceRegistry after deregistration of every child ServiceRegistry

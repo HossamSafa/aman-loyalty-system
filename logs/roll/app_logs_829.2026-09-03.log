@@ -1,0 +1,34 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-48] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SET)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-48] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterStatus(application_name = PostgreSQL JDBC Driver)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-48] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-49] TRACE org.postgresql.jdbc.PgConnection      types using binary send = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-50] TRACE org.postgresql.jdbc.PgConnection      types using binary receive = TIMESTAMPTZ,NUMERIC,OID_ARRAY,UUID,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,BYTEA,TEXT_ARRAY,TIMETZ,INT8,INT2,INT4,VARCHAR_ARRAY,INT8_ARRAY,POINT,DATE,TIMESTAMP,TIME,BOX,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-50] TRACE org.postgresql.jdbc.PgConnection      integer date/time = true
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@32509960, maxRows=0, fetchSize=0, flags=1,041
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@446fdc88, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="SHOW TRANSACTION ISOLATION LEVEL",oids={})
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-52] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-53] TRACE o.p.core.v3.QueryExecutorImpl          Field(transaction_isolation,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-53] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=14)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-53] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SHOW)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-53] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-53] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-29-53] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Established new connection (47f686f0-318a-4b02-ae95-d27429d98f5e)
+[34m[restartedMain][0;39m [2026-09-03  15-14-29-53] INFO  com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@570e1f1
+[34m[restartedMain][0;39m [2026-09-03  15-14-29-54] INFO  com.zaxxer.hikari.HikariDataSource  HikariPool-1 - Start completed.
+[39m[HikariPool-1:housekeeper][0;39m [2026-09-03  15-14-29-64] DEBUG com.zaxxer.hikari.pool.HikariPool  HikariPool-1 - Pool stats (total=1/10, idle=1/10, active=0, waiting=0)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-64] DEBUG com.zaxxer.hikari.pool.PoolBase  HikariPool-1 - Attempting to create/setup new connection (c918981f-f155-43c2-8171-a223b16bcd9f)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-65] DEBUG org.postgresql.Driver  Connecting with URL: jdbc:postgresql://localhost:5432/loyalty_db
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-65] DEBUG org.postgresql.jdbc.PgConnection  PostgreSQL JDBC Driver 42.7.11
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-65] DEBUG org.postgresql.jdbc.PgConnection    setDefaultFetchSize = 0
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-29-65] DEBUG org.postgresql.jdbc.PgConnection    setQueryTimeout = 0

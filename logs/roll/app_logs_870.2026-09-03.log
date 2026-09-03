@@ -1,0 +1,65 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.LoyaltyProgram]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyProgram.createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyProgram.currency]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyProgram.expiryDays]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyProgram.lockDays]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyProgram.merchantId]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyProgram.name]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.LoyaltyProgram.status]
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (lp1: com.aman.acceptance.loyalty.model.LoyaltyProgram) {
+          primaryTableReference: loyalty_programs as lp1_0
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.LoyaltyProgram
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from loyalty_programs where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into loyalty_programs (created_at,currency,expiry_days,lock_days,merchant_id,name,status) values (?,?,?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update loyalty_programs set currency=?,expiry_days=?,lock_days=?,merchant_id=?,name=?,status=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from loyalty_programs where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.RuleVersion]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.earningRate]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.effectiveFrom]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.effectiveTo]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.expiryDays]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.lockDays]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.minimumRedemptionPoints]
+ |  +-EntityDelayedFetchImpl [com.aman.acceptance.loyalty.model.RuleVersion.program]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.redemptionRate]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.roundingMode]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.status]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.RuleVersion.version]
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.sql.ast.tree  SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (rv1: com.aman.acceptance.loyalty.model.RuleVersion) {
+          primaryTableReference: rule_versions as rv1_0
+          TableGroupJoins {
+            left join LazyTableGroup (p1: com.aman.acceptance.loyalty.model.RuleVersion.program) {
+            }
+          }
+        }
+      }
+    }
+
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005101: Static SQL for entity: com.aman.acceptance.loyalty.model.RuleVersion
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005103:  Version select: select id from rule_versions where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005104:  Insert (0): insert into rule_versions (created_at,earning_rate,effective_from,effective_to,expiry_days,lock_days,minimum_redemption_points,program_id,redemption_rate,rounding_mode,status,version) values (?,?,?,?,?,?,?,?,?,?,?,?)
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005105:  Update (0): update rule_versions set earning_rate=?,effective_from=?,effective_to=?,expiry_days=?,lock_days=?,minimum_redemption_points=?,program_id=?,redemption_rate=?,rounding_mode=?,status=?,version=? where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.jdbc.mutation  HHH90005106:  Delete (0): delete from rule_versions where id=?
+[39m[restartedMain][0;39m [2026-09-03  15-14-32-49] TRACE org.hibernate.orm.results.graph.AST  DomainResult graph:
+ \-EntityResultImpl [com.aman.acceptance.loyalty.model.IdempotencyRecord]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.IdempotencyRecord.clientId]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.IdempotencyRecord.createdAt]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.IdempotencyRecord.endpoint]
+ |  +-BasicFetch [com.aman.acceptance.loyalty.model.IdempotencyRecord.idempotencyKey]
+ |  \-BasicFetch [com.aman.acceptance.loyalty.model.IdempotencyRecord.responseBody]
+

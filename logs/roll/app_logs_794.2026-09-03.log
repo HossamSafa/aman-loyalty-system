@@ -1,0 +1,43 @@
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_from<=?
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] DEBUG org.hibernate.SQL  
+    select
+        rv1_0.id,
+        rv1_0.created_at,
+        rv1_0.earning_rate,
+        rv1_0.effective_from,
+        rv1_0.effective_to,
+        rv1_0.expiry_days,
+        rv1_0.lock_days,
+        rv1_0.minimum_redemption_points,
+        rv1_0.program_id,
+        rv1_0.redemption_rate,
+        rv1_0.rounding_mode,
+        rv1_0.status,
+        rv1_0.version 
+    from
+        rule_versions rv1_0 
+    where
+        rv1_0.status=? 
+        and rv1_0.effective_from<=?
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@949089492 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_from<=?]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.jdbc.bind  binding parameter (1:VARCHAR) <- [SCHEDULED]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.jdbc.bind  binding parameter (2:TIMESTAMP) <- [2026-09-03T15:12:22.089194600]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@256cc8c7, maxRows=0, fetchSize=0, flags=0
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="BEGIN")
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl  Couldn''t estimate result size or result size unbounded, disabling batching for this query.
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl  Forcing Sync, receive buffer full or batching disallowed
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(BEGIN)
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(T)
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(T)
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=S_2,portal=null,$1=<('SCHEDULED')>,type=VARCHAR,$2=<('2026-09-03 15:12:22.089195+03')>,type=UNSPECIFIED)
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 0)
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(T)
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002507: Registering result set [HikariProxyResultSet@1851218807 wrapping org.postgresql.jdbc.PgResultSet@27a3bf78]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002504: Releasing result set [HikariProxyResultSet@1851218807 wrapping org.postgresql.jdbc.PgResultSet@27a3bf78]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002505: Closing result set [HikariProxyResultSet@1851218807 wrapping org.postgresql.jdbc.PgResultSet@27a3bf78]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002503: Releasing statement [HikariProxyPreparedStatement@949089492 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('SCHEDULED') and rv1_0.effective_from<=('2026-09-03 15:12:22.089195+03')]
+[39m[scheduling-1][0;39m [2026-09-03  15-12-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002506: Closing prepared statement [HikariProxyPreparedStatement@949089492 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('SCHEDULED') and rv1_0.effective_from<=('2026-09-03 15:12:22.089195+03')]

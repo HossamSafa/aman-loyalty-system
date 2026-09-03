@@ -1,0 +1,43 @@
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE org.hibernate.orm.session  Closing session [48774805-b81d-4be1-a273-d1285f6ff8e2]
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] DEBUG org.hibernate.session.metrics  HHH000401: Logging session metrics:
+	55400 ns acquiring 1 JDBC connections
+	0 ns releasing 0 JDBC connections
+	128900 ns preparing 1 JDBC statements
+	3802000 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @619565254
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @1940905971
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @1940905971
+[39m[scheduling-1][0;39m [2026-09-03  15-14-37-84] TRACE i.m.o.SimpleObservation$SimpleScope  NoOp observation used with SimpleScope
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-38-55] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437678550; nextExpiration=0; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-39-56] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437679564; nextExpiration=1788437679550; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-40-57] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437680577; nextExpiration=1788437680564; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-41-58] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437681588; nextExpiration=1788437681577; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-42-59] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437682597; nextExpiration=1788437682588; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-14-43-61] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437683611; nextExpiration=1788437683597; keyCount=0; hasEvents=false; eval=false
+[39m[SIGINT handler][0;39m [2026-09-03  15-14-44-00] DEBUG java.lang.Runtime  Runtime.exit() called with status: 130
+java.lang.Throwable: Runtime.exit(130)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179)
+	at java.base/java.lang.Shutdown.exit(Shutdown.java:160)
+	at java.base/java.lang.Terminator$1.handle(Terminator.java:51)
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-01] INFO  o.s.boot.tomcat.GracefulShutdown  Commencing graceful shutdown. Waiting for active requests to complete
+[34m[tomcat-shutdown][0;39m [2026-09-03  15-14-44-01] INFO  o.s.boot.tomcat.GracefulShutdown  Graceful shutdown complete
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-02] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-02] DEBUG org.hibernate.orm.factory  HHH90020005: Closing factory [0216fd4d-0670-43a7-8564-4364cb1a1088]
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-02] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-02] TRACE org.hibernate.orm.query.plan.cache  Destroying query interpretation cache
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-02] TRACE org.hibernate.orm.service  Automatically destroying ServiceRegistry after deregistration of every child ServiceRegistry
+[39m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-02] TRACE org.hibernate.orm.service  HHH010452: Automatically destroying bootstrap registry after deregistration of every child ServiceRegistry
+[34m[SpringApplicationShutdownHook][0;39m [2026-09-03  15-14-44-02] INFO  com.zaxxer.hikari.HikariDataSource  HikariPool-1 - Shutdown initiated...

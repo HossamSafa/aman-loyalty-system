@@ -1,0 +1,27 @@
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@579347444 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_to<=?]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.jdbc.bind  binding parameter (1:VARCHAR) <- [ACTIVE]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.jdbc.bind  binding parameter (2:TIMESTAMP) <- [2026-09-03T15:10:22.088519200]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@181fb58, maxRows=0, fetchSize=0, flags=0
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl  Couldn''t estimate result size or result size unbounded, disabling batching for this query.
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl  Forcing Sync, receive buffer full or batching disallowed
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(T)
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=S_3,portal=null,$1=<('ACTIVE')>,type=VARCHAR,$2=<('2026-09-03 15:10:22.088519+03')>,type=UNSPECIFIED)
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 0)
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(T)
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002507: Registering result set [HikariProxyResultSet@1716606819 wrapping org.postgresql.jdbc.PgResultSet@5a55fde]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002504: Releasing result set [HikariProxyResultSet@1716606819 wrapping org.postgresql.jdbc.PgResultSet@5a55fde]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002505: Closing result set [HikariProxyResultSet@1716606819 wrapping org.postgresql.jdbc.PgResultSet@5a55fde]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002503: Releasing statement [HikariProxyPreparedStatement@579347444 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('ACTIVE') and rv1_0.effective_to<=('2026-09-03 15:10:22.088519+03')]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.resource.registry  HHH10002506: Closing prepared statement [HikariProxyPreparedStatement@579347444 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=('ACTIVE') and rv1_0.effective_to<=('2026-09-03 15:10:22.088519+03')]
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.jdbc  HHH100004: Statement execution complete (connection release mode ON_CLOSE) in JdbcCoordinator @787457634
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] DEBUG org.hibernate.orm.core  HHH006584: Committing transaction
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.jdbc  HHH100034: Notifying resource-local transaction observers before completion
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.jdbc  HHH100006: Transaction before completion in JdbcCoordinator @787457634
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.session  Before transaction completion processing
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.session  Automatically flushing session
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.session  Before transaction completion processing
+[39m[scheduling-1][0;39m [2026-09-03  15-10-22-09] TRACE org.hibernate.orm.synchronization  HHH90008001: Notifying Synchronizations (before completion)

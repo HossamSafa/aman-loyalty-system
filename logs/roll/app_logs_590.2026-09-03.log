@@ -1,0 +1,45 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-09] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveTo <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE org.hibernate.orm.query.plan.cache  Resolving cached query plan for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveTo <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE org.hibernate.orm.sql.exec  HHH90004016: Skipping reading query result cache data (query cache disabled, cache mode NORMAL)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_to<=?
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] DEBUG org.hibernate.SQL  
+    select
+        rv1_0.id,
+        rv1_0.created_at,
+        rv1_0.earning_rate,
+        rv1_0.effective_from,
+        rv1_0.effective_to,
+        rv1_0.expiry_days,
+        rv1_0.lock_days,
+        rv1_0.minimum_redemption_points,
+        rv1_0.program_id,
+        rv1_0.redemption_rate,
+        rv1_0.rounding_mode,
+        rv1_0.status,
+        rv1_0.version 
+    from
+        rule_versions rv1_0 
+    where
+        rv1_0.status=? 
+        and rv1_0.effective_to<=?
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@758153842 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_to<=?]
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE org.hibernate.orm.jdbc.bind  binding parameter (1:VARCHAR) <- [ACTIVE]
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE org.hibernate.orm.jdbc.bind  binding parameter (2:TIMESTAMP) <- [2026-09-03T14:53:22.093537100]
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@28b0aeb1, maxRows=0, fetchSize=0, flags=0
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=S_3,query="select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=$1 and rv1_0.effective_to<=$2",oids={1043,0})
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(statement=S_3)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=S_3,portal=null,$1=<('ACTIVE')>,type=VARCHAR,$2=<('2026-09-03 14:53:22.093537+03')>,type=UNSPECIFIED)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [S_3]
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParameterDescription
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(13)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(id,INT8,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(created_at,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(earning_rate,NUMERIC,65535,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(effective_from,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(effective_to,TIMESTAMP,8,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(expiry_days,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(lock_days,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(minimum_redemption_points,INT4,4,T)
+[39m[scheduling-1][0;39m [2026-09-03  14-53-22-10] TRACE o.p.core.v3.QueryExecutorImpl          Field(program_id,INT8,8,T)

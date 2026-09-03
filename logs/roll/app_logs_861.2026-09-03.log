@@ -1,0 +1,44 @@
+[34m[restartedMain][0;39m [2026-09-03  15-14-31-19] INFO  o.hibernate.orm.connections.pooling  HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/loyalty_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: loyalty_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-19] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.spi.JdbcServices
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-19] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.engine.jdbc.spi.SqlStatementLogger
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-19] TRACE org.hibernate.orm.service  HHH010500: Initializing service: org.hibernate.sql.ast.spi.ParameterMarkerStrategy
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-27] TRACE org.hibernate.orm.boot  HHH160181: Created database namespace [logicalName=Name[catalog=null, schema=null], physicalName=Name[catalog=null, schema=null]]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-28] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.AuditEvent
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-29] TRACE org.hibernate.orm.boot  HHH160155: Import: AuditEvent -> com.aman.acceptance.loyalty.model.AuditEvent
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-29] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.AuditEvent -> com.aman.acceptance.loyalty.model.AuditEvent
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-30] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-37] TRACE org.hibernate.orm.boot  HHH160141: Binding column: action
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-38] TRACE org.hibernate.orm.boot  HHH160141: Binding column: actor_id
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-38] TRACE org.hibernate.orm.boot  HHH160141: Binding column: after_json
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-38] TRACE org.hibernate.orm.boot  HHH160141: Binding column: before_json
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-38] TRACE org.hibernate.orm.boot  HHH160141: Binding column: correlation_id
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-38] TRACE org.hibernate.orm.boot  HHH160141: Binding column: created_at
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-38] TRACE org.hibernate.orm.boot  HHH160141: Binding column: entity_id
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-38] TRACE org.hibernate.orm.boot  HHH160141: Binding column: entity_type
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-39] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.Customer
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-39] TRACE org.hibernate.orm.boot  HHH160155: Import: Customer -> com.aman.acceptance.loyalty.model.Customer
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-39] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.Customer -> com.aman.acceptance.loyalty.model.Customer
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-39] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-39] TRACE org.hibernate.orm.boot  HHH160141: Binding column: created_at
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-39] TRACE org.hibernate.orm.boot  HHH160141: Binding column: mobile_encrypted
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-40] TRACE org.hibernate.orm.boot  HHH160141: Binding column: mobile_hash
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-40] TRACE org.hibernate.orm.boot  HHH160141: Binding column: name
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-40] TRACE org.hibernate.orm.boot  HHH160141: Binding column: status
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-40] TRACE org.hibernate.orm.boot  HHH160175: Binding entity with annotated class: com.aman.acceptance.loyalty.model.IdempotencyRecord
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-40] TRACE org.hibernate.orm.boot  HHH160155: Import: IdempotencyRecord -> com.aman.acceptance.loyalty.model.IdempotencyRecord
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-40] TRACE org.hibernate.orm.boot  HHH160155: Import: com.aman.acceptance.loyalty.model.IdempotencyRecord -> com.aman.acceptance.loyalty.model.IdempotencyRecord
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-41] TRACE org.hibernate.orm.boot  HHH160141: Binding column: DTYPE
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-41] TRACE org.hibernate.orm.boot  HHH160141: Binding column: client_id
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-41] TRACE org.hibernate.orm.boot  HHH160141: Binding column: created_at
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-41] TRACE org.hibernate.orm.boot  HHH160141: Binding column: endpoint

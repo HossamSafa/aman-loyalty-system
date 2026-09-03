@@ -1,0 +1,39 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-10] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE o.p.core.v3.QueryExecutorImpl          Field(string_agg,TEXT,65535,T)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=1,710)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-11] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[31m[restartedMain][0;39m [2026-09-03  15-14-31-14] WARN  org.hibernate.orm.deprecation  HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-14] DEBUG org.hibernate.orm.dialect  HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: 18.6
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.h.e.j.e.s.IdentifierHelperBuilder  JDBC driver metadata reported database stores quoted identifiers in neither upper, lower nor mixed case
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1979e850, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="select current_schema()",oids={})
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl          Field(current_schema,NAME,64,T)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE DataRow(len=6)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE org.postgresql.jdbc.PgConnection    getString columnIndex: 1
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@6c0f3e7c, maxRows=0, fetchSize=0, flags=17
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-15] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Parse(stmt=null,query="select current_catalog",oids={})
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=null,portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Describe(portal=null)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ParseComplete [null]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl   <=BE RowDescription(1)
+[39m[restartedMain][0;39m [2026-09-03  15-14-31-16] TRACE o.p.core.v3.QueryExecutorImpl          Field(current_catalog,NAME,64,T)

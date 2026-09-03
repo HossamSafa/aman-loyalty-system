@@ -1,0 +1,44 @@
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-06-18-32] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437178323; nextExpiration=1788437178310; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-06-19-33] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437179332; nextExpiration=1788437179323; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-06-20-33] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437180334; nextExpiration=1788437180332; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-06-21-34] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788437181348; nextExpiration=1788437181334; keyCount=0; hasEvents=false; eval=false
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @516837195
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.session  Opened Session [5fefea42-0c13-426e-bc89-2f9ae17b2c25] at timestamp: 1788437182081
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] DEBUG org.hibernate.orm.core  HHH006583: Beginning transaction
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@4dda3b9c, maxRows=0, fetchSize=0, flags=1,041
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE o.p.core.v3.QueryExecutorImpl   FE=> SimpleQuery(query="")
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE o.p.core.v3.QueryExecutorImpl   <=BE EmptyQuery
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE o.p.core.v3.QueryExecutorImpl   FE marking setPortalDescribed(false) for query 
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.resource.jdbc  HHH10003001: Preparing to begin transaction via JDBC Connection.setAutoCommit(false)
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] DEBUG org.postgresql.jdbc.PgConnection    setAutoCommit = false
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.resource.jdbc  HHH10003002: Transaction begun via JDBC Connection.setAutoCommit(false)
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.jdbc  HHH100033: Notifying resource-local transaction observers after begin
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.jdbc  HHH100005: Transaction after begin in JdbcCoordinator @516837195
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveFrom <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.query.plan.cache  Resolving cached query plan for [SELECT r FROM RuleVersion r WHERE r.status = :status AND r.effectiveFrom <= :time]
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.sql.exec  HHH90004016: Skipping reading query result cache data (query cache disabled, cache mode NORMAL)
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_from<=?
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] DEBUG org.hibernate.SQL  
+    select
+        rv1_0.id,
+        rv1_0.created_at,
+        rv1_0.earning_rate,
+        rv1_0.effective_from,
+        rv1_0.effective_to,
+        rv1_0.expiry_days,
+        rv1_0.lock_days,
+        rv1_0.minimum_redemption_points,
+        rv1_0.program_id,
+        rv1_0.redemption_rate,
+        rv1_0.rounding_mode,
+        rv1_0.status,
+        rv1_0.version 
+    from
+        rule_versions rv1_0 
+    where
+        rv1_0.status=? 
+        and rv1_0.effective_from<=?
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@1545951724 wrapping select rv1_0.id,rv1_0.created_at,rv1_0.earning_rate,rv1_0.effective_from,rv1_0.effective_to,rv1_0.expiry_days,rv1_0.lock_days,rv1_0.minimum_redemption_points,rv1_0.program_id,rv1_0.redemption_rate,rv1_0.rounding_mode,rv1_0.status,rv1_0.version from rule_versions rv1_0 where rv1_0.status=? and rv1_0.effective_from<=?]
+[39m[scheduling-1][0;39m [2026-09-03  15-06-22-08] TRACE org.hibernate.orm.jdbc.bind  binding parameter (1:VARCHAR) <- [SCHEDULED]

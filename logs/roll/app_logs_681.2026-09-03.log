@@ -1,0 +1,34 @@
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002507: Registering result set [HikariProxyResultSet@567108123 wrapping org.postgresql.jdbc.PgResultSet@3e79a532]
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002504: Releasing result set [HikariProxyResultSet@567108123 wrapping org.postgresql.jdbc.PgResultSet@3e79a532]
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002505: Closing result set [HikariProxyResultSet@567108123 wrapping org.postgresql.jdbc.PgResultSet@3e79a532]
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002503: Releasing statement [HikariProxyPreparedStatement@2121017592 wrapping select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=('AUTHORIZED') and r1_0.reservation_expires_at<('2026-09-03 15:01:22.577615+03')]
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002506: Closing prepared statement [HikariProxyPreparedStatement@2121017592 wrapping select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=('AUTHORIZED') and r1_0.reservation_expires_at<('2026-09-03 15:01:22.577615+03')]
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.jdbc  HHH100004: Statement execution complete (connection release mode ON_CLOSE) in JdbcCoordinator @542512782
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.session  Closing session [10591471-7616-4943-a581-eca4d916ee30]
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] DEBUG org.hibernate.session.metrics  HHH000401: Logging session metrics:
+	17800 ns acquiring 1 JDBC connections
+	0 ns releasing 0 JDBC connections
+	68400 ns preparing 1 JDBC statements
+	4206800 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.jdbc  HHH100003: Closing JdbcCoordinator @542512782
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.jdbc  HHH10003017: Closing logical connection @724806842
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @724806842
+[39m[scheduling-1][0;39m [2026-09-03  15-01-22-59] TRACE i.m.o.SimpleObservation$SimpleScope  NoOp observation used with SimpleScope
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-01-23-37] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436883373; nextExpiration=1788436883359; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-01-24-38] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436884386; nextExpiration=1788436884373; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-01-25-39] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436885396; nextExpiration=1788436885386; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-01-26-41] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436886411; nextExpiration=1788436886396; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-01-27-42] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436887426; nextExpiration=1788436887411; keyCount=0; hasEvents=false; eval=false
+[39m[http-nio-8088-Poller][0;39m [2026-09-03  15-01-28-42] DEBUG o.apache.tomcat.util.net.NioEndpoint  timeout completed: keys processed=0; now=1788436888429; nextExpiration=1788436888426; keyCount=0; hasEvents=false; eval=false

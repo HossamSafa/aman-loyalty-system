@@ -1,0 +1,46 @@
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.resource.registry  HHH10002501: Releasing registered JDBC resources
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.resource.jdbc  HHH10003018: Closed logical connection @1918053410
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] DEBUG org.hibernate.orm.core  HHH006588: Opening session [tenant=null]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.jdbc  HHH100002: Created JdbcCoordinator @1413242652
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.session  Opened Session [c5c34036-34dd-4dcc-a947-fd5e9f51f039] at timestamp: 1788436522424
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.query.plan.cache  Resolving HQL interpretation for [SELECT r FROM Redemption r WHERE r.status = :status AND r.reservationExpiresAt < :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.query.plan.cache  Resolving cached query plan for [SELECT r FROM Redemption r WHERE r.status = :status AND r.reservationExpiresAt < :time]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.sql.exec  HHH90004016: Skipping reading query result cache data (query cache disabled, cache mode NORMAL)
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.core  Executing query to retrieve ResultSet: select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=? and r1_0.reservation_expires_at<?
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] DEBUG org.hibernate.SQL  
+    select
+        r1_0.id,
+        r1_0.account_id,
+        r1_0.authorization_code,
+        r1_0.cancel_reason,
+        r1_0.cancelled_at,
+        r1_0.created_at,
+        r1_0.discount_amount,
+        r1_0.otp_attempts_remaining,
+        r1_0.otp_expires_at,
+        r1_0.otp_hash,
+        r1_0.purchase_transaction_id,
+        r1_0.requested_points,
+        r1_0.reservation_expires_at,
+        r1_0.status 
+    from
+        redemptions r1_0 
+    where
+        r1_0.status=? 
+        and r1_0.reservation_expires_at<?
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.resource.registry  HHH10002502: Registering statement [HikariProxyPreparedStatement@250898672 wrapping select r1_0.id,r1_0.account_id,r1_0.authorization_code,r1_0.cancel_reason,r1_0.cancelled_at,r1_0.created_at,r1_0.discount_amount,r1_0.otp_attempts_remaining,r1_0.otp_expires_at,r1_0.otp_hash,r1_0.purchase_transaction_id,r1_0.requested_points,r1_0.reservation_expires_at,r1_0.status from redemptions r1_0 where r1_0.status=? and r1_0.reservation_expires_at<?]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.jdbc.bind  binding parameter (1:VARCHAR) <- [AUTHORIZED]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.jdbc.bind  binding parameter (2:TIMESTAMP) <- [2026-09-03T14:55:22.413333200]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl    simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@65ad6730, maxRows=0, fetchSize=0, flags=16
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl  Couldn''t estimate result size or result size unbounded, disabling batching for this query.
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl  Forcing Sync, receive buffer full or batching disallowed
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Bind(stmt=S_5,portal=null,$1=<('AUTHORIZED')>,type=VARCHAR,$2=<('2026-09-03 14:55:22.413333+03')>,type=UNSPECIFIED)
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Execute(portal=null,limit=0)
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   FE=> Sync
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE BindComplete [unnamed]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE CommandStatus(SELECT 0)
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE o.p.core.v3.QueryExecutorImpl   <=BE ReadyForQuery(I)
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.resource.registry  HHH10002507: Registering result set [HikariProxyResultSet@375555671 wrapping org.postgresql.jdbc.PgResultSet@2090ef38]
+[39m[scheduling-1][0;39m [2026-09-03  14-55-22-42] TRACE org.hibernate.orm.resource.registry  HHH10002504: Releasing result set [HikariProxyResultSet@375555671 wrapping org.postgresql.jdbc.PgResultSet@2090ef38]

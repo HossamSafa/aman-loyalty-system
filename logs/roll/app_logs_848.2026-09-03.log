@@ -1,0 +1,28 @@
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-50] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.IdGeneratorType)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-50] DEBUG o.p.core.v3.ConnectionFactoryImpl  Trying to establish a protocol version 3 connection to localhost:5432
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Immutable)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Imported)
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-51] DEBUG o.p.core.v3.ConnectionFactoryImpl  Receive Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-51] DEBUG o.p.core.v3.ConnectionFactoryImpl  Send Buffer Size is 65,536
+[39m[HikariPool-1:connection-adder][0;39m [2026-09-03  15-14-30-51] TRACE o.p.core.v3.ConnectionFactoryImpl   FE=> SSLRequest postgres
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.Instantiator)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JavaType)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JavaTypeRegistrations)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JavaTypeRegistration)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JavaTypeRegistrations)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JdbcType)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JdbcTypeCode)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JdbcTypeRegistrations)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JdbcTypeRegistration)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JdbcTypeRegistrations)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JoinColumnsOrFormulas)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JoinColumnOrFormula)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering repeatable AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JoinColumnsOrFormulas)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.JoinFormula)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-51] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.LazyGroup)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-52] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.ListIndexBase)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-52] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.ListIndexJavaType)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-52] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.ListIndexJdbcType)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-52] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.ListIndexJdbcTypeCode)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-52] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.ManyToAny)
+[39m[restartedMain][0;39m [2026-09-03  15-14-30-52] TRACE org.hibernate.models.annotations  Registering AnnotationDescriptor - AnnotationDescriptor(org.hibernate.annotations.MapKeyCompositeType)
