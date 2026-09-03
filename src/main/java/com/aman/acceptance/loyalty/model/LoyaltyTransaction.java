@@ -45,10 +45,10 @@ public class LoyaltyTransaction {
     @Column(name = "points", nullable = false)
     private Integer points;
 
-    @Column(name = "rule_version", nullable = true)
+    @Column(name = "rule_version", nullable = false)
     private Integer ruleVersion;
 
-    @Column(name = "money_amount", precision = 12, scale = 2)
+    @Column(name = "money_amount", nullable = false)
     private BigDecimal moneyAmount;
 
 
@@ -71,18 +71,18 @@ public class LoyaltyTransaction {
     }
 
 
-@Column(name = "original_source_transaction_id")
+@Column(name = "original_source_transaction_id" , nullable = false)
 private String originalSourceTransactionId;
 
 @Enumerated(EnumType.STRING)
-@Column(name = "refund_type")
+@Column(name = "refund_type" , nullable = false)
 private RefundType refundType;
 
 @Enumerated(EnumType.STRING)
-@Column(name = "currency_code")
+@Column(name = "currency_code" , nullable = false)
 private CurrencyCode currency;
 
-@Column(name = "transaction_time")
+@Column(name = "transaction_time", nullable = false)
 private LocalDateTime transactionTime;
 
 
